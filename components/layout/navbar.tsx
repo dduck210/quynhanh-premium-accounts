@@ -21,9 +21,16 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-1 select-none min-w-0">
-            <span className="text-xl sm:text-2xl font-black text-indigo-600 whitespace-nowrap">Quỳnh Anh</span>
-            <span className="text-xl sm:text-2xl font-black text-gray-900 whitespace-nowrap">Premium</span>
+          <Link
+            href="/"
+            className="flex items-center gap-1 select-none min-w-0"
+          >
+            <span className="text-xl sm:text-2xl font-black text-indigo-600 whitespace-nowrap">
+              Quỳnh Anh
+            </span>
+            <span className="text-xl sm:text-2xl font-black text-gray-900 whitespace-nowrap">
+              Premium
+            </span>
             <span className="ml-1.5 text-xs font-semibold bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full hidden sm:inline">
               Accounts
             </span>

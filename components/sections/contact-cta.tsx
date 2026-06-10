@@ -5,7 +5,9 @@ export default function ContactCta() {
     <AnimatedSection>
       <section id="contact" className="py-16 bg-indigo-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-3xl font-black text-gray-900 mb-3">Liên hệ ngay</h2>
+          <h2 className="text-3xl font-black text-gray-900 mb-3">
+            Liên hệ ngay
+          </h2>
           <p className="text-gray-500 text-lg mb-10">
             Đội ngũ hỗ trợ Quỳnh Anh Premium Accounts sẵn sàng 24/7 để giúp bạn
           </p>

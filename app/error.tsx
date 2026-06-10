@@ -16,7 +16,9 @@ export default function Error({
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4">
       <div className="text-6xl mb-6">⚠️</div>
-      <h1 className="text-2xl font-black text-gray-900 mb-2">Đã có lỗi xảy ra</h1>
+      <h1 className="text-2xl font-black text-gray-900 mb-2">
+        Đã có lỗi xảy ra
+      </h1>
       <p className="text-gray-500 text-sm mb-8 text-center max-w-sm">
         Trang này gặp sự cố. Vui lòng thử lại hoặc quay về trang chủ.
       </p>

@@ -14,7 +14,8 @@ export default function CtaBanner() {
             Giá tốt nhất cho sản phẩm chính hãng
           </h2>
           <p className="text-indigo-200/80 text-lg mb-8 max-w-xl mx-auto">
-            Liên hệ ngay để được tư vấn miễn phí và nhận ưu đãi độc quyền từ Quỳnh Anh Premium Accounts.
+            Liên hệ ngay để được tư vấn miễn phí và nhận ưu đãi độc quyền từ
+            Quỳnh Anh Premium Accounts.
           </p>
           <a
             href="https://zalo.me/g/"

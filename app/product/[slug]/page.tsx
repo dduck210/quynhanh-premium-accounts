@@ -1,6 +1,10 @@
 import { notFound } from "next/navigation";
 import { products, categories, formatPrice } from "@/data/products";
-import { productFeatures, generatePricingTiers, HOW_TO_BUY } from "@/data/product-details";
+import {
+  productFeatures,
+  generatePricingTiers,
+  HOW_TO_BUY,
+} from "@/data/product-details";
 import AnnouncementBar from "@/components/layout/announcement-bar";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
@@ -15,7 +19,9 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const p = products.find((p) => p.id === params.slug);
   return {
-    title: p ? `${p.name} – Quỳnh Anh Premium Accounts` : "Sản phẩm – Quỳnh Anh Premium Accounts",
+    title: p
+      ? `${p.name} – Quỳnh Anh Premium Accounts`
+      : "Sản phẩm – Quỳnh Anh Premium Accounts",
     description: p?.description,
   };
 }
@@ -46,7 +52,10 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           <Breadcrumb
             items={[
               { label: "Trang chủ", href: "/" },
-              { label: category?.name ?? "Danh mục", href: `/category/${product.categoryId}` },
+              {
+                label: category?.name ?? "Danh mục",
+                href: `/category/${product.categoryId}`,
+              },
               { label: product.name },
             ]}
           />
@@ -72,7 +81,10 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                   { icon: "🛡️", text: "Bảo hành đầy đủ hạn" },
                   { icon: "🎧", text: "Hỗ trợ 24/7" },
                 ].map((b) => (
-                  <div key={b.text} className="flex items-center gap-1.5 text-sm text-gray-500">
+                  <div
+                    key={b.text}
+                    className="flex items-center gap-1.5 text-sm text-gray-500"
+                  >
                     <span>{b.icon}</span>
                     <span>{b.text}</span>
                   </div>
@@ -103,7 +115,9 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               <h1 className="text-3xl font-black text-gray-900 mb-2 leading-tight">
                 {product.name}
               </h1>
-              <p className="text-gray-500 leading-relaxed mb-5">{product.description}</p>
+              <p className="text-gray-500 leading-relaxed mb-5">
+                {product.description}
+              </p>
 
               <div className="border-t border-gray-100 mb-5" />
 
@@ -129,7 +143,9 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               <div className="flex items-center gap-3 mb-6 flex-wrap text-sm">
                 <div className="flex items-center gap-1.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span className="font-semibold text-emerald-600">Còn hàng</span>
+                  <span className="font-semibold text-emerald-600">
+                    Còn hàng
+                  </span>
                 </div>
                 <span className="text-gray-300">|</span>
                 <span className="text-gray-400">Kho: 999 sản phẩm</span>
@@ -147,16 +163,24 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       {/* ── LOWER SECTIONS: gray bg ───────────────────────────────────────────── */}
       <div className="bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-5">
-
           {/* Features */}
           {features.length > 0 && (
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
-              <h2 className="font-black text-gray-900 text-xl mb-5">✨ Tính năng nổi bật</h2>
+              <h2 className="font-black text-gray-900 text-xl mb-5">
+                ✨ Tính năng nổi bật
+              </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {features.map((f, i) => (
-                  <div key={i} className="flex items-start gap-3 p-3.5 rounded-xl bg-indigo-50/60">
-                    <span className="text-indigo-600 font-bold flex-shrink-0 mt-0.5">✓</span>
-                    <span className="text-gray-700 text-sm leading-relaxed">{f}</span>
+                  <div
+                    key={i}
+                    className="flex items-start gap-3 p-3.5 rounded-xl bg-indigo-50/60"
+                  >
+                    <span className="text-indigo-600 font-bold flex-shrink-0 mt-0.5">
+                      ✓
+                    </span>
+                    <span className="text-gray-700 text-sm leading-relaxed">
+                      {f}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -165,14 +189,18 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
           {/* How to buy */}
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
-            <h2 className="font-black text-gray-900 text-xl mb-6">🛒 Cách mua hàng</h2>
+            <h2 className="font-black text-gray-900 text-xl mb-6">
+              🛒 Cách mua hàng
+            </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {HOW_TO_BUY.map((step, i) => (
                 <div key={i} className="text-center">
                   <div className="w-11 h-11 rounded-full bg-indigo-600 text-white text-sm font-black flex items-center justify-center mx-auto mb-3 shadow-sm shadow-indigo-200">
                     {i + 1}
                   </div>
-                  <p className="text-gray-600 text-sm leading-relaxed">{step}</p>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {step}
+                  </p>
                 </div>
               ))}
             </div>
@@ -182,7 +210,9 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           {related.length > 0 && (
             <div>
               <div className="flex items-center justify-between mb-5">
-                <h2 className="text-xl font-black text-gray-900">Sản phẩm liên quan</h2>
+                <h2 className="text-xl font-black text-gray-900">
+                  Sản phẩm liên quan
+                </h2>
                 <a
                   href={`/category/${product.categoryId}`}
                   className="text-indigo-600 text-sm font-semibold hover:underline"

@@ -1,12 +1,18 @@
 import PolicyLayout from "@/components/ui/policy-layout";
 
-export const metadata = { title: "Chính sách bảo hành – Quỳnh Anh Premium Accounts" };
+export const metadata = {
+  title: "Chính sách bảo hành – Quỳnh Anh Premium Accounts",
+};
 
 export default function Page() {
   return (
     <PolicyLayout title="Chính sách bảo hành">
       <Section title="1. Cam kết bảo hành">
-        <p>Quỳnh Anh Premium Accounts cam kết bảo hành toàn bộ tài khoản trong suốt thời hạn sử dụng đã mua. Nếu tài khoản gặp sự cố do lỗi từ phía nhà cung cấp, chúng tôi sẽ hỗ trợ khắc phục hoặc thay thế miễn phí.</p>
+        <p>
+          Quỳnh Anh Premium Accounts cam kết bảo hành toàn bộ tài khoản trong
+          suốt thời hạn sử dụng đã mua. Nếu tài khoản gặp sự cố do lỗi từ phía
+          nhà cung cấp, chúng tôi sẽ hỗ trợ khắc phục hoặc thay thế miễn phí.
+        </p>
       </Section>
 
       <Section title="2. Phạm vi bảo hành">
@@ -37,13 +43,22 @@ export default function Page() {
       </Section>
 
       <Section title="5. Liên hệ hỗ trợ">
-        <p>Hotline Zalo: <strong>0912.345.678</strong> — Hỗ trợ từ 8:00 đến 23:00 mỗi ngày.</p>
+        <p>
+          Hotline Zalo: <strong>0912.345.678</strong> — Hỗ trợ từ 8:00 đến 23:00
+          mỗi ngày.
+        </p>
       </Section>
     </PolicyLayout>
   );
 }
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
     <div className="mb-7">
       <h2 className="text-base font-bold text-gray-900 mb-3">{title}</h2>

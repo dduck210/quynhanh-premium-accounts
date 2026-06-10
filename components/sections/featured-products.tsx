@@ -8,7 +8,9 @@ export default function FeaturedProducts() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
           <div className="flex items-center gap-3 mb-8">
-            <h2 className="text-2xl md:text-3xl font-black text-gray-900">Nổi bật</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-gray-900">
+              Nổi bật
+            </h2>
             <span className="bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full">
               HOT
             </span>

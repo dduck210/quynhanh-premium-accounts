@@ -1,6 +1,8 @@
 import PolicyLayout from "@/components/ui/policy-layout";
 
-export const metadata = { title: "Chính sách hoàn tiền – Quỳnh Anh Premium Accounts" };
+export const metadata = {
+  title: "Chính sách hoàn tiền – Quỳnh Anh Premium Accounts",
+};
 
 export default function Page() {
   return (
@@ -8,9 +10,14 @@ export default function Page() {
       <Section title="1. Điều kiện hoàn tiền">
         <p>Chúng tôi chấp nhận hoàn tiền trong các trường hợp sau:</p>
         <ul>
-          <li>Tài khoản không hoạt động ngay sau khi nhận và không thể khắc phục trong 24 giờ</li>
+          <li>
+            Tài khoản không hoạt động ngay sau khi nhận và không thể khắc phục
+            trong 24 giờ
+          </li>
           <li>Sản phẩm không đúng mô tả, thiếu tính năng đã cam kết</li>
-          <li>Thanh toán bị trừ tiền nhưng chưa nhận được tài khoản sau 30 phút</li>
+          <li>
+            Thanh toán bị trừ tiền nhưng chưa nhận được tài khoản sau 30 phút
+          </li>
         </ul>
       </Section>
 
@@ -33,13 +40,22 @@ export default function Page() {
       </Section>
 
       <Section title="4. Liên hệ">
-        <p>Zalo: <strong>0912.345.678</strong> | Email: <strong>support@quynhanhpremium.vn</strong></p>
+        <p>
+          Zalo: <strong>0912.345.678</strong> | Email:{" "}
+          <strong>support@quynhanhpremium.vn</strong>
+        </p>
       </Section>
     </PolicyLayout>
   );
 }
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
     <div className="mb-7">
       <h2 className="text-base font-bold text-gray-900 mb-3">{title}</h2>

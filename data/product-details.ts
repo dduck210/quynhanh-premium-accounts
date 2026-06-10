@@ -10,13 +10,18 @@ const roundK = (n: number): number => Math.round(n / 1000) * 1000;
 export const generatePricingTiers = (monthlyPrice: number): PricingTier[] => [
   { duration: "1 tháng", price: monthlyPrice },
   { duration: "3 tháng", price: roundK(monthlyPrice * 3 * 0.9), savings: 10 },
-  { duration: "6 tháng", price: roundK(monthlyPrice * 6 * 0.85), savings: 15, isPopular: true },
+  {
+    duration: "6 tháng",
+    price: roundK(monthlyPrice * 6 * 0.85),
+    savings: 15,
+    isPopular: true,
+  },
   { duration: "1 năm", price: roundK(monthlyPrice * 12 * 0.8), savings: 20 },
 ];
 
 export const HOW_TO_BUY = [
   "Chọn gói thời hạn phù hợp với nhu cầu sử dụng",
-  "Bấm \"Đặt mua ngay\" hoặc liên hệ Zalo: 0912.345.678",
+  'Bấm "Đặt mua ngay" hoặc liên hệ Zalo: 0912.345.678',
   "Thanh toán qua chuyển khoản ngân hàng hoặc ví điện tử",
   "Nhận thông tin tài khoản qua Zalo trong 5–15 phút",
 ];
@@ -47,7 +52,7 @@ export const productFeatures: Record<string, string[]> = {
     "Tạo ảnh AI (DALL-E 3), upload file PDF/CSV để phân tích",
     "API access 5 req/phút với mô hình cao cấp",
   ],
-  "midjourney": [
+  midjourney: [
     "Mô hình V6.1 – tạo ảnh AI chất lượng cao nhất hiện tại",
     "200 fast hours/tháng, Stealth mode ảnh không công khai",
     "Commercial license – dùng ảnh cho mục đích thương mại",
@@ -123,7 +128,7 @@ export const productFeatures: Record<string, string[]> = {
     "AI Image Generator tạo ảnh, vector, mockup theo yêu cầu",
     "SVG, PSD, AI source files – chỉnh sửa được file gốc",
   ],
-  "shutterstock": [
+  shutterstock: [
     "400 triệu+ ảnh, vector, video bản quyền cao cấp",
     "Tải không giới hạn, không cần ghi nguồn",
     "Video 4K và footage chuyên nghiệp cho production",
@@ -161,7 +166,7 @@ export const productFeatures: Record<string, string[]> = {
     "Tải video offline, nhận feedback từ giảng viên & học viên",
     "Không giới hạn số lớp học trong gói Premium",
   ],
-  "masterclass": [
+  masterclass: [
     "180+ khóa học từ Gordon Ramsay, Scorsese, Serena Williams",
     "Video HD chất lượng cao với workbook bổ trợ chi tiết",
     "MasterClass Live: buổi học trực tiếp với instructor",
@@ -179,13 +184,13 @@ export const productFeatures: Record<string, string[]> = {
     "Vocabulary Enhancement gợi ý từ ngữ phong phú đa dạng",
     "Plagiarism Checker so sánh với 16 tỷ trang web",
   ],
-  "turnitin": [
+  turnitin: [
     "Đối chiếu với 91 tỷ trang web và 1.5 tỷ bài viết học sinh",
     "AI Writing Detection: phát hiện nội dung viết bởi ChatGPT, etc.",
     "Similarity Report chi tiết, highlight từng đoạn trùng lặp",
     "Integration với LMS: Canvas, Moodle, Blackboard",
   ],
-  "chegg": [
+  chegg: [
     "Giải bài tập từng bước với giải thích chi tiết",
     "Expert Q&A 24/7: đặt câu hỏi, chuyên gia trả lời trong 2h",
     "Textbook Solutions: đáp án từ hàng nghìn sách giáo khoa",
@@ -197,25 +202,25 @@ export const productFeatures: Record<string, string[]> = {
     "Interview Prep: luyện câu hỏi phỏng vấn kỹ thuật",
     "AI Assistance: gợi ý code, giải thích lỗi trong IDE",
   ],
-  "datacamp": [
+  datacamp: [
     "350+ khóa học Python, R, SQL, Machine Learning, AI",
     "300+ dataset thực tế từ các doanh nghiệp hàng đầu",
     "Projects xây dựng portfolio với bài toán dữ liệu thực",
     "DataLab: Jupyter notebook trên cloud, không cần cài đặt",
   ],
-  "pluralsight": [
+  pluralsight: [
     "Skill IQ Assessment: đánh giá kỹ năng khách quan 23 phút",
     "Cloud Labs: môi trường thực hành AWS, Azure, GCP thực tế",
     "800+ learning paths Cloud, DevOps, Security, Development",
     "Role IQ đo mức độ thành thạo theo từng vai trò IT",
   ],
-  "oreilly": [
+  oreilly: [
     "60.000+ sách và video từ O'Reilly và nhà xuất bản lớn",
     "Live Events: webinar và workshop trực tiếp với chuyên gia",
     "Interactive Labs: môi trường thực hành trực tiếp trong browser",
     "Early Release Content: đọc sách trước khi xuất bản chính thức",
   ],
-  "brilliant": [
+  brilliant: [
     "100+ khóa học toán học, khoa học, lập trình tương tác",
     "Học bằng cách giải quyết vấn đề thực tế, không học thuộc",
     "Daily Challenges rèn tư duy phản biện mỗi ngày",
@@ -255,7 +260,7 @@ export const productFeatures: Record<string, string[]> = {
   ],
 
   // ── TIỆN ÍCH KHÁC ─────────────────────────────────────────────────────────────
-  "lastpass": [
+  lastpass: [
     "Lưu trữ mật khẩu không giới hạn, đồng bộ đa thiết bị",
     "1GB encrypted vault storage cho file bảo mật",
     "Dark Web Monitoring cảnh báo khi thông tin bị rò rỉ",
@@ -267,13 +272,13 @@ export const productFeatures: Record<string, string[]> = {
     "SSH Key Agent và Developer tools cho secret management",
     "Item History đầy đủ – khôi phục mật khẩu bất kỳ lúc nào",
   ],
-  "dashlane": [
+  dashlane: [
     "Built-in VPN không giới hạn bandwidth (Hotspot Shield)",
     "Dark Web Monitoring liên tục cho email và thông tin cá nhân",
     "Passkeys support – đăng nhập không cần mật khẩu",
     "Password Health Score phân tích và cải thiện bảo mật",
   ],
-  "bitwarden": [
+  bitwarden: [
     "Open source, code công khai – được kiểm tra bởi cộng đồng",
     "End-to-end encryption zero-knowledge, Bitwarden không đọc được",
     "Built-in 2FA Authenticator (TOTP) thay Google Authenticator",
@@ -323,7 +328,7 @@ export const productFeatures: Record<string, string[]> = {
     "Unlimited guests: mời cộng tác viên ngoài không giới hạn",
     "Notion API access để tích hợp với công cụ khác",
   ],
-  "evernote": [
+  evernote: [
     "Ghi chú với text, ảnh, file, audio, sketch đa phương tiện",
     "Web Clipper: lưu bài viết, trang web vào Evernote tức thì",
     "PDF annotation, highlight và task management tích hợp",
@@ -337,25 +342,25 @@ export const productFeatures: Record<string, string[]> = {
   ],
 
   // ── VPN ───────────────────────────────────────────────────────────────────────
-  "nordvpn": [
+  nordvpn: [
     "5.500+ server tại 60 quốc gia, tốc độ cao ổn định",
     "Threat Protection: chặn malware, quảng cáo, tracker",
     "Double VPN mã hóa 2 lớp và Kill Switch bảo vệ tối đa",
     "Meshnet: kết nối thiết bị riêng tư như LAN ảo",
   ],
-  "expressvpn": [
+  expressvpn: [
     "Lightway Protocol: nhanh hơn OpenVPN 4x, tiết kiệm pin",
     "3.000+ server tại 94 quốc gia, kết nối ổn định",
     "Smart DNS Mediastreamer: xem Netflix US trên Smart TV",
     "No-logs policy đã được kiểm toán độc lập",
   ],
-  "surfshark": [
+  surfshark: [
     "Thiết bị không giới hạn – một tài khoản cho cả gia đình",
     "CleanWeb chặn quảng cáo, malware, phishing tích hợp sẵn",
     "NoBorders Mode hoạt động ở các nước hạn chế VPN",
     "MultiHop: kết nối qua 2 server cho privacy tối đa",
   ],
-  "protonvpn": [
+  protonvpn: [
     "Tor over VPN: truy cập Tor network không cần Tor browser",
     "Secure Core: traffic qua server ở Thụy Sĩ, Iceland",
     "NetShield DNS-based ad blocker + anti-malware",

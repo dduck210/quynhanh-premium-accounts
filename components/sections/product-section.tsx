@@ -27,7 +27,9 @@ export default function ProductSection({
           <div className="flex items-center justify-between mb-7">
             <div className="flex items-center gap-3">
               <span className="text-2xl">{categoryIcon}</span>
-              <h2 className="text-xl md:text-2xl font-black text-gray-900">{categoryName}</h2>
+              <h2 className="text-xl md:text-2xl font-black text-gray-900">
+                {categoryName}
+              </h2>
               <span className="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full">
                 {productCount} sản phẩm
               </span>

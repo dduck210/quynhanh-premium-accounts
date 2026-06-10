@@ -10,7 +10,9 @@ interface Props {
 
 export default function PricingTierSelector({ tiers }: Props) {
   const defaultIndex = tiers.findIndex((t) => t.isPopular);
-  const [selected, setSelected] = useState(defaultIndex >= 0 ? defaultIndex : 0);
+  const [selected, setSelected] = useState(
+    defaultIndex >= 0 ? defaultIndex : 0,
+  );
   const tier = tiers[selected];
 
   return (
@@ -60,7 +62,10 @@ export default function PricingTierSelector({ tiers }: Props) {
         <span className="text-gray-400 text-sm">/{tier.duration}</span>
       </div>
       {tier.savings ? (
-        <p key={`savings-${tier.duration}`} className="text-sm text-emerald-600 font-semibold mb-6 animate-fade-in">
+        <p
+          key={`savings-${tier.duration}`}
+          className="text-sm text-emerald-600 font-semibold mb-6 animate-fade-in"
+        >
           ✓ Tiết kiệm {tier.savings}% so với mua từng tháng
         </p>
       ) : (

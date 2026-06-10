@@ -9,7 +9,8 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 opacity-[0.06]"
         style={{
-          backgroundImage: "radial-gradient(circle, #a5b4fc 1px, transparent 1px)",
+          backgroundImage:
+            "radial-gradient(circle, #a5b4fc 1px, transparent 1px)",
           backgroundSize: "40px 40px",
         }}
       />
@@ -38,8 +39,8 @@ export default function HeroSection() {
           className="animate-slide-up text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed"
           style={{ animationDelay: "260ms" }}
         >
-          Tài khoản premium chính hãng, uy tín hàng đầu Việt Nam.
-          Hỗ trợ kỹ thuật 24/7, bảo hành toàn bộ sản phẩm.
+          Tài khoản premium chính hãng, uy tín hàng đầu Việt Nam. Hỗ trợ kỹ
+          thuật 24/7, bảo hành toàn bộ sản phẩm.
         </p>
 
         {/* CTA Buttons */}

@@ -27,14 +27,70 @@ export const formatPrice = (price: number): string =>
   new Intl.NumberFormat("vi-VN").format(price) + "đ";
 
 export const categories: Category[] = [
-  { id: "ai-chat", name: "AI Chat", icon: "🤖", count: 7, bgColor: "bg-purple-100", textColor: "text-purple-700" },
-  { id: "am-nhac", name: "Âm nhạc", icon: "🎵", count: 3, bgColor: "bg-green-100", textColor: "text-green-700" },
-  { id: "design-photo", name: "Design & Photo", icon: "🎨", count: 7, bgColor: "bg-pink-100", textColor: "text-pink-700" },
-  { id: "hoc-tap", name: "Học tập", icon: "📚", count: 16, bgColor: "bg-blue-100", textColor: "text-blue-700" },
-  { id: "phim-anh", name: "Phim ảnh", icon: "🎬", count: 4, bgColor: "bg-red-100", textColor: "text-red-700" },
-  { id: "tien-ich", name: "Tiện ích khác", icon: "⚡", count: 4, bgColor: "bg-yellow-100", textColor: "text-yellow-700" },
-  { id: "van-phong", name: "Văn phòng", icon: "💼", count: 9, bgColor: "bg-indigo-100", textColor: "text-indigo-700" },
-  { id: "vpn", name: "VPN", icon: "🔒", count: 4, bgColor: "bg-slate-100", textColor: "text-slate-700" },
+  {
+    id: "ai-chat",
+    name: "AI Chat",
+    icon: "🤖",
+    count: 7,
+    bgColor: "bg-purple-100",
+    textColor: "text-purple-700",
+  },
+  {
+    id: "am-nhac",
+    name: "Âm nhạc",
+    icon: "🎵",
+    count: 3,
+    bgColor: "bg-green-100",
+    textColor: "text-green-700",
+  },
+  {
+    id: "design-photo",
+    name: "Design & Photo",
+    icon: "🎨",
+    count: 7,
+    bgColor: "bg-pink-100",
+    textColor: "text-pink-700",
+  },
+  {
+    id: "hoc-tap",
+    name: "Học tập",
+    icon: "📚",
+    count: 16,
+    bgColor: "bg-blue-100",
+    textColor: "text-blue-700",
+  },
+  {
+    id: "phim-anh",
+    name: "Phim ảnh",
+    icon: "🎬",
+    count: 4,
+    bgColor: "bg-red-100",
+    textColor: "text-red-700",
+  },
+  {
+    id: "tien-ich",
+    name: "Tiện ích khác",
+    icon: "⚡",
+    count: 4,
+    bgColor: "bg-yellow-100",
+    textColor: "text-yellow-700",
+  },
+  {
+    id: "van-phong",
+    name: "Văn phòng",
+    icon: "💼",
+    count: 9,
+    bgColor: "bg-indigo-100",
+    textColor: "text-indigo-700",
+  },
+  {
+    id: "vpn",
+    name: "VPN",
+    icon: "🔒",
+    count: 4,
+    bgColor: "bg-slate-100",
+    textColor: "text-slate-700",
+  },
 ];
 
 export const products: Product[] = [

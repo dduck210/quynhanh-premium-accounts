@@ -7,7 +7,11 @@ interface Props {
   delay?: number;
 }
 
-export default function AnimatedSection({ children, className = "", delay = 0 }: Props) {
+export default function AnimatedSection({
+  children,
+  className = "",
+  delay = 0,
+}: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -21,7 +25,7 @@ export default function AnimatedSection({ children, className = "", delay = 0 }:
           observer.disconnect();
         }
       },
-      { threshold: 0.07, rootMargin: "0px 0px -32px 0px" }
+      { threshold: 0.07, rootMargin: "0px 0px -32px 0px" },
     );
     observer.observe(el);
     return () => observer.disconnect();

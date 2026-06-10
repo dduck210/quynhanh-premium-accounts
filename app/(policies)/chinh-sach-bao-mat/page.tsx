@@ -1,6 +1,8 @@
 import PolicyLayout from "@/components/ui/policy-layout";
 
-export const metadata = { title: "Chính sách bảo mật – Quỳnh Anh Premium Accounts" };
+export const metadata = {
+  title: "Chính sách bảo mật – Quỳnh Anh Premium Accounts",
+};
 
 export default function Page() {
   return (
@@ -23,7 +25,11 @@ export default function Page() {
       </Section>
 
       <Section title="3. Bảo vệ thông tin">
-        <p>Thông tin của bạn được mã hóa và lưu trữ an toàn. Chúng tôi không bán, cho thuê hoặc chia sẻ thông tin cá nhân với bên thứ ba vì mục đích thương mại.</p>
+        <p>
+          Thông tin của bạn được mã hóa và lưu trữ an toàn. Chúng tôi không bán,
+          cho thuê hoặc chia sẻ thông tin cá nhân với bên thứ ba vì mục đích
+          thương mại.
+        </p>
       </Section>
 
       <Section title="4. Quyền của bạn">
@@ -35,13 +41,22 @@ export default function Page() {
       </Section>
 
       <Section title="5. Liên hệ">
-        <p>Mọi thắc mắc về bảo mật, vui lòng liên hệ: <strong>support@quynhanhpremium.vn</strong></p>
+        <p>
+          Mọi thắc mắc về bảo mật, vui lòng liên hệ:{" "}
+          <strong>support@quynhanhpremium.vn</strong>
+        </p>
       </Section>
     </PolicyLayout>
   );
 }
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function Section({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
     <div className="mb-7">
       <h2 className="text-base font-bold text-gray-900 mb-3">{title}</h2>

@@ -27,7 +27,9 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-1 mb-4">
-              <span className="text-2xl font-black text-indigo-400">Quỳnh Anh</span>
+              <span className="text-2xl font-black text-indigo-400">
+                Quỳnh Anh
+              </span>
               <span className="text-2xl font-black text-white">Premium</span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed mb-4">

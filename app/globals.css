@@ -7,12 +7,18 @@ html {
 }
 
 /* Hide scrollbar for horizontal scroll rows */
-.scrollbar-hide::-webkit-scrollbar { display: none; }
-.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 /* Base transition for interactive elements */
 @layer base {
-  button, a {
+  button,
+  a {
     @apply outline-none;
   }
 }

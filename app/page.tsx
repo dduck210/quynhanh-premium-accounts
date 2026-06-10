@@ -24,7 +24,10 @@ export default function Home() {
         {categories.map((cat, index) => {
           const catProducts = products.filter((p) => p.categoryId === cat.id);
           return (
-            <div key={cat.id} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+            <div
+              key={cat.id}
+              className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
+            >
               <ProductSection
                 categoryId={cat.id}
                 categoryName={cat.name}
