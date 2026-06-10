@@ -1,4 +1,4 @@
-import PolicyLayout from "@/components/PolicyLayout";
+import PolicyLayout from "@/components/ui/policy-layout";
 
 export const metadata = { title: "Chính sách bảo hành – Quỳnh Anh Premium Accounts" };
 

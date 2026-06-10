@@ -1,6 +1,6 @@
 import { featuredProducts } from "@/data/products";
-import ProductCard from "./ProductCard";
-import AnimatedSection from "./AnimatedSection";
+import ProductCard from "../product/product-card";
+import AnimatedSection from "../ui/animated-section";
 
 export default function FeaturedProducts() {
   return (

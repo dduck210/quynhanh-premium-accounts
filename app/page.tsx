@@ -1,12 +1,12 @@
-import AnnouncementBar from "@/components/AnnouncementBar";
-import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
-import FeaturedProducts from "@/components/FeaturedProducts";
-import CtaBanner from "@/components/CtaBanner";
-import CategoryGrid from "@/components/CategoryGrid";
-import ProductSection from "@/components/ProductSection";
-import ContactCta from "@/components/ContactCta";
-import Footer from "@/components/Footer";
+import AnnouncementBar from "@/components/layout/announcement-bar";
+import Navbar from "@/components/layout/navbar";
+import HeroSection from "@/components/sections/hero-section";
+import FeaturedProducts from "@/components/sections/featured-products";
+import CtaBanner from "@/components/sections/cta-banner";
+import CategoryGrid from "@/components/sections/category-grid";
+import ProductSection from "@/components/sections/product-section";
+import ContactCta from "@/components/sections/contact-cta";
+import Footer from "@/components/layout/footer";
 import { categories, products } from "@/data/products";
 
 export default function Home() {

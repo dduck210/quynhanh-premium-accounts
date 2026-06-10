@@ -1,4 +1,4 @@
-import AnimatedSection from "./AnimatedSection";
+import AnimatedSection from "../ui/animated-section";
 
 export default function CtaBanner() {
   return (

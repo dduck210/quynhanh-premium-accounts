@@ -1,7 +1,7 @@
-import AnnouncementBar from "./AnnouncementBar";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import Breadcrumb from "./Breadcrumb";
+import AnnouncementBar from "../layout/announcement-bar";
+import Navbar from "../layout/navbar";
+import Footer from "../layout/footer";
+import Breadcrumb from "./breadcrumb";
 import { ReactNode } from "react";
 
 interface Props {

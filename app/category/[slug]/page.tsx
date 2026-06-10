@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
 import { categories, products } from "@/data/products";
-import AnnouncementBar from "@/components/AnnouncementBar";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import Breadcrumb from "@/components/Breadcrumb";
-import ProductCard from "@/components/ProductCard";
+import AnnouncementBar from "@/components/layout/announcement-bar";
+import Navbar from "@/components/layout/navbar";
+import Footer from "@/components/layout/footer";
+import Breadcrumb from "@/components/ui/breadcrumb";
+import ProductCard from "@/components/product/product-card";
 
 export function generateStaticParams() {
   return categories.map((c) => ({ slug: c.id }));

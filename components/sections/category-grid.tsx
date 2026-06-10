@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { categories } from "@/data/products";
-import AnimatedSection from "./AnimatedSection";
+import AnimatedSection from "../ui/animated-section";
 
 export default function CategoryGrid() {
   return (

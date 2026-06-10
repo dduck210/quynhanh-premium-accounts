@@ -1,12 +1,12 @@
 import { notFound } from "next/navigation";
 import { products, categories, formatPrice } from "@/data/products";
 import { productFeatures, generatePricingTiers, HOW_TO_BUY } from "@/data/product-details";
-import AnnouncementBar from "@/components/AnnouncementBar";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import Breadcrumb from "@/components/Breadcrumb";
-import PricingTierSelector from "@/components/PricingTierSelector";
-import ProductCard from "@/components/ProductCard";
+import AnnouncementBar from "@/components/layout/announcement-bar";
+import Navbar from "@/components/layout/navbar";
+import Footer from "@/components/layout/footer";
+import Breadcrumb from "@/components/ui/breadcrumb";
+import PricingTierSelector from "@/components/product/pricing-tier-selector";
+import ProductCard from "@/components/product/product-card";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.id }));
