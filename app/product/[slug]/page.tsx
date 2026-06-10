@@ -130,7 +130,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                   <span className="text-gray-400 text-sm font-medium">/tháng</span>
                 </div>
                 {product.originalPrice && (
-                  <span className="text-xl text-gray-400 line-through">
+                  <span className="text-base text-gray-400 line-through decoration-gray-400">
                     {formatPrice(product.originalPrice)}
                   </span>
                 )}
