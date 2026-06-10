@@ -122,10 +122,13 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               <div className="border-t border-gray-100 mb-5" />
 
               {/* Base price display (monthly) */}
-              <div className="flex items-center gap-3 mb-1 flex-wrap">
-                <span className="text-4xl font-black text-indigo-600">
-                  {formatPrice(product.price)}
-                </span>
+              <div className="flex items-center gap-3 mb-5 flex-wrap">
+                <div className="flex items-baseline gap-1">
+                  <span className="text-4xl font-black text-indigo-600">
+                    {formatPrice(product.price)}
+                  </span>
+                  <span className="text-gray-400 text-sm font-medium">/tháng</span>
+                </div>
                 {product.originalPrice && (
                   <span className="text-xl text-gray-400 line-through">
                     {formatPrice(product.originalPrice)}
@@ -137,7 +140,6 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                   </span>
                 )}
               </div>
-              <p className="text-gray-400 text-sm mb-5">/tháng</p>
 
               {/* Stock + warranty row */}
               <div className="flex items-center gap-3 mb-6 flex-wrap text-sm">
