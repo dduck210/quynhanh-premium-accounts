@@ -31,8 +31,10 @@ export default function FeaturedProducts() {
 
         {/* Desktop: grid */}
         <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-5 gap-5">
-          {featuredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+          {featuredProducts.map((product, i) => (
+            <AnimatedSection key={product.id} delay={i * 70}>
+              <ProductCard product={product} />
+            </AnimatedSection>
           ))}
         </div>
       </div>
