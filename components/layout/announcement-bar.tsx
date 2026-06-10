@@ -10,8 +10,8 @@ export default function AnnouncementBar() {
           </span>
         </p>
         <div className="hidden sm:flex items-center gap-5 text-indigo-300 flex-shrink-0">
-          <span>📧 support@menpremium.vn</span>
-          <span>💬 Zalo: 0912.345.678</span>
+          <span>⚡ Kích hoạt trong 15 phút</span>
+          <span>🛡️ Bảo hành toàn bộ hạn dùng</span>
         </div>
       </div>
     </div>
