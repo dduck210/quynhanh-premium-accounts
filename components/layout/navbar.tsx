@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { smoothScrollTo } from "@/lib/smooth-scroll";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -14,28 +15,13 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const smoothScroll = (targetY: number, duration = 750) => {
-    const startY = window.scrollY;
-    const diff = targetY - startY;
-    let start: number | null = null;
-    const ease = (t: number) =>
-      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-    const step = (ts: number) => {
-      if (!start) start = ts;
-      const p = Math.min((ts - start) / duration, 1);
-      window.scrollTo(0, startY + diff * ease(p));
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  };
-
   const scrollToSection = (id: string) => (e: React.MouseEvent) => {
     e.preventDefault();
     if (pathname === "/") {
       const el = document.getElementById(id);
       if (!el) return;
       const offset = el.getBoundingClientRect().top + window.scrollY - 72;
-      smoothScroll(offset);
+      smoothScrollTo(offset);
     } else {
       router.push(`/#${id}`);
     }
