@@ -122,7 +122,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               <div className="border-t border-gray-100 mb-5" />
 
               {/* Base price display (monthly) */}
-              <div className="flex items-baseline gap-3 mb-1 flex-wrap">
+              <div className="flex items-center gap-3 mb-1 flex-wrap">
                 <span className="text-4xl font-black text-indigo-600">
                   {formatPrice(product.price)}
                 </span>
@@ -132,7 +132,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                   </span>
                 )}
                 {discountPct && (
-                  <span className="bg-red-100 text-red-600 font-black px-2.5 py-1 rounded-lg text-sm">
+                  <span className="bg-red-500 text-white font-black px-2.5 py-1 rounded-lg text-sm">
                     -{discountPct}%
                   </span>
                 )}
