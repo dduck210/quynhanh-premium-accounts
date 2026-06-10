@@ -1,13 +1,16 @@
+import Link from "next/link";
+
 const categoryLinks = [
-  "AI Chat",
-  "Âm nhạc",
-  "Design & Photo",
-  "Học tập",
-  "Phim ảnh",
-  "VPN",
-  "Văn phòng",
-  "Tiện ích khác",
+  { label: "AI Chat", href: "/category/ai-chat" },
+  { label: "Âm nhạc", href: "/category/am-nhac" },
+  { label: "Design & Photo", href: "/category/design-photo" },
+  { label: "Học tập", href: "/category/hoc-tap" },
+  { label: "Phim ảnh", href: "/category/phim-anh" },
+  { label: "VPN", href: "/category/vpn" },
+  { label: "Văn phòng", href: "/category/van-phong" },
+  { label: "Tiện ích khác", href: "/category/tien-ich" },
 ];
+
 const policyLinks = [
   { label: "Chính sách bảo hành", href: "/chinh-sach-bao-hanh" },
   { label: "Chính sách hoàn tiền", href: "/chinh-sach-hoan-tien" },
@@ -43,13 +46,13 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2">
               {categoryLinks.map((cat) => (
-                <li key={cat}>
-                  <a
-                    href="#categories"
+                <li key={cat.href}>
+                  <Link
+                    href={cat.href}
                     className="text-slate-400 hover:text-indigo-400 text-sm transition-colors"
                   >
-                    {cat}
-                  </a>
+                    {cat.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -63,33 +66,33 @@ export default function Footer() {
             <ul className="space-y-2">
               {policyLinks.map((p) => (
                 <li key={p.href}>
-                  <a
+                  <Link
                     href={p.href}
                     className="text-slate-400 hover:text-indigo-400 text-sm transition-colors"
                   >
                     {p.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Liên hệ */}
+          {/* Liên hệ — cập nhật khi có thông tin từ khách */}
           <div>
             <h3 className="font-bold text-white mb-4 text-sm uppercase tracking-wide">
               Liên hệ
             </h3>
             <ul className="space-y-3 text-sm text-slate-400">
-              <li>📧 support@menpremium.vn</li>
-              <li>💬 Zalo: 0912.345.678</li>
-              <li>📘 facebook.com/menpremium</li>
-              <li>📍 Hà Nội, Việt Nam</li>
+              <li>📧 Cập nhật sau</li>
+              <li>💬 Zalo: Cập nhật sau</li>
+              <li>📘 Cập nhật sau</li>
+              <li>📍 Việt Nam</li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 text-xs">
-          <p>© 2024 Quỳnh Anh Premium Accounts. Tất cả quyền được bảo lưu.</p>
+          <p>© 2025 Quỳnh Anh Premium Accounts. Tất cả quyền được bảo lưu.</p>
           <p>Thiết kế với ❤️ tại Việt Nam</p>
         </div>
       </div>

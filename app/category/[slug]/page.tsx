@@ -13,7 +13,9 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const cat = categories.find((c) => c.id === params.slug);
   return {
-    title: cat ? `${cat.name} – Quỳnh Anh Premium Accounts` : "Danh mục – Quỳnh Anh Premium Accounts",
+    title: cat
+      ? `${cat.name} – Quỳnh Anh Premium Accounts`
+      : "Danh mục – Quỳnh Anh Premium Accounts",
   };
 }
 
@@ -31,10 +33,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Breadcrumb */}
         <Breadcrumb
-          items={[
-            { label: "Trang chủ", href: "/" },
-            { label: category.name },
-          ]}
+          items={[{ label: "Trang chủ", href: "/" }, { label: category.name }]}
         />
 
         {/* Category header */}
@@ -45,8 +44,12 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
             {category.icon}
           </div>
           <div>
-            <h1 className="text-2xl md:text-3xl font-black text-gray-900">{category.name}</h1>
-            <p className="text-gray-500 text-sm mt-0.5">{category.count} sản phẩm chính hãng</p>
+            <h1 className="text-2xl md:text-3xl font-black text-gray-900">
+              {category.name}
+            </h1>
+            <p className="text-gray-500 text-sm mt-0.5">
+              {category.count} sản phẩm chính hãng
+            </p>
           </div>
         </div>
 
@@ -58,7 +61,9 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
             ))}
           </div>
         ) : (
-          <div className="text-center py-24 text-gray-400">Chưa có sản phẩm trong danh mục này.</div>
+          <div className="text-center py-24 text-gray-400">
+            Chưa có sản phẩm trong danh mục này.
+          </div>
         )}
       </div>
 
