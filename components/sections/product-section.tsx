@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Product } from "@/data/products";
 import ProductCard from "../product/product-card";
 import AnimatedSection from "../ui/animated-section";
@@ -34,12 +35,12 @@ export default function ProductSection({
                 {productCount} sản phẩm
               </span>
             </div>
-            <a
+            <Link
               href={`/category/${categoryId}`}
               className="text-indigo-600 hover:text-indigo-700 font-semibold text-sm flex items-center gap-1 transition-all duration-200 hover:gap-2"
             >
               Xem tất cả →
-            </a>
+            </Link>
           </div>
 
           {/* Grid */}

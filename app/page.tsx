@@ -19,10 +19,12 @@ export default function Home() {
       <CtaBanner />
       <CategoryGrid />
 
-      {/* Per-category product sections, alternating bg */}
+      {/* Per-category product sections — show 4 per category, link to full page */}
       <div id="products">
         {categories.map((cat, index) => {
-          const catProducts = products.filter((p) => p.categoryId === cat.id);
+          const catProducts = products
+            .filter((p) => p.categoryId === cat.id)
+            .slice(0, 4);
           return (
             <div
               key={cat.id}

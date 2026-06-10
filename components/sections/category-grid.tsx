@@ -25,7 +25,7 @@ export default function CategoryGrid() {
                 style={{ animationDelay: `${i * 50}ms` }}
               >
                 <div
-                  className={`w-14 h-14 rounded-2xl ${cat.bgColor} flex items-center justify-center text-3xl mx-auto mb-3 transition-transform duration-400 group-hover:scale-115 group-hover:-translate-y-0.5`}
+                  className={`w-14 h-14 rounded-2xl ${cat.bgColor} flex items-center justify-center text-3xl mx-auto mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5`}
                 >
                   {cat.icon}
                 </div>

@@ -37,18 +37,18 @@ export default function Navbar() {
           </Link>
 
           <div className="flex items-center gap-3 flex-shrink-0">
-            <a
-              href="#categories"
+            <Link
+              href="/#categories"
               className="hidden md:block text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors duration-200"
             >
               Danh mục
-            </a>
-            <a
-              href="#contact"
+            </Link>
+            <Link
+              href="/#contact"
               className="hidden md:block text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors duration-200"
             >
               Liên hệ
-            </a>
+            </Link>
             <a
               href="https://zalo.me/g/"
               target="_blank"

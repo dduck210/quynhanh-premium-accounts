@@ -15,11 +15,11 @@ html {
   scrollbar-width: none;
 }
 
-/* Base transition for interactive elements */
+/* Remove default outline only for mouse users, keep for keyboard navigation */
 @layer base {
   button,
   a {
-    @apply outline-none;
+    @apply focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500;
   }
 }
 
