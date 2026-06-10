@@ -9,11 +9,11 @@ const categoryLinks = [
   "Tiện ích khác",
 ];
 const policyLinks = [
-  "Chính sách bảo hành",
-  "Chính sách hoàn tiền",
-  "Điều khoản sử dụng",
-  "Chính sách bảo mật",
-  "Hướng dẫn mua hàng",
+  { label: "Chính sách bảo hành", href: "/chinh-sach-bao-hanh" },
+  { label: "Chính sách hoàn tiền", href: "/chinh-sach-hoan-tien" },
+  { label: "Điều khoản sử dụng", href: "/dieu-khoan-su-dung" },
+  { label: "Chính sách bảo mật", href: "/chinh-sach-bao-mat" },
+  { label: "Hướng dẫn mua hàng", href: "/huong-dan-mua-hang" },
 ];
 
 export default function Footer() {
@@ -62,12 +62,12 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2">
               {policyLinks.map((p) => (
-                <li key={p}>
+                <li key={p.href}>
                   <a
-                    href="#"
+                    href={p.href}
                     className="text-slate-400 hover:text-indigo-400 text-sm transition-colors"
                   >
-                    {p}
+                    {p.label}
                   </a>
                 </li>
               ))}

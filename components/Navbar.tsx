@@ -21,15 +21,15 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-1 select-none">
-            <span className="text-2xl font-black text-indigo-600">Quỳnh Anh</span>
-            <span className="text-2xl font-black text-gray-900">Premium</span>
-            <span className="ml-2 text-xs font-semibold bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full hidden sm:inline">
+          <Link href="/" className="flex items-center gap-1 select-none min-w-0">
+            <span className="text-xl sm:text-2xl font-black text-indigo-600 whitespace-nowrap">Quỳnh Anh</span>
+            <span className="text-xl sm:text-2xl font-black text-gray-900 whitespace-nowrap">Premium</span>
+            <span className="ml-1.5 text-xs font-semibold bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full hidden sm:inline">
               Accounts
             </span>
           </Link>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-shrink-0">
             <a
               href="#categories"
               className="hidden md:block text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors duration-200"
@@ -46,10 +46,11 @@ export default function Navbar() {
               href="https://zalo.me/g/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-200 shadow-sm hover:shadow-indigo-200 hover:shadow-md"
+              className="flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white px-3 sm:px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-200 shadow-sm hover:shadow-indigo-200 hover:shadow-md whitespace-nowrap"
             >
               <span>💬</span>
-              <span>Tham gia nhóm Zalo</span>
+              <span className="hidden sm:inline">Tham gia nhóm Zalo</span>
+              <span className="sm:hidden">Zalo</span>
             </a>
           </div>
         </div>

@@ -3,7 +3,10 @@ import { Product, formatPrice } from "@/data/products";
 
 export default function ProductCard({ product }: { product: Product }) {
   return (
-    <div className="relative bg-white rounded-xl shadow-sm hover:shadow-lg hover:shadow-indigo-100/60 border border-gray-100 hover:border-indigo-200 transition-all duration-300 hover:-translate-y-1.5 flex flex-col h-full overflow-hidden group">
+    <Link
+      href={`/product/${product.id}`}
+      className="relative bg-white rounded-xl shadow-sm hover:shadow-lg hover:shadow-indigo-100/60 border border-gray-100 hover:border-indigo-200 transition-all duration-300 hover:-translate-y-1.5 flex flex-col h-full overflow-hidden group cursor-pointer"
+    >
       {/* Sale / New badge */}
       {product.isSale && !product.isNew && (
         <span className="absolute top-3 right-3 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full z-10 leading-5">
@@ -52,13 +55,10 @@ export default function ProductCard({ product }: { product: Product }) {
         </div>
 
         {/* CTA */}
-        <Link
-          href={`/product/${product.id}`}
-          className="block w-full py-2 px-3 rounded-lg border border-indigo-200 text-indigo-600 text-xs font-semibold text-center transition-all duration-200 active:scale-95 group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 group-hover:shadow-md group-hover:shadow-indigo-200"
-        >
+        <div className="block w-full py-2 px-3 rounded-lg border border-indigo-200 text-indigo-600 text-xs font-semibold text-center transition-all duration-200 group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 group-hover:shadow-md group-hover:shadow-indigo-200">
           Xem chi tiết
-        </Link>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
