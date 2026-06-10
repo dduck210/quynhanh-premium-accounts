@@ -74,7 +74,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               </div>
 
               {/* Trust signals under image */}
-              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-6">
+              <div className="grid grid-cols-2 gap-2.5 mt-6">
                 {[
                   { icon: "✅", text: "Chính hãng 100%" },
                   { icon: "⚡", text: "Giao trong 15 phút" },
@@ -83,9 +83,9 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 ].map((b) => (
                   <div
                     key={b.text}
-                    className="flex items-center gap-1.5 text-sm text-gray-500"
+                    className="flex items-center gap-2 bg-gray-50 border border-gray-100 rounded-xl px-3 py-2.5 text-sm text-gray-600 font-medium"
                   >
-                    <span>{b.icon}</span>
+                    <span className="text-base leading-none">{b.icon}</span>
                     <span>{b.text}</span>
                   </div>
                 ))}
