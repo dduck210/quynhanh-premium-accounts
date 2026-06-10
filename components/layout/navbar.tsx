@@ -1,15 +1,27 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const scrollToSection = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (pathname === "/") {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      router.push(`/#${id}`);
+    }
+  };
 
   return (
     <nav
@@ -37,18 +49,20 @@ export default function Navbar() {
           </Link>
 
           <div className="flex items-center gap-3 flex-shrink-0">
-            <Link
+            <a
               href="/#categories"
+              onClick={scrollToSection("categories")}
               className="hidden md:block text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors duration-200"
             >
               Danh mục
-            </Link>
-            <Link
+            </a>
+            <a
               href="/#contact"
+              onClick={scrollToSection("contact")}
               className="hidden md:block text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors duration-200"
             >
               Liên hệ
-            </Link>
+            </a>
             <a
               href="https://zalo.me/g/"
               target="_blank"
