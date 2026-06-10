@@ -21,37 +21,37 @@ export default function PricingTierSelector({ tiers }: Props) {
       <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">
         Chọn thời hạn sử dụng
       </p>
-      <div className="flex flex-wrap gap-2.5 mb-6">
-        {tiers.map((t, i) => (
-          <button
-            key={t.duration}
-            onClick={() => setSelected(i)}
-            className={`relative px-4 py-2 rounded-xl border-2 font-semibold text-sm transition-all duration-200 active:scale-95 ${
-              selected === i
-                ? "border-indigo-600 bg-indigo-600 text-white shadow-md shadow-indigo-200 scale-105"
-                : "border-gray-200 text-gray-600 hover:border-indigo-300 hover:bg-indigo-50 bg-white"
-            }`}
-          >
-            {t.duration}
-            {t.savings && (
-              <span
-                className={`ml-1.5 text-xs ${
-                  selected === i ? "text-indigo-200" : "text-indigo-500"
+      <div className="flex flex-wrap gap-2.5 mb-6 pt-3">
+        {tiers.map((t, i) => {
+          const active = selected === i;
+          return (
+            <div key={t.duration} className="relative">
+              {t.isPopular && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-500 text-white text-[9px] font-black px-2 py-0.5 rounded-full whitespace-nowrap z-10 shadow-sm">
+                  PHỔ BIẾN
+                </span>
+              )}
+              <button
+                onClick={() => setSelected(i)}
+                className={`relative px-4 py-2.5 rounded-xl border-2 font-semibold text-sm transition-all duration-200 active:scale-95 ${
+                  active
+                    ? "border-indigo-600 bg-indigo-600 text-white shadow-lg shadow-indigo-300/50 scale-105"
+                    : "border-gray-200 bg-white text-gray-600 hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-600 hover:shadow-sm"
                 }`}
               >
-                -{t.savings}%
-              </span>
-            )}
-            {t.isPopular && (
-              <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-red-500 text-white text-[9px] font-black px-1.5 py-0.5 rounded-full whitespace-nowrap">
-                PHỔ BIẾN
-              </span>
-            )}
-          </button>
-        ))}
+                {t.duration}
+                {t.savings && (
+                  <span className={`ml-1.5 text-xs font-bold ${active ? "text-indigo-200" : "text-emerald-500"}`}>
+                    -{t.savings}%
+                  </span>
+                )}
+              </button>
+            </div>
+          );
+        })}
       </div>
 
-      {/* Price with key-based animation on change */}
+      {/* Price — animates on tier change via key prop */}
       <div className="flex items-baseline gap-2.5 mb-1">
         <span
           key={tier.price}
@@ -61,16 +61,16 @@ export default function PricingTierSelector({ tiers }: Props) {
         </span>
         <span className="text-gray-400 text-sm">/{tier.duration}</span>
       </div>
-      {tier.savings ? (
-        <p
-          key={`savings-${tier.duration}`}
-          className="text-sm text-emerald-600 font-semibold mb-6 animate-fade-in"
-        >
-          ✓ Tiết kiệm {tier.savings}% so với mua từng tháng
-        </p>
-      ) : (
-        <div className="mb-6" />
-      )}
+      <div className="h-6 mb-5">
+        {tier.savings && (
+          <p
+            key={`savings-${tier.duration}`}
+            className="text-sm text-emerald-600 font-semibold animate-fade-in"
+          >
+            ✓ Tiết kiệm {tier.savings}% so với mua từng tháng
+          </p>
+        )}
+      </div>
 
       {/* Primary CTA */}
       <a
