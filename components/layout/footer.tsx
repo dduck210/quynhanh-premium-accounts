@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { MessageCircle, Send, Clock, MapPin, Heart } from "lucide-react";
+import { FacebookIcon } from "@/components/ui/brand-icons";
 
 const categoryLinks = [
   { label: "AI Chat", href: "/category/ai-chat" },
@@ -17,6 +19,12 @@ const policyLinks = [
   { label: "Điều khoản sử dụng", href: "/dieu-khoan-su-dung" },
   { label: "Chính sách bảo mật", href: "/chinh-sach-bao-mat" },
   { label: "Hướng dẫn mua hàng", href: "/huong-dan-mua-hang" },
+];
+
+const contactLinks = [
+  { icon: MessageCircle, label: "Zalo: 0339.502.155", href: "https://zalo.me/0339502155" },
+  { icon: FacebookIcon,      label: "FacebookIcon: quanhquanh24", href: "https://www.facebook.com/quanhquanh24/" },
+  { icon: Send,          label: "Messenger: quanhquanh24", href: "https://m.me/quanhquanh24" },
 ];
 
 export default function Footer() {
@@ -85,30 +93,36 @@ export default function Footer() {
               Liên hệ
             </h3>
             <ul className="space-y-3 text-sm text-slate-400">
-              <li>
-                <a href="https://zalo.me/0339502155" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400 transition-colors">
-                  💬 Zalo: 0339.502.155
-                </a>
+              {contactLinks.map(({ icon: Icon, label, href }) => (
+                <li key={href}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 hover:text-indigo-400 transition-colors"
+                  >
+                    <Icon className="w-4 h-4 flex-shrink-0" />
+                    {label}
+                  </a>
+                </li>
+              ))}
+              <li className="flex items-center gap-2">
+                <Clock className="w-4 h-4 flex-shrink-0" />
+                Hỗ trợ: 8:00 – 23:00 mỗi ngày
               </li>
-              <li>
-                <a href="https://www.facebook.com/quanhquanh24/" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400 transition-colors">
-                  📘 Facebook: quanhquanh24
-                </a>
+              <li className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 flex-shrink-0" />
+                Việt Nam
               </li>
-              <li>
-                <a href="https://m.me/quanhquanh24" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400 transition-colors">
-                  💌 Messenger: quanhquanh24
-                </a>
-              </li>
-              <li>⏰ Hỗ trợ: 8:00 – 23:00 mỗi ngày</li>
-              <li>📍 Việt Nam</li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 text-xs">
           <p>© 2026 Quỳnh Anh Premium Accounts. Tất cả quyền được bảo lưu.</p>
-          <p>Thiết kế với ❤️ tại Việt Nam</p>
+          <p className="flex items-center gap-1">
+            Thiết kế với <Heart className="w-3 h-3 text-red-400 fill-red-400" /> tại Việt Nam
+          </p>
         </div>
       </div>
     </footer>

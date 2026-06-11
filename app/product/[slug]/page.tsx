@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { BadgeCheck, Zap, ShieldCheck, Headphones, Sparkles, ShoppingCart } from "lucide-react";
 import { products, categories, formatPrice } from "@/data/products";
 import {
   productFeatures,
@@ -77,17 +78,17 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               {/* Trust signals under image */}
               <div className="grid grid-cols-2 gap-2.5 mt-6">
                 {[
-                  { icon: "✅", text: "Chính hãng 100%" },
-                  { icon: "⚡", text: "Giao trong 15 phút" },
-                  { icon: "🛡️", text: "Bảo hành đầy đủ hạn" },
-                  { icon: "🎧", text: "Hỗ trợ 24/7" },
-                ].map((b) => (
+                  { icon: BadgeCheck, text: "Chính hãng 100%",   color: "text-emerald-500" },
+                  { icon: Zap,        text: "Giao trong 15 phút", color: "text-amber-500"   },
+                  { icon: ShieldCheck,text: "Bảo hành đầy đủ hạn",color: "text-indigo-500" },
+                  { icon: Headphones, text: "Hỗ trợ 24/7",        color: "text-blue-500"   },
+                ].map(({ icon: Icon, text, color }) => (
                   <div
-                    key={b.text}
+                    key={text}
                     className="flex items-center gap-2 bg-gray-50 border border-gray-100 rounded-xl px-3 py-2.5 text-sm text-gray-600 font-medium"
                   >
-                    <span className="text-base leading-none">{b.icon}</span>
-                    <span>{b.text}</span>
+                    <Icon className={`w-4 h-4 flex-shrink-0 ${color}`} />
+                    <span>{text}</span>
                   </div>
                 ))}
               </div>
@@ -153,7 +154,10 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 <span className="text-gray-300">|</span>
                 <span className="text-gray-400">Kho: 999 sản phẩm</span>
                 <span className="text-gray-300">|</span>
-                <span className="text-gray-400">🛡️ Bảo hành đầy đủ hạn</span>
+                <span className="flex items-center gap-1 text-gray-400">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  Bảo hành đầy đủ hạn
+                </span>
               </div>
 
               {/* Interactive pricing + CTA */}
@@ -169,8 +173,9 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           {/* Features */}
           {features.length > 0 && (
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
-              <h2 className="font-black text-gray-900 text-xl mb-5">
-                ✨ Tính năng nổi bật
+              <h2 className="flex items-center gap-2 font-black text-gray-900 text-xl mb-5">
+                <Sparkles className="w-5 h-5 text-indigo-500" />
+                Tính năng nổi bật
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {features.map((f, i) => (
@@ -192,8 +197,9 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
           {/* How to buy */}
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
-            <h2 className="font-black text-gray-900 text-xl mb-6">
-              🛒 Cách mua hàng
+            <h2 className="flex items-center gap-2 font-black text-gray-900 text-xl mb-6">
+              <ShoppingCart className="w-5 h-5 text-indigo-500" />
+              Cách mua hàng
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {HOW_TO_BUY.map((step, i) => (

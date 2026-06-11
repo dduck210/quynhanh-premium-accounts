@@ -1,3 +1,4 @@
+import { MessageCircle } from "lucide-react";
 import AnimatedSection from "../ui/animated-section";
 
 export default function CtaBanner() {
@@ -23,7 +24,8 @@ export default function CtaBanner() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 bg-blue-500 hover:bg-blue-400 active:scale-95 text-white px-8 py-4 rounded-xl font-bold text-base transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-0.5"
           >
-            <span>💬</span> Liên hệ Zalo ngay
+            <MessageCircle className="w-5 h-5" />
+            Liên hệ Zalo ngay
           </a>
         </div>
       </section>

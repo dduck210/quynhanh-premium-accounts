@@ -2,6 +2,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { MessageCircle } from "lucide-react";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 
 const NAV_LINKS = [
@@ -91,7 +92,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-200 shadow-sm hover:shadow-indigo-200 hover:shadow-md whitespace-nowrap ml-1"
               >
-                <span>💬</span>
+                <MessageCircle className="w-4 h-4" />
                 <span>Tham gia nhóm Zalo</span>
               </a>
             </div>
@@ -104,7 +105,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-lg font-semibold text-xs transition-all duration-200"
               >
-                <span>💬</span>
+                <MessageCircle className="w-3.5 h-3.5" />
                 <span>Zalo</span>
               </a>
 
@@ -154,7 +155,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-full bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-3 rounded-xl font-bold text-sm transition-colors duration-200"
             >
-              <span>💬</span>
+              <MessageCircle className="w-4 h-4" />
               Tham gia nhóm Zalo ngay
             </a>
           </div>

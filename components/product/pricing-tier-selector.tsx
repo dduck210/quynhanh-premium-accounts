@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import { MessageCircle, Send, Check } from "lucide-react";
+import { FacebookIcon } from "@/components/ui/brand-icons";
 import { PricingTier } from "@/data/product-details";
 import { formatPrice } from "@/data/products";
 
@@ -51,7 +53,7 @@ export default function PricingTierSelector({ tiers }: Props) {
         })}
       </div>
 
-      {/* Price — animates on tier change via key prop */}
+      {/* Price */}
       <div className="flex items-baseline gap-2.5 mb-1">
         <span
           key={tier.price}
@@ -65,9 +67,10 @@ export default function PricingTierSelector({ tiers }: Props) {
         {tier.savings && (
           <p
             key={`savings-${tier.duration}`}
-            className="text-sm text-emerald-600 font-semibold animate-fade-in"
+            className="flex items-center gap-1 text-sm text-emerald-600 font-semibold animate-fade-in"
           >
-            ✓ Tiết kiệm {tier.savings}% so với mua từng tháng
+            <Check className="w-4 h-4" />
+            Tiết kiệm {tier.savings}% so với mua từng tháng
           </p>
         )}
       </div>
@@ -79,7 +82,8 @@ export default function PricingTierSelector({ tiers }: Props) {
         rel="noopener noreferrer"
         className="flex items-center justify-center gap-2.5 w-full bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white py-4 px-6 rounded-xl font-bold text-base transition-all duration-200 hover:shadow-xl hover:shadow-indigo-200 hover:-translate-y-0.5"
       >
-        💬 Đặt mua ngay qua Zalo
+        <MessageCircle className="w-5 h-5" />
+        Đặt mua ngay qua Zalo
       </a>
       <p className="text-xs text-gray-400 text-center mt-2 mb-4">
         Nhận tài khoản trong 5–15 phút sau khi thanh toán
@@ -93,7 +97,8 @@ export default function PricingTierSelector({ tiers }: Props) {
           rel="noopener noreferrer"
           className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl border border-gray-200 hover:bg-purple-50 hover:border-purple-300 active:scale-95 transition-all duration-200 text-sm font-semibold text-gray-600"
         >
-          💌 Messenger
+          <Send className="w-4 h-4" />
+          Messenger
         </a>
         <a
           href="https://facebook.com/"
@@ -101,7 +106,8 @@ export default function PricingTierSelector({ tiers }: Props) {
           rel="noopener noreferrer"
           className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl border border-gray-200 hover:bg-blue-50 hover:border-blue-300 active:scale-95 transition-all duration-200 text-sm font-semibold text-gray-600"
         >
-          📘 Facebook
+          <FacebookIcon className="w-4 h-4" />
+          FacebookIcon
         </a>
       </div>
     </div>

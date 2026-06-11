@@ -1,3 +1,5 @@
+import { BadgeCheck, Zap, Lock, Headphones, type LucideIcon } from "lucide-react";
+
 const STATS = [
   { value: "50+", label: "Sản phẩm" },
   { value: "1000+", label: "Khách hàng" },
@@ -5,11 +7,11 @@ const STATS = [
   { value: "100%", label: "Chính hãng" },
 ];
 
-const TRUST_BADGES = [
-  "✅ Bảo hành chính hãng",
-  "⚡ Kích hoạt ngay lập tức",
-  "🔒 Thanh toán an toàn",
-  "🎧 Hỗ trợ 24/7",
+const TRUST_BADGES: { icon: LucideIcon; text: string }[] = [
+  { icon: BadgeCheck, text: "Bảo hành chính hãng" },
+  { icon: Zap,        text: "Kích hoạt ngay lập tức" },
+  { icon: Lock,       text: "Thanh toán an toàn" },
+  { icon: Headphones, text: "Hỗ trợ 24/7" },
 ];
 
 export default function HeroSection() {
@@ -92,7 +94,7 @@ export default function HeroSection() {
 
         {/* Stats row */}
         <div
-          className="animate-fade-in grid grid-cols-4 gap-4 mt-14 mb-8 max-w-xl mx-auto"
+          className="animate-fade-in grid grid-cols-2 sm:grid-cols-4 gap-4 mt-14 mb-8 max-w-xl mx-auto"
           style={{ animationDelay: "550ms" }}
         >
           {STATS.map((s) => (
@@ -110,9 +112,10 @@ export default function HeroSection() {
           className="animate-fade-in flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-slate-400 text-xs sm:text-sm border-t border-white/10 pt-6"
           style={{ animationDelay: "680ms" }}
         >
-          {TRUST_BADGES.map((badge) => (
-            <span key={badge} className="flex items-center gap-1.5">
-              {badge}
+          {TRUST_BADGES.map(({ icon: Icon, text }) => (
+            <span key={text} className="flex items-center gap-1.5">
+              <Icon className="w-3.5 h-3.5 text-indigo-400" />
+              {text}
             </span>
           ))}
         </div>

@@ -1,25 +1,38 @@
-const MESSAGES = [
-  "✦ Chất lượng – Ưu đãi – Uy tín",
-  "⚡ Kích hoạt trong 15 phút",
-  "🛡️ Bảo hành toàn bộ hạn dùng",
-  "🎧 Hỗ trợ kỹ thuật 24/7",
-  "💳 Thanh toán an toàn & bảo mật",
-  "🔥 Hơn 1000 khách hàng tin tưởng",
+import { Zap, ShieldCheck, Headphones, CreditCard, Flame, type LucideIcon } from "lucide-react";
+
+interface Message {
+  icon: LucideIcon;
+  text: string;
+}
+
+const MESSAGES: Message[] = [
+  { icon: Zap,         text: "Kích hoạt trong 15 phút" },
+  { icon: ShieldCheck, text: "Bảo hành toàn bộ hạn dùng" },
+  { icon: Headphones,  text: "Hỗ trợ kỹ thuật 24/7" },
+  { icon: CreditCard,  text: "Thanh toán an toàn & bảo mật" },
+  { icon: Flame,       text: "Hơn 1000 khách hàng tin tưởng" },
 ];
 
+function MessageItem({ msg }: { msg: Message }) {
+  const Icon = msg.icon;
+  return (
+    <span className="flex items-center gap-1.5 flex-shrink-0">
+      <Icon className="w-3.5 h-3.5" />
+      {msg.text}
+    </span>
+  );
+}
+
 export default function AnnouncementBar() {
-  /* Duplicate the list so the marquee loops seamlessly */
   const track = [...MESSAGES, ...MESSAGES];
 
   return (
     <div className="bg-indigo-950 text-white text-xs py-2 overflow-hidden">
       {/* Mobile: scrolling marquee */}
       <div className="sm:hidden flex items-center">
-        <div className="marquee-track flex gap-10 whitespace-nowrap">
+        <div className="marquee-track flex gap-10 whitespace-nowrap text-indigo-200 font-medium tracking-wide">
           {track.map((msg, i) => (
-            <span key={i} className="text-indigo-200 font-medium tracking-wide flex-shrink-0">
-              {msg}
-            </span>
+            <MessageItem key={i} msg={msg} />
           ))}
         </div>
       </div>
@@ -31,8 +44,8 @@ export default function AnnouncementBar() {
           Accounts &nbsp;|&nbsp; Hỗ trợ 24/7
         </p>
         <div className="flex items-center gap-5 text-indigo-300 flex-shrink-0">
-          <span>⚡ Kích hoạt trong 15 phút</span>
-          <span>🛡️ Bảo hành toàn bộ hạn dùng</span>
+          <MessageItem msg={MESSAGES[0]} />
+          <MessageItem msg={MESSAGES[1]} />
         </div>
       </div>
     </div>

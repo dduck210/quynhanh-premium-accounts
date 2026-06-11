@@ -1,6 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import Link from "next/link";
+import { AlertTriangle } from "lucide-react";
 
 export default function Error({
   error,
@@ -15,7 +16,9 @@ export default function Error({
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4">
-      <div className="text-6xl mb-6">⚠️</div>
+      <div className="mb-6 w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center">
+        <AlertTriangle className="w-8 h-8 text-amber-500" />
+      </div>
       <h1 className="text-2xl font-black text-gray-900 mb-2">
         Đã có lỗi xảy ra
       </h1>
