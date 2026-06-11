@@ -1,5 +1,5 @@
 import {
-  siAnthropic, siGoogle, siGooglegemini, siPerplexity, siX,
+  siGoogle, siGooglegemini, siPerplexity, siX,
   siSpotify, siApplemusic, siPicsart, siVsco, siGrammarly,
   siUdemy, siCoursera, siDuolingo, siCodecademy, siNetflix,
   siAutodesk, siZoom, siNotion, siWondersharefilmora, siDiscord,
@@ -12,9 +12,8 @@ export interface BrandIcon {
   title: string;
 }
 
-/** Map product ID → simple-icons SVG data */
+/** Map product ID → simple-icons SVG data (only for products without a better PNG) */
 export const BRAND_ICON_MAP: Record<string, BrandIcon> = {
-  "claude-ai":         siAnthropic,
   "google-ai-ultra":   siGoogle,
   "gemini-pro":        siGooglegemini,
   "perplexity-ai":     siPerplexity,
