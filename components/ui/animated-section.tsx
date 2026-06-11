@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState, ReactNode } from "react";
+import { useEffect, useRef, ReactNode } from "react";
 
 interface Props {
   children: ReactNode;
@@ -13,7 +13,6 @@ export default function AnimatedSection({
   delay = 0,
 }: Props) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -21,7 +20,8 @@ export default function AnimatedSection({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisible(true);
+          if (delay) el.style.transitionDelay = `${delay}ms`;
+          el.classList.add("in-view");
           observer.disconnect();
         }
       },
@@ -29,16 +29,10 @@ export default function AnimatedSection({
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [delay]);
 
   return (
-    <div
-      ref={ref}
-      className={`transition-all duration-700 ease-out ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
-      } ${className}`}
-      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
-    >
+    <div ref={ref} className={`animate-on-scroll ${className}`}>
       {children}
     </div>
   );

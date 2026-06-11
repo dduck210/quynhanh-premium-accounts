@@ -1,10 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import HydrationLoader from "@/components/ui/hydration-loader";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin", "vietnamese"],
+  display: "swap",
+  preload: true,
+});
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -32,7 +35,6 @@ export default function RootLayout({
   return (
     <html lang="vi">
       <body className={inter.className}>
-        <HydrationLoader />
         {children}
         <ScrollToTop />
       </body>

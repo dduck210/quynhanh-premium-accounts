@@ -32,12 +32,12 @@ export default function Footer() {
               </span>
               <span className="text-2xl font-black text-white">Premium</span>
             </div>
-            <p className="text-slate-400 text-sm leading-relaxed mb-4">
-              Cửa hàng tài khoản phần mềm premium chính hãng, uy tín hàng đầu
-              Việt Nam.
+            <p className="text-slate-400 text-sm leading-relaxed mb-3">
+              Trải nghiệm đẳng cấp, chi phí tối ưu. Tài khoản phần mềm
+              premium chính hãng, uy tín hàng đầu Việt Nam.
             </p>
-            <p className="text-slate-500 text-xs">
-              ⏰ Hỗ trợ: 8:00 – 23:00 mỗi ngày
+            <p className="text-indigo-400 text-xs font-medium italic">
+              &ldquo;Chọn Quỳnh Anh, chọn Premium.&rdquo;
             </p>
           </div>
 
@@ -79,22 +79,35 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Liên hệ — cập nhật khi có thông tin từ khách */}
+          {/* Liên hệ */}
           <div>
             <h3 className="font-bold text-white mb-4 text-sm uppercase tracking-wide">
               Liên hệ
             </h3>
             <ul className="space-y-3 text-sm text-slate-400">
-              <li>📧 Cập nhật sau</li>
-              <li>💬 Zalo: Cập nhật sau</li>
-              <li>📘 Cập nhật sau</li>
+              <li>
+                <a href="https://zalo.me/0339502155" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400 transition-colors">
+                  💬 Zalo: 0339.502.155
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/quanhquanh24/" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400 transition-colors">
+                  📘 Facebook: quanhquanh24
+                </a>
+              </li>
+              <li>
+                <a href="https://m.me/quanhquanh24" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400 transition-colors">
+                  💌 Messenger: quanhquanh24
+                </a>
+              </li>
+              <li>⏰ Hỗ trợ: 8:00 – 23:00 mỗi ngày</li>
               <li>📍 Việt Nam</li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-slate-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 text-xs">
-          <p>© 2025 Quỳnh Anh Premium Accounts. Tất cả quyền được bảo lưu.</p>
+          <p>© 2026 Quỳnh Anh Premium Accounts. Tất cả quyền được bảo lưu.</p>
           <p>Thiết kế với ❤️ tại Việt Nam</p>
         </div>
       </div>

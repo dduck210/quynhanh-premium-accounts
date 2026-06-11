@@ -29,8 +29,8 @@ export default function FeaturedProducts() {
           <div className="absolute right-0 top-0 bottom-3 w-12 bg-gradient-to-l from-white to-transparent pointer-events-none" />
         </div>
 
-        {/* Desktop: grid */}
-        <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-5 gap-5">
+        {/* Desktop: grid — 6 sản phẩm: 3 cols md / 6 cols xl */}
+        <div className="hidden md:grid md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-5">
           {featuredProducts.map((product, i) => (
             <AnimatedSection key={product.id} delay={i * 70}>
               <ProductCard product={product} />
