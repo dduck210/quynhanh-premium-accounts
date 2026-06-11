@@ -18,6 +18,9 @@ yarn-error.log*
 # Vercel
 .vercel
 
+# Screenshots (large binary files)
+plans/screenshots/*.png
+
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
