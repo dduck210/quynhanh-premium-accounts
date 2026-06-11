@@ -23,7 +23,7 @@ const CHANNELS: Channel[] = [
     className: "bg-blue-500 hover:bg-blue-400 hover:shadow-blue-500/30",
   },
   {
-    label: "Fanpage FacebookIcon",
+    label: "Fanpage Facebook",
     icon: FacebookIcon,
     href: "https://www.facebook.com/quanhquanh24/",
     className: "bg-blue-700 hover:bg-blue-600 hover:shadow-blue-700/30",

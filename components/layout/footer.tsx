@@ -23,7 +23,7 @@ const policyLinks = [
 
 const contactLinks = [
   { icon: MessageCircle, label: "Zalo: 0339.502.155", href: "https://zalo.me/0339502155" },
-  { icon: FacebookIcon,      label: "FacebookIcon: quanhquanh24", href: "https://www.facebook.com/quanhquanh24/" },
+  { icon: FacebookIcon,      label: "Facebook: quanhquanh24", href: "https://www.facebook.com/quanhquanh24/" },
   { icon: Send,          label: "Messenger: quanhquanh24", href: "https://m.me/quanhquanh24" },
 ];
 

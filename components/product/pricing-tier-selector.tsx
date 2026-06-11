@@ -107,7 +107,7 @@ export default function PricingTierSelector({ tiers }: Props) {
           className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl border border-gray-200 hover:bg-blue-50 hover:border-blue-300 active:scale-95 transition-all duration-200 text-sm font-semibold text-gray-600"
         >
           <FacebookIcon className="w-4 h-4" />
-          FacebookIcon
+          Facebook
         </a>
       </div>
     </div>
