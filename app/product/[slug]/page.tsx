@@ -55,10 +55,6 @@ export default async function ProductPage({ params }: { params: { slug: string }
     "Nhận thông tin tài khoản qua Zalo trong 5–15 phút",
   ];
 
-  const discountPct = product.originalPrice
-    ? Math.round((1 - product.price / product.originalPrice) * 100)
-    : null;
-
   return (
     <main className="min-h-screen">
       <AnnouncementBar />
@@ -138,28 +134,6 @@ export default async function ProductPage({ params }: { params: { slug: string }
               </p>
 
               <div className="border-t border-gray-100 mb-5" />
-
-              {/* Base price display — hidden for single-tier (selector shows it already) */}
-              {tiers.length > 1 && (
-                <div className="flex items-center gap-3 mb-5 flex-wrap">
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-black text-blue-600">
-                      {formatPrice(product.price)}
-                    </span>
-                    <span className="text-gray-400 text-sm font-medium">/{product.duration}</span>
-                  </div>
-                  {product.originalPrice && (
-                    <span className="text-base text-gray-400 line-through decoration-gray-400">
-                      {formatPrice(product.originalPrice)}
-                    </span>
-                  )}
-                  {discountPct && (
-                    <span className="bg-red-500 text-white font-black px-2.5 py-1 rounded-lg text-sm">
-                      -{discountPct}%
-                    </span>
-                  )}
-                </div>
-              )}
 
               {/* Stock + warranty row */}
               <div className="flex items-center gap-3 mb-6 flex-wrap text-sm">
