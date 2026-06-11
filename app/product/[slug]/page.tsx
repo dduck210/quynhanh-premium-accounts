@@ -248,7 +248,8 @@ export default async function ProductPage({ params }: { params: { slug: string }
                 </a>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                {related.map((p) => (
+                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                {related.map((p: any) => (
                   <ProductCard key={p.id} product={p} />
                 ))}
               </div>
