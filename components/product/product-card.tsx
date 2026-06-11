@@ -1,5 +1,33 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Product, formatPrice } from "@/data/products";
+
+function ProductLogo({ product }: { product: Product }) {
+  const [err, setErr] = useState(false);
+  return (
+    <div
+      className="w-12 h-12 rounded-xl flex items-center justify-center mb-3 flex-shrink-0 transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-110 overflow-hidden"
+      style={{ backgroundColor: product.logoColor + "22" }}
+    >
+      {err ? (
+        <span className="text-2xl">{product.logoEmoji}</span>
+      ) : (
+        <Image
+          src={`/images/products/${product.id.toLowerCase()}.png`}
+          alt={product.name}
+          width={40}
+          height={40}
+          className="w-9 h-9 object-contain"
+          onError={() => setErr(true)}
+          unoptimized
+        />
+      )}
+    </div>
+  );
+}
 
 export default function ProductCard({ product }: { product: Product }) {
   const discountPct =
@@ -24,13 +52,7 @@ export default function ProductCard({ product }: { product: Product }) {
       ) : null}
 
       <div className="p-4 flex flex-col flex-1">
-        {/* Logo with float on hover */}
-        <div
-          className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-3 flex-shrink-0 transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-110"
-          style={{ backgroundColor: product.logoColor + "22" }}
-        >
-          {product.logoEmoji}
-        </div>
+        <ProductLogo product={product} />
 
         {/* Category pill */}
         <span className="inline-block text-[11px] font-semibold text-indigo-600 bg-indigo-50 px-2.5 py-0.5 rounded-full mb-2 w-fit">
