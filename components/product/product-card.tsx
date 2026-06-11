@@ -52,7 +52,7 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link
       href={`/product/${product.id}`}
-      className="relative bg-white rounded-xl shadow-sm hover:shadow-lg hover:shadow-indigo-100/60 border border-gray-100 hover:border-indigo-200 transition-all duration-300 hover:-translate-y-1.5 flex flex-col h-full overflow-hidden group cursor-pointer"
+      className="relative bg-white rounded-xl shadow-sm hover:shadow-lg hover:shadow-blue-100/60 border border-gray-100 hover:border-blue-200 transition-all duration-300 hover:-translate-y-1.5 flex flex-col h-full overflow-hidden group cursor-pointer"
     >
       {/* Top-right badge — sale takes priority over new */}
       {discountPct ? (
@@ -69,12 +69,12 @@ export default function ProductCard({ product }: { product: Product }) {
         <ProductLogo product={product} />
 
         {/* Category pill */}
-        <span className="inline-block text-[11px] font-semibold text-indigo-600 bg-indigo-50 px-2.5 py-0.5 rounded-full mb-2 w-fit">
+        <span className="inline-block text-[11px] font-semibold text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-full mb-2 w-fit">
           {product.categoryName}
         </span>
 
         {/* Name & description */}
-        <h3 className="font-bold text-gray-900 text-sm leading-snug mb-1 group-hover:text-indigo-700 transition-colors duration-200">
+        <h3 className="font-bold text-gray-900 text-sm leading-snug mb-1 group-hover:text-blue-700 transition-colors duration-200">
           {product.name}
         </h3>
         <p className="text-gray-400 text-xs leading-relaxed flex-1 mb-3 line-clamp-2">
@@ -83,7 +83,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
         {/* Pricing */}
         <div className="flex items-baseline gap-1.5 mb-3 flex-wrap">
-          <span className="text-lg font-black text-indigo-600">
+          <span className="text-lg font-black text-blue-600">
             {formatPrice(product.price)}
           </span>
           {product.originalPrice && (
@@ -95,7 +95,7 @@ export default function ProductCard({ product }: { product: Product }) {
         </div>
 
         {/* CTA — shimmer effect on hover */}
-        <div className="relative block w-full py-2 px-3 rounded-lg border border-indigo-200 text-indigo-600 text-xs font-semibold text-center overflow-hidden transition-all duration-200 group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 group-hover:shadow-md group-hover:shadow-indigo-200">
+        <div className="relative block w-full py-2 px-3 rounded-lg border border-blue-200 text-blue-600 text-xs font-semibold text-center overflow-hidden transition-all duration-200 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 group-hover:shadow-md group-hover:shadow-blue-200">
           <span className="relative z-10">Xem chi tiết</span>
           <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-500 ease-in-out" />
         </div>

@@ -35,7 +35,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-1 mb-4">
-              <span className="text-2xl font-black text-indigo-400">
+              <span className="text-2xl font-black text-blue-400">
                 Quỳnh Anh
               </span>
               <span className="text-2xl font-black text-white">Premium</span>
@@ -44,7 +44,7 @@ export default function Footer() {
               Trải nghiệm đẳng cấp, chi phí tối ưu. Tài khoản phần mềm
               premium chính hãng, uy tín hàng đầu Việt Nam.
             </p>
-            <p className="text-indigo-400 text-xs font-medium italic">
+            <p className="text-blue-400 text-xs font-medium italic">
               &ldquo;Chọn Quỳnh Anh, chọn Premium.&rdquo;
             </p>
           </div>
@@ -59,7 +59,7 @@ export default function Footer() {
                 <li key={cat.href}>
                   <Link
                     href={cat.href}
-                    className="text-slate-400 hover:text-indigo-400 text-sm transition-colors"
+                    className="text-slate-400 hover:text-blue-400 text-sm transition-colors"
                   >
                     {cat.label}
                   </Link>
@@ -78,7 +78,7 @@ export default function Footer() {
                 <li key={p.href}>
                   <Link
                     href={p.href}
-                    className="text-slate-400 hover:text-indigo-400 text-sm transition-colors"
+                    className="text-slate-400 hover:text-blue-400 text-sm transition-colors"
                   >
                     {p.label}
                   </Link>
@@ -99,7 +99,7 @@ export default function Footer() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 hover:text-indigo-400 transition-colors"
+                    className="flex items-center gap-2 hover:text-blue-400 transition-colors"
                   >
                     <Icon className="w-4 h-4 flex-shrink-0" />
                     {label}

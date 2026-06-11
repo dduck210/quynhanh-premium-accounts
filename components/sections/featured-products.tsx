@@ -1,8 +1,9 @@
-import { featuredProducts } from "@/data/products";
+import { Product } from "@/data/products";
 import ProductCard from "../product/product-card";
 import AnimatedSection from "../ui/animated-section";
 
-export default function FeaturedProducts() {
+export default function FeaturedProducts({ products }: { products: Product[] }) {
+  const featuredProducts = products.filter((p) => p.isFeatured);
   return (
     <section id="featured" className="py-14 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,7 +12,7 @@ export default function FeaturedProducts() {
             <h2 className="text-2xl md:text-3xl font-black text-gray-900">
               Nổi bật
             </h2>
-            <span className="bg-indigo-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+            <span className="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">
               HOT
             </span>
           </div>

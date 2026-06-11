@@ -7,29 +7,33 @@ import CategoryGrid from "@/components/sections/category-grid";
 import ProductSection from "@/components/sections/product-section";
 import ContactCta from "@/components/sections/contact-cta";
 import Footer from "@/components/layout/footer";
-import { categories, products } from "@/data/products";
+import { sanityClient } from "@/sanity/lib/sanity-client";
+import { ALL_PRODUCTS_QUERY, ALL_CATEGORIES_QUERY } from "@/sanity/lib/sanity-queries";
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
+  const [products, categories] = await Promise.all([
+    sanityClient.fetch(ALL_PRODUCTS_QUERY),
+    sanityClient.fetch(ALL_CATEGORIES_QUERY),
+  ]);
+
   return (
     <main>
       <AnnouncementBar />
       <Navbar />
       <HeroSection />
-      <FeaturedProducts />
+      <FeaturedProducts products={products} />
       <CtaBanner />
-      <CategoryGrid />
+      <CategoryGrid categories={categories} />
 
-      {/* Per-category product sections — show 4 per category, link to full page */}
       <div id="products">
-        {categories.map((cat, index) => {
-          const catProducts = products
-            .filter((p) => p.categoryId === cat.id)
-            .slice(0, 4);
+        {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+        {categories.map((cat: any, index: number) => {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const catProducts = products.filter((p: any) => p.categoryId === cat.id).slice(0, 4);
           return (
-            <div
-              key={cat.id}
-              className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
-            >
+            <div key={cat.id} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
               <ProductSection
                 categoryId={cat.id}
                 categoryName={cat.name}

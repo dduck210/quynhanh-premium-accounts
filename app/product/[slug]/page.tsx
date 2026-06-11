@@ -1,12 +1,13 @@
 import { notFound } from "next/navigation";
 import { BadgeCheck, Zap, ShieldCheck, Headphones, Sparkles, ShoppingCart } from "lucide-react";
-import { products, categories, formatPrice } from "@/data/products";
+import { formatPrice } from "@/data/products";
+import { sanityClient } from "@/sanity/lib/sanity-client";
 import {
-  productFeatures,
-  generatePricingTiers,
-  HOW_TO_BUY,
-} from "@/data/product-details";
-import { productPricingTiers } from "@/data/product-pricing-tiers";
+  ALL_PRODUCTS_QUERY,
+  PRODUCT_BY_SLUG_QUERY,
+  ALL_CATEGORIES_QUERY,
+  SITE_SETTINGS_QUERY,
+} from "@/sanity/lib/sanity-queries";
 import AnnouncementBar from "@/components/layout/announcement-bar";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
@@ -15,12 +16,15 @@ import PricingTierSelector from "@/components/product/pricing-tier-selector";
 import ProductCard from "@/components/product/product-card";
 import ProductDetailLogo from "@/components/product/product-detail-logo";
 
-export function generateStaticParams() {
-  return products.map((p) => ({ slug: p.id }));
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const products = await sanityClient.fetch(ALL_PRODUCTS_QUERY);
+  return products.map((p: { id: string }) => ({ slug: p.id }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const p = products.find((p) => p.id === params.slug);
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const p = await sanityClient.fetch(PRODUCT_BY_SLUG_QUERY, { slug: params.slug });
   return {
     title: p
       ? `${p.name} – Quỳnh Anh Premium Accounts`
@@ -29,16 +33,27 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   };
 }
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
-  const product = products.find((p) => p.id === params.slug);
+export default async function ProductPage({ params }: { params: { slug: string } }) {
+  const [product, categories, allProducts, siteSettings] = await Promise.all([
+    sanityClient.fetch(PRODUCT_BY_SLUG_QUERY, { slug: params.slug }),
+    sanityClient.fetch(ALL_CATEGORIES_QUERY),
+    sanityClient.fetch(ALL_PRODUCTS_QUERY),
+    sanityClient.fetch(SITE_SETTINGS_QUERY),
+  ]);
   if (!product) notFound();
 
-  const category = categories.find((c) => c.id === product.categoryId);
-  const features = productFeatures[product.id] ?? [];
-  const tiers = productPricingTiers[product.id] ?? generatePricingTiers(product.price);
-  const related = products
-    .filter((p) => p.categoryId === product.categoryId && p.id !== product.id)
+  const category = categories.find((c: { id: string }) => c.id === product.categoryId);
+  const features: string[] = product.features ?? [];
+  const tiers = product.pricingTiers ?? [];
+  const related = allProducts
+    .filter((p: { categoryId: string; id: string }) => p.categoryId === product.categoryId && p.id !== product.id)
     .slice(0, 3);
+  const howToBuy: string[] = siteSettings?.howToBuySteps ?? [
+    "Chọn gói thời hạn phù hợp với nhu cầu sử dụng",
+    "Bấm \"Đặt mua ngay\" hoặc liên hệ Zalo: 0339502155",
+    "Thanh toán qua chuyển khoản ngân hàng hoặc ví điện tử",
+    "Nhận thông tin tài khoản qua Zalo trong 5–15 phút",
+  ];
 
   const discountPct = product.originalPrice
     ? Math.round((1 - product.price / product.originalPrice) * 100)
@@ -67,7 +82,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             {/* ── LEFT: Product visual ──────────────────────────────────────── */}
             <div>
               {/* Large product image card */}
-              <div className="aspect-square max-w-sm mx-auto rounded-3xl bg-gradient-to-br from-slate-50 via-indigo-50/40 to-purple-50 border border-indigo-100 flex items-center justify-center shadow-sm">
+              <div className="aspect-square max-w-sm mx-auto rounded-3xl bg-gradient-to-br from-slate-50 via-blue-50/40 to-purple-50 border border-blue-100 flex items-center justify-center shadow-sm">
                 <ProductDetailLogo
                   id={product.id}
                   name={product.name}
@@ -81,7 +96,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 {[
                   { icon: BadgeCheck, text: "Chính hãng 100%",   color: "text-emerald-500" },
                   { icon: Zap,        text: "Giao trong 15 phút", color: "text-amber-500"   },
-                  { icon: ShieldCheck,text: "Bảo hành đầy đủ hạn",color: "text-indigo-500" },
+                  { icon: ShieldCheck,text: "Bảo hành đầy đủ hạn",color: "text-blue-500" },
                   { icon: Headphones, text: "Hỗ trợ 24/7",        color: "text-blue-500"   },
                 ].map(({ icon: Icon, text, color }) => (
                   <div
@@ -99,7 +114,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             <div>
               {/* Badges */}
               <div className="flex flex-wrap gap-2 mb-3">
-                <span className="text-xs font-semibold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
+                <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
                   {product.categoryName}
                 </span>
                 {product.isSale && (
@@ -124,25 +139,27 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
               <div className="border-t border-gray-100 mb-5" />
 
-              {/* Base price display */}
-              <div className="flex items-center gap-3 mb-5 flex-wrap">
-                <div className="flex items-baseline gap-1">
-                  <span className="text-4xl font-black text-indigo-600">
-                    {formatPrice(product.price)}
-                  </span>
-                  <span className="text-gray-400 text-sm font-medium">/{product.duration}</span>
+              {/* Base price display — hidden for single-tier (selector shows it already) */}
+              {tiers.length > 1 && (
+                <div className="flex items-center gap-3 mb-5 flex-wrap">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-4xl font-black text-blue-600">
+                      {formatPrice(product.price)}
+                    </span>
+                    <span className="text-gray-400 text-sm font-medium">/{product.duration}</span>
+                  </div>
+                  {product.originalPrice && (
+                    <span className="text-base text-gray-400 line-through decoration-gray-400">
+                      {formatPrice(product.originalPrice)}
+                    </span>
+                  )}
+                  {discountPct && (
+                    <span className="bg-red-500 text-white font-black px-2.5 py-1 rounded-lg text-sm">
+                      -{discountPct}%
+                    </span>
+                  )}
                 </div>
-                {product.originalPrice && (
-                  <span className="text-base text-gray-400 line-through decoration-gray-400">
-                    {formatPrice(product.originalPrice)}
-                  </span>
-                )}
-                {discountPct && (
-                  <span className="bg-red-500 text-white font-black px-2.5 py-1 rounded-lg text-sm">
-                    -{discountPct}%
-                  </span>
-                )}
-              </div>
+              )}
 
               {/* Stock + warranty row */}
               <div className="flex items-center gap-3 mb-6 flex-wrap text-sm">
@@ -175,16 +192,16 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           {features.length > 0 && (
             <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
               <h2 className="flex items-center gap-2 font-black text-gray-900 text-xl mb-5">
-                <Sparkles className="w-5 h-5 text-indigo-500" />
+                <Sparkles className="w-5 h-5 text-blue-500" />
                 Tính năng nổi bật
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {features.map((f, i) => (
                   <div
                     key={i}
-                    className="flex items-start gap-3 p-3.5 rounded-xl bg-indigo-50/60"
+                    className="flex items-start gap-3 p-3.5 rounded-xl bg-blue-50/60"
                   >
-                    <span className="text-indigo-600 font-bold flex-shrink-0 mt-0.5">
+                    <span className="text-blue-600 font-bold flex-shrink-0 mt-0.5">
                       ✓
                     </span>
                     <span className="text-gray-700 text-sm leading-relaxed">
@@ -199,13 +216,13 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           {/* How to buy */}
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
             <h2 className="flex items-center gap-2 font-black text-gray-900 text-xl mb-6">
-              <ShoppingCart className="w-5 h-5 text-indigo-500" />
+              <ShoppingCart className="w-5 h-5 text-blue-500" />
               Cách mua hàng
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {HOW_TO_BUY.map((step, i) => (
+              {howToBuy.map((step, i) => (
                 <div key={i} className="text-center">
-                  <div className="w-11 h-11 rounded-full bg-indigo-600 text-white text-sm font-black flex items-center justify-center mx-auto mb-3 shadow-sm shadow-indigo-200">
+                  <div className="w-11 h-11 rounded-full bg-blue-600 text-white text-sm font-black flex items-center justify-center mx-auto mb-3 shadow-sm shadow-blue-200">
                     {i + 1}
                   </div>
                   <p className="text-gray-600 text-sm leading-relaxed">
@@ -225,7 +242,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 </h2>
                 <a
                   href={`/category/${product.categoryId}`}
-                  className="text-indigo-600 text-sm font-semibold hover:underline"
+                  className="text-blue-600 text-sm font-semibold hover:underline"
                 >
                   Xem tất cả →
                 </a>

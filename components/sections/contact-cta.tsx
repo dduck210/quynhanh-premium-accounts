@@ -46,9 +46,9 @@ const TRUST_POINTS: TrustPoint[] = [
 export default function ContactCta() {
   return (
     <AnimatedSection>
-      <section id="contact" className="py-16 bg-indigo-50">
+      <section id="contact" className="py-16 bg-blue-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <span className="inline-block text-xs font-bold uppercase tracking-widest text-indigo-500 mb-3">
+          <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-500 mb-3">
             Hỗ trợ khách hàng
           </span>
           <h2 className="text-3xl font-black text-gray-900 mb-3">
@@ -63,7 +63,7 @@ export default function ContactCta() {
           <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-10 text-sm text-gray-500">
             {TRUST_POINTS.map(({ icon: Icon, text }) => (
               <span key={text} className="flex items-center gap-1.5">
-                <Icon className="w-4 h-4 text-indigo-500" />
+                <Icon className="w-4 h-4 text-blue-500" />
                 {text}
               </span>
             ))}

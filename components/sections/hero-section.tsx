@@ -16,7 +16,7 @@ const TRUST_BADGES: { icon: LucideIcon; text: string }[] = [
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-br from-slate-950 via-indigo-950 to-purple-950 py-24 md:py-36 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-slate-950 via-blue-950 to-purple-950 py-24 md:py-36 overflow-hidden">
       {/* Radial glow layers */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,rgba(99,102,241,0.22),transparent_55%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_60%,rgba(168,85,247,0.14),transparent_55%)]" />
@@ -33,21 +33,21 @@ export default function HeroSection() {
       />
 
       {/* Animated floating orbs */}
-      <div className="absolute top-1/4 left-8 w-72 h-72 rounded-full bg-indigo-600/10 blur-3xl animate-float pointer-events-none" />
+      <div className="absolute top-1/4 left-8 w-72 h-72 rounded-full bg-blue-600/10 blur-3xl animate-float pointer-events-none" />
       <div
         className="absolute bottom-1/4 right-8 w-64 h-64 rounded-full bg-purple-600/10 blur-3xl animate-float pointer-events-none"
         style={{ animationDelay: "2s" }}
       />
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-indigo-500/5 blur-3xl animate-float pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-blue-500/5 blur-3xl animate-float pointer-events-none"
         style={{ animationDelay: "1s" }}
       />
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Badge */}
-        <div className="animate-slide-up inline-flex items-center gap-2 bg-indigo-500/15 border border-indigo-400/30 rounded-full px-5 py-2 mb-7">
-          <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
-          <span className="text-indigo-300 text-sm font-semibold tracking-wide">
+        <div className="animate-slide-up inline-flex items-center gap-2 bg-blue-500/15 border border-blue-400/30 rounded-full px-5 py-2 mb-7">
+          <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+          <span className="text-blue-300 text-sm font-semibold tracking-wide">
             Chính hãng 100% · Uy tín hàng đầu Việt Nam
           </span>
         </div>
@@ -58,7 +58,7 @@ export default function HeroSection() {
           style={{ animationDelay: "120ms" }}
         >
           Tài khoản premium
-          <span className="block bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-1">
+          <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-1">
             giá tốt nhất
           </span>
         </h1>
@@ -79,10 +79,10 @@ export default function HeroSection() {
         >
           <a
             href="#featured"
-            className="relative overflow-hidden bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white px-8 py-4 rounded-xl font-bold text-base transition-all duration-200 hover:shadow-xl hover:shadow-indigo-500/40 hover:-translate-y-0.5 group"
+            className="relative overflow-hidden bg-blue-600 hover:bg-blue-500 active:scale-95 text-white px-8 py-4 rounded-xl font-bold text-base transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5 group"
           >
             <span className="relative z-10">Khám phá ngay →</span>
-            <span className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </a>
           <a
             href="#categories"
@@ -114,7 +114,7 @@ export default function HeroSection() {
         >
           {TRUST_BADGES.map(({ icon: Icon, text }) => (
             <span key={text} className="flex items-center gap-1.5">
-              <Icon className="w-3.5 h-3.5 text-indigo-400" />
+              <Icon className="w-3.5 h-3.5 text-blue-400" />
               {text}
             </span>
           ))}

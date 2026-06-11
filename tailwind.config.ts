@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#6366f1",
-        "primary-dark": "#4f46e5",
+        primary: "#3b82f6",
+        "primary-dark": "#2563eb",
       },
       animation: {
         "fade-in": "fadeIn 0.6s ease-out both",

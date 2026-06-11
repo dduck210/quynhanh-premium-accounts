@@ -28,13 +28,13 @@ export default function Error({
       <div className="flex gap-3">
         <button
           onClick={reset}
-          className="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-colors"
+          className="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-colors"
         >
           Thử lại
         </button>
         <Link
           href="/"
-          className="border border-gray-200 hover:border-indigo-300 text-gray-700 hover:text-indigo-600 px-5 py-2.5 rounded-xl font-semibold text-sm transition-colors"
+          className="border border-gray-200 hover:border-blue-300 text-gray-700 hover:text-blue-600 px-5 py-2.5 rounded-xl font-semibold text-sm transition-colors"
         >
           Về trang chủ
         </Link>

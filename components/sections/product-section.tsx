@@ -30,13 +30,13 @@ export default function ProductSection({
             <h2 className="text-xl md:text-2xl font-black text-gray-900">
               {categoryName}
             </h2>
-            <span className="bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full">
+            <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">
               {productCount} sản phẩm
             </span>
           </div>
           <Link
             href={`/category/${categoryId}`}
-            className="text-indigo-600 hover:text-indigo-700 font-semibold text-sm flex items-center gap-1 transition-all duration-200 hover:gap-2"
+            className="text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center gap-1 transition-all duration-200 hover:gap-2"
           >
             Xem tất cả →
           </Link>

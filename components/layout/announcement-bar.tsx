@@ -27,10 +27,10 @@ export default function AnnouncementBar() {
   const track = [...MESSAGES, ...MESSAGES];
 
   return (
-    <div className="bg-indigo-950 text-white text-xs py-2 overflow-hidden">
+    <div className="bg-blue-950 text-white text-xs py-2 overflow-hidden">
       {/* Mobile: scrolling marquee */}
       <div className="sm:hidden flex items-center">
-        <div className="marquee-track flex gap-10 whitespace-nowrap text-indigo-200 font-medium tracking-wide">
+        <div className="marquee-track flex gap-10 whitespace-nowrap text-blue-200 font-medium tracking-wide">
           {track.map((msg, i) => (
             <MessageItem key={i} msg={msg} />
           ))}
@@ -39,11 +39,11 @@ export default function AnnouncementBar() {
 
       {/* Desktop: static layout */}
       <div className="hidden sm:flex max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 items-center justify-between gap-4">
-        <p className="font-medium tracking-wide text-indigo-100">
+        <p className="font-medium tracking-wide text-blue-100">
           ✦ Chất lượng – Ưu đãi – Uy tín &nbsp;|&nbsp; Quỳnh Anh Premium
           Accounts &nbsp;|&nbsp; Hỗ trợ 24/7
         </p>
-        <div className="flex items-center gap-5 text-indigo-300 flex-shrink-0">
+        <div className="flex items-center gap-5 text-blue-300 flex-shrink-0">
           <MessageItem msg={MESSAGES[0]} />
           <MessageItem msg={MESSAGES[1]} />
         </div>

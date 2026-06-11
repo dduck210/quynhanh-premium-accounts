@@ -33,7 +33,7 @@ export const categories: Category[] = [
   { id: "hoc-tap",     name: "Học tập",          icon: "BookOpen",  count: 16, bgColor: "bg-blue-100",   textColor: "text-blue-700"   },
   { id: "phim-anh",    name: "Phim ảnh",         icon: "Film",      count: 4,  bgColor: "bg-red-100",    textColor: "text-red-700"    },
   { id: "tien-ich",    name: "Tiện ích khác",    icon: "Zap",       count: 4,  bgColor: "bg-yellow-100", textColor: "text-yellow-700" },
-  { id: "van-phong",   name: "Văn phòng",        icon: "Briefcase", count: 9,  bgColor: "bg-indigo-100", textColor: "text-indigo-700" },
+  { id: "van-phong",   name: "Văn phòng",        icon: "Briefcase", count: 9,  bgColor: "bg-blue-100", textColor: "text-blue-700" },
   { id: "vpn",         name: "VPN",              icon: "Shield",    count: 4,  bgColor: "bg-slate-100",  textColor: "text-slate-700"  },
 ];
 

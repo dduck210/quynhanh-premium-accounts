@@ -63,13 +63,13 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-1 select-none min-w-0">
-              <span className="text-xl sm:text-2xl font-black text-indigo-600 whitespace-nowrap">
+              <span className="text-xl sm:text-2xl font-black text-blue-600 whitespace-nowrap">
                 Quỳnh Anh
               </span>
               <span className="text-xl sm:text-2xl font-black text-gray-900 whitespace-nowrap">
                 Premium
               </span>
-              <span className="ml-1.5 text-xs font-semibold bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full hidden sm:inline">
+              <span className="ml-1.5 text-xs font-semibold bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full hidden sm:inline">
                 Accounts
               </span>
             </Link>
@@ -81,7 +81,7 @@ export default function Navbar() {
                   key={link.id}
                   href={`/#${link.id}`}
                   onClick={scrollToSection(link.id)}
-                  className="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors duration-200 px-2"
+                  className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors duration-200 px-2"
                 >
                   {link.label}
                 </a>
@@ -90,7 +90,7 @@ export default function Navbar() {
                 href="https://zalo.me/0339502155"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-200 shadow-sm hover:shadow-indigo-200 hover:shadow-md whitespace-nowrap ml-1"
+                className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-500 active:scale-95 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-200 shadow-sm hover:shadow-blue-200 hover:shadow-md whitespace-nowrap ml-1"
               >
                 <MessageCircle className="w-4 h-4" />
                 <span>Tham gia nhóm Zalo</span>
@@ -103,7 +103,7 @@ export default function Navbar() {
                 href="https://zalo.me/0339502155"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-lg font-semibold text-xs transition-all duration-200"
+                className="flex items-center gap-1 bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-lg font-semibold text-xs transition-all duration-200"
               >
                 <MessageCircle className="w-3.5 h-3.5" />
                 <span>Zalo</span>
@@ -141,9 +141,9 @@ export default function Navbar() {
               key={link.id}
               href={`/#${link.id}`}
               onClick={scrollToSection(link.id)}
-              className="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-indigo-50 hover:text-indigo-700 font-medium text-sm transition-colors duration-150"
+              className="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-blue-50 hover:text-blue-700 font-medium text-sm transition-colors duration-150"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0" />
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
               {link.label}
             </a>
           ))}
@@ -153,7 +153,7 @@ export default function Navbar() {
               href="https://zalo.me/0339502155"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-3 rounded-xl font-bold text-sm transition-colors duration-200"
+              className="flex items-center justify-center gap-2 w-full bg-blue-600 hover:bg-blue-500 text-white px-4 py-3 rounded-xl font-bold text-sm transition-colors duration-200"
             >
               <MessageCircle className="w-4 h-4" />
               Tham gia nhóm Zalo ngay
