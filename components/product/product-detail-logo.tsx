@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import BrandSvgIcon from "./brand-svg-icon";
+import { BRAND_ICON_MAP } from "@/lib/product-brand-icons";
 
 interface Props {
   id: string;
@@ -12,6 +14,15 @@ interface Props {
 
 export default function ProductDetailLogo({ id, name, logoEmoji, logoColor }: Props) {
   const [err, setErr] = useState(false);
+
+  if (BRAND_ICON_MAP[id]) {
+    return (
+      <div className="w-full h-full flex items-center justify-center p-14">
+        <BrandSvgIcon productId={id} size={180} className="drop-shadow-sm" />
+      </div>
+    );
+  }
+
   return (
     <div className="w-full h-full flex items-center justify-center p-12">
       {err ? (

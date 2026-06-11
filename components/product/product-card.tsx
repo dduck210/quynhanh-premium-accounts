@@ -4,9 +4,23 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Product, formatPrice } from "@/data/products";
+import BrandSvgIcon from "./brand-svg-icon";
+import { BRAND_ICON_MAP } from "@/lib/product-brand-icons";
 
 function ProductLogo({ product }: { product: Product }) {
   const [err, setErr] = useState(false);
+
+  if (BRAND_ICON_MAP[product.id]) {
+    return (
+      <div
+        className="w-12 h-12 rounded-xl flex items-center justify-center mb-3 flex-shrink-0 transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-110"
+        style={{ backgroundColor: product.logoColor + "15" }}
+      >
+        <BrandSvgIcon productId={product.id} size={30} />
+      </div>
+    );
+  }
+
   return (
     <div
       className="w-12 h-12 rounded-xl flex items-center justify-center mb-3 flex-shrink-0 transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-110 overflow-hidden"
