@@ -13,19 +13,21 @@ interface Props {
 export default function ProductDetailLogo({ id, name, logoEmoji, logoColor }: Props) {
   const [err, setErr] = useState(false);
   return (
-    <div
-      className="w-48 h-48 rounded-3xl flex items-center justify-center shadow-inner overflow-hidden"
-      style={{ backgroundColor: logoColor + "18" }}
-    >
+    <div className="w-full h-full flex items-center justify-center p-12">
       {err ? (
-        <span className="text-[5rem]">{logoEmoji}</span>
+        <div
+          className="w-40 h-40 rounded-3xl flex items-center justify-center"
+          style={{ backgroundColor: logoColor + "22" }}
+        >
+          <span className="text-[5rem] leading-none">{logoEmoji}</span>
+        </div>
       ) : (
         <Image
           src={`/images/products/${id.toLowerCase()}.png`}
           alt={name}
-          width={128}
-          height={128}
-          className="w-32 h-32 object-contain"
+          width={240}
+          height={240}
+          className="w-full h-full object-contain drop-shadow-md"
           onError={() => setErr(true)}
           unoptimized
         />
