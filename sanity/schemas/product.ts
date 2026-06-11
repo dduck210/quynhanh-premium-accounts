@@ -9,9 +9,6 @@ export const productSchema = defineType({
     defineField({ name: 'name', title: 'Tên sản phẩm', type: 'string', validation: r => r.required() }),
     defineField({ name: 'categoryId', title: 'Category ID', type: 'string', validation: r => r.required() }),
     defineField({ name: 'categoryName', title: 'Category Name', type: 'string' }),
-    defineField({ name: 'price', title: 'Giá (VNĐ)', type: 'number', validation: r => r.required().min(0) }),
-    defineField({ name: 'originalPrice', title: 'Giá gốc (nếu đang sale)', type: 'number' }),
-    defineField({ name: 'duration', title: 'Đơn vị thời gian', type: 'string', initialValue: 'tháng' }),
     defineField({ name: 'logoEmoji', title: 'Logo Emoji', type: 'string' }),
     defineField({ name: 'logoColor', title: 'Logo Color (hex)', type: 'string' }),
     defineField({ name: 'description', title: 'Mô tả ngắn', type: 'text', rows: 2 }),
@@ -47,7 +44,7 @@ export const productSchema = defineType({
     }),
   ],
   preview: {
-    select: { title: 'name', subtitle: 'categoryName', price: 'price' },
+    select: { title: 'name', subtitle: 'categoryName', price: 'pricingTiers.0.price' },
     prepare({ title, subtitle, price }) {
       return { title, subtitle: `${subtitle} — ${price?.toLocaleString('vi-VN')}₫` }
     },

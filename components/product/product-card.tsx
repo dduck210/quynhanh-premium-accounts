@@ -44,10 +44,8 @@ function ProductLogo({ product }: { product: Product }) {
 }
 
 export default function ProductCard({ product }: { product: Product }) {
-  const discountPct =
-    product.originalPrice && product.isSale
-      ? Math.round((1 - product.price / product.originalPrice) * 100)
-      : null;
+  const firstTier = product.pricingTiers?.[0];
+  const discountPct = firstTier?.savings ?? null;
 
   return (
     <Link
@@ -82,17 +80,14 @@ export default function ProductCard({ product }: { product: Product }) {
         </p>
 
         {/* Pricing */}
-        <div className="flex items-baseline gap-1.5 mb-3 flex-wrap">
-          <span className="text-lg font-black text-blue-600">
-            {formatPrice(product.price)}
-          </span>
-          {product.originalPrice && (
-            <span className="text-xs text-gray-400 line-through">
-              {formatPrice(product.originalPrice)}
+        {firstTier && (
+          <div className="flex items-baseline gap-1.5 mb-3 flex-wrap">
+            <span className="text-lg font-black text-blue-600">
+              {formatPrice(firstTier.price)}
             </span>
-          )}
-          <span className="text-xs text-gray-400">/{product.duration}</span>
-        </div>
+            <span className="text-xs text-gray-400">/{firstTier.duration}</span>
+          </div>
+        )}
 
         {/* CTA — shimmer effect on hover */}
         <div className="relative block w-full py-2 px-3 rounded-lg border border-blue-200 text-blue-600 text-xs font-semibold text-center overflow-hidden transition-all duration-200 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 group-hover:shadow-md group-hover:shadow-blue-200">
