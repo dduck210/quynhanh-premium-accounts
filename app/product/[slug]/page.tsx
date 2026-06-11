@@ -11,6 +11,7 @@ import Footer from "@/components/layout/footer";
 import Breadcrumb from "@/components/ui/breadcrumb";
 import PricingTierSelector from "@/components/product/pricing-tier-selector";
 import ProductCard from "@/components/product/product-card";
+import ProductDetailLogo from "@/components/product/product-detail-logo";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.id }));
@@ -65,12 +66,12 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             <div>
               {/* Large product image card */}
               <div className="aspect-square max-w-sm mx-auto rounded-3xl bg-gradient-to-br from-slate-50 via-indigo-50/40 to-purple-50 border border-indigo-100 flex items-center justify-center shadow-sm">
-                <div
-                  className="w-48 h-48 rounded-3xl flex items-center justify-center text-[5rem] shadow-inner"
-                  style={{ backgroundColor: product.logoColor + "18" }}
-                >
-                  {product.logoEmoji}
-                </div>
+                <ProductDetailLogo
+                  id={product.id}
+                  name={product.name}
+                  logoEmoji={product.logoEmoji}
+                  logoColor={product.logoColor}
+                />
               </div>
 
               {/* Trust signals under image */}
