@@ -6,6 +6,7 @@ import {
   generatePricingTiers,
   HOW_TO_BUY,
 } from "@/data/product-details";
+import { productPricingTiers } from "@/data/product-pricing-tiers";
 import AnnouncementBar from "@/components/layout/announcement-bar";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
@@ -34,7 +35,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
   const category = categories.find((c) => c.id === product.categoryId);
   const features = productFeatures[product.id] ?? [];
-  const tiers = generatePricingTiers(product.price);
+  const tiers = productPricingTiers[product.id] ?? generatePricingTiers(product.price);
   const related = products
     .filter((p) => p.categoryId === product.categoryId && p.id !== product.id)
     .slice(0, 3);
@@ -123,13 +124,13 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
 
               <div className="border-t border-gray-100 mb-5" />
 
-              {/* Base price display (monthly) */}
+              {/* Base price display */}
               <div className="flex items-center gap-3 mb-5 flex-wrap">
                 <div className="flex items-baseline gap-1">
                   <span className="text-4xl font-black text-indigo-600">
                     {formatPrice(product.price)}
                   </span>
-                  <span className="text-gray-400 text-sm font-medium">/tháng</span>
+                  <span className="text-gray-400 text-sm font-medium">/{product.duration}</span>
                 </div>
                 {product.originalPrice && (
                   <span className="text-base text-gray-400 line-through decoration-gray-400">

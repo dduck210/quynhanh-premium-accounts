@@ -44,7 +44,7 @@ export default function Page() {
 
       <Section title="5. Liên hệ hỗ trợ">
         <p>
-          Hotline Zalo: <strong>0912.345.678</strong> — Hỗ trợ từ 8:00 đến 23:00
+          Hotline Zalo: <strong>0339.502.155</strong> — Hỗ trợ từ 8:00 đến 23:00
           mỗi ngày.
         </p>
       </Section>

@@ -13,7 +13,9 @@ const pages = [
   { name: "home-mobile", url: "/", width: 390, height: 844, scroll: 0 },
   { name: "product-detail-svg", url: "/product/claude-ai", width: 1440, height: 900, scroll: 0 },
   { name: "product-detail-png", url: "/product/chatgpt-plus", width: 1440, height: 900, scroll: 0 },
-  { name: "product-detail-emoji", url: "/product/copilot", width: 1440, height: 900, scroll: 0 },
+  { name: "product-detail-copilot", url: "/product/copilot", width: 1440, height: 900, scroll: 0 },
+  { name: "product-detail-linkedin", url: "/product/linkedin-premium", width: 1440, height: 900, scroll: 0 },
+  { name: "product-detail-quizizz", url: "/product/quizizz-premium", width: 1440, height: 900, scroll: 0 },
 ];
 
 (async () => {

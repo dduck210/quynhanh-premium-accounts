@@ -16,42 +16,48 @@ export default function PricingTierSelector({ tiers }: Props) {
     defaultIndex >= 0 ? defaultIndex : 0,
   );
   const tier = tiers[selected];
+  const multiTier = tiers.length > 1;
 
   return (
     <div>
-      {/* Duration selector */}
-      <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">
-        Chọn thời hạn sử dụng
-      </p>
-      <div className="flex flex-wrap gap-2.5 mb-6 pt-3">
-        {tiers.map((t, i) => {
-          const active = selected === i;
-          return (
-            <div key={t.duration} className="relative">
-              {t.isPopular && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-500 text-white text-[9px] font-black px-2 py-0.5 rounded-full whitespace-nowrap z-10 shadow-sm">
-                  PHỔ BIẾN
-                </span>
-              )}
-              <button
-                onClick={() => setSelected(i)}
-                className={`relative px-4 py-2.5 rounded-xl border-2 font-semibold text-sm transition-all duration-200 active:scale-95 ${
-                  active
-                    ? "border-indigo-600 bg-indigo-600 text-white shadow-lg shadow-indigo-300/50 scale-105"
-                    : "border-gray-200 bg-white text-gray-600 hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-600 hover:shadow-sm"
-                }`}
-              >
-                {t.duration}
-                {t.savings && (
-                  <span className={`ml-1.5 text-xs font-bold ${active ? "text-indigo-200" : "text-emerald-500"}`}>
-                    -{t.savings}%
-                  </span>
-                )}
-              </button>
-            </div>
-          );
-        })}
-      </div>
+      {/* Duration selector — hidden when only one option */}
+      {multiTier && (
+        <>
+          <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">
+            Chọn thời hạn sử dụng
+          </p>
+          <div className="flex flex-wrap gap-2.5 mb-6 pt-3">
+            {tiers.map((t, i) => {
+              const active = selected === i;
+              const btnLabel = t.label ?? t.duration;
+              return (
+                <div key={`${t.duration}-${t.label ?? i}`} className="relative">
+                  {t.isPopular && (
+                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-500 text-white text-[9px] font-black px-2 py-0.5 rounded-full whitespace-nowrap z-10 shadow-sm">
+                      PHỔ BIẾN
+                    </span>
+                  )}
+                  <button
+                    onClick={() => setSelected(i)}
+                    className={`relative px-4 py-2.5 rounded-xl border-2 font-semibold text-sm transition-all duration-200 active:scale-95 ${
+                      active
+                        ? "border-indigo-600 bg-indigo-600 text-white shadow-lg shadow-indigo-300/50 scale-105"
+                        : "border-gray-200 bg-white text-gray-600 hover:border-indigo-300 hover:bg-indigo-50 hover:text-indigo-600 hover:shadow-sm"
+                    }`}
+                  >
+                    {btnLabel}
+                    {t.savings && (
+                      <span className={`ml-1.5 text-xs font-bold ${active ? "text-indigo-200" : "text-emerald-500"}`}>
+                        -{t.savings}%
+                      </span>
+                    )}
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </>
+      )}
 
       {/* Price */}
       <div className="flex items-baseline gap-2.5 mb-1">

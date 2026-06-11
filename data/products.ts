@@ -43,7 +43,7 @@ export const products: Product[] = [
     id: "chatgpt-plus",
     name: "ChatGPT Plus",
     categoryId: "ai-chat", categoryName: "AI Chat",
-    price: 125000, originalPrice: 480000,
+    price: 90000, originalPrice: 480000,
     logoEmoji: "🤖", logoColor: "#10a37f", duration: "tháng",
     description: "GPT-4o dùng chung 7 thiết bị, tài khoản shop cấp, bảo hành full",
     isFeatured: true, isSale: true,
@@ -95,9 +95,9 @@ export const products: Product[] = [
     id: "super-grok",
     name: "Super Grok AI",
     categoryId: "ai-chat", categoryName: "AI Chat",
-    price: 150000,
+    price: 300000,
     logoEmoji: "⚡", logoColor: "#1a1a1a", duration: "tháng",
-    description: "Từ 150k/tháng — gói nâng chính chủ 300k/tháng, cần mail + pass, ổn định bảo hành đủ hạn",
+    description: "Nâng chính chủ 300k/tháng — cần mail + pass tài khoản, ổn định bảo hành đủ hạn",
   },
 
   // ── ÂM NHẠC (3) ──────────────────────────────────────────────────────────────

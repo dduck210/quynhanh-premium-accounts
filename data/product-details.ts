@@ -1,5 +1,6 @@
 export interface PricingTier {
-  duration: string;
+  duration: string;  // price unit shown after the price, e.g. "tháng", "1 năm"
+  label?: string;    // button label; defaults to duration if omitted
   price: number;
   isPopular?: boolean;
   savings?: number;

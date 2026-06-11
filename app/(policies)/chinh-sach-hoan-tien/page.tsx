@@ -41,7 +41,7 @@ export default function Page() {
 
       <Section title="4. Liên hệ">
         <p>
-          Zalo: <strong>0912.345.678</strong> | Email:{" "}
+          Zalo: <strong>0339.502.155</strong> | Email:{" "}
           <strong>support@quynhanhpremium.vn</strong>
         </p>
       </Section>
