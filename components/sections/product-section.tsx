@@ -24,19 +24,19 @@ export default function ProductSection({
     <section id={categoryId} className="py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <AnimatedSection className="flex items-center justify-between mb-7">
-          <div className="flex items-center gap-3">
-            <span className="text-2xl">{categoryIcon}</span>
-            <h2 className="text-xl md:text-2xl font-black text-gray-900">
+        <AnimatedSection className="flex flex-wrap items-center justify-between gap-y-2 mb-7">
+          <div className="flex items-center gap-3 min-w-0">
+            <span className="text-2xl flex-shrink-0">{categoryIcon}</span>
+            <h2 className="text-xl md:text-2xl font-black text-gray-900 truncate">
               {categoryName}
             </h2>
-            <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full">
+            <span className="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1 rounded-full flex-shrink-0">
               {productCount} sản phẩm
             </span>
           </div>
           <Link
             href={`/category/${categoryId}`}
-            className="text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center gap-1 transition-all duration-200 hover:gap-2"
+            className="text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center gap-1 transition-all duration-200 hover:gap-2 flex-shrink-0"
           >
             Xem tất cả →
           </Link>

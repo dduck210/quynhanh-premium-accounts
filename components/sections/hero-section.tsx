@@ -55,7 +55,7 @@ export default function HeroSection() {
 
         {/* Headline */}
         <h1
-          className="animate-slide-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.08] tracking-tight"
+          className="animate-slide-up text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.08] tracking-tight"
           style={{ animationDelay: "120ms" }}
         >
           Tài khoản premium

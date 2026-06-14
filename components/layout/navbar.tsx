@@ -103,7 +103,7 @@ export default function Navbar() {
                 href="https://zalo.me/0339502155"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-lg font-semibold text-xs transition-all duration-200"
+                className="flex items-center gap-1 bg-blue-600 hover:bg-blue-500 text-white px-3 py-2.5 rounded-lg font-semibold text-xs transition-all duration-200"
               >
                 <MessageCircle className="w-3.5 h-3.5" />
                 <span>Zalo</span>
@@ -113,7 +113,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen((v) => !v)}
                 aria-label={menuOpen ? "Đóng menu" : "Mở menu"}
                 aria-expanded={menuOpen}
-                className="p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200"
+                className="p-3 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-200"
               >
                 <span className="block w-5 h-0.5 bg-current transition-all duration-300 origin-center" style={{ transform: menuOpen ? "translateY(6px) rotate(45deg)" : "" }} />
                 <span className="block w-5 h-0.5 bg-current mt-1.5 transition-all duration-300" style={{ opacity: menuOpen ? 0 : 1 }} />

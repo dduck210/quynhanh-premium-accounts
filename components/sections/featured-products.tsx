@@ -22,7 +22,7 @@ export default function FeaturedProducts({ products }: { products: Product[] }) 
         <div className="relative md:hidden">
           <div className="flex gap-5 overflow-x-auto scrollbar-hide pb-3 -mx-4 px-4">
             {featuredProducts.map((product) => (
-              <div key={product.id} className="flex-none w-56 sm:w-64">
+              <div key={product.id} className="flex-none w-[72vw] sm:w-64">
                 <ProductCard product={product} />
               </div>
             ))}

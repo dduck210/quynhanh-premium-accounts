@@ -126,7 +126,7 @@ export default async function ProductPage({ params }: { params: { slug: string }
               </div>
 
               {/* Name & description */}
-              <h1 className="text-3xl font-black text-gray-900 mb-2 leading-tight">
+              <h1 className="text-2xl sm:text-3xl font-black text-gray-900 mb-2 leading-tight">
                 {product.name}
               </h1>
               <p className="text-gray-500 leading-relaxed mb-5">
@@ -193,7 +193,7 @@ export default async function ProductPage({ params }: { params: { slug: string }
               <ShoppingCart className="w-5 h-5 text-blue-500" />
               Cách mua hàng
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
               {howToBuy.map((step, i) => (
                 <div key={i} className="text-center">
                   <div className="w-11 h-11 rounded-full bg-blue-600 text-white text-sm font-black flex items-center justify-center mx-auto mb-3 shadow-sm shadow-blue-200">

@@ -1,0 +1,27 @@
+
+> nextjs-store@0.1.0 dev
+> next dev --turbo
+
+  ▲ Next.js 14.2.35 (turbo)
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 900ms
+ ○ Compiling / ...
+ ✓ Compiled / in 2.1s
+ GET / 200 in 2581ms
+ GET / 200 in 909ms
+ ○ Compiling /_not-found/page ...
+ ✓ Compiled /_not-found/page in 939ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 996ms
+ GET / 200 in 125ms
+ GET / 200 in 111ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 96ms
+ ✓ Compiled /chinh-sach-hoan-tien in 120ms
+ GET /.well-known/appspecific/com.chrome.devtools.json 404 in 93ms
+ ✓ Compiled in 43ms
+ ✓ Compiled /chinh-sach-hoan-tien in 26ms
+ ✓ Compiled /chinh-sach-hoan-tien in 23ms
+ ✓ Compiled /chinh-sach-hoan-tien in 52ms
+ ✓ Compiled / in 27ms
+ ✓ Compiled /product/[slug] in 165ms

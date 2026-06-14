@@ -17,14 +17,14 @@ export default function ProductDetailLogo({ id, name, logoEmoji, logoColor }: Pr
 
   if (BRAND_ICON_MAP[id]) {
     return (
-      <div className="w-full h-full flex items-center justify-center p-14">
+      <div className="w-full h-full flex items-center justify-center p-8 sm:p-14">
         <BrandSvgIcon productId={id} size={180} className="drop-shadow-sm" />
       </div>
     );
   }
 
   return (
-    <div className="w-full h-full flex items-center justify-center p-12">
+    <div className="w-full h-full flex items-center justify-center p-8 sm:p-12">
       {err ? (
         <div
           className="w-40 h-40 rounded-3xl flex items-center justify-center"
