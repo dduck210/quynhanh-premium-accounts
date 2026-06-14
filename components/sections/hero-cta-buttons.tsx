@@ -1,11 +1,12 @@
 "use client";
+import { smoothScrollTo } from "@/lib/smooth-scroll";
 
 export default function HeroCtaButtons() {
   const scrollTo = (id: string) => () => {
     const el = document.getElementById(id);
     if (!el) return;
     const top = el.getBoundingClientRect().top + window.scrollY;
-    window.scrollTo({ top, behavior: "smooth" });
+    smoothScrollTo(top);
   };
 
   return (
