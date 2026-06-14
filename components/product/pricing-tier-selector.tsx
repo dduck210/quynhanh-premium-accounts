@@ -83,7 +83,7 @@ export default function PricingTierSelector({ tiers }: Props) {
 
       {/* Primary CTA */}
       <a
-        href="https://zalo.me/g/"
+        href="https://zalo.me/0339502155"
         target="_blank"
         rel="noopener noreferrer"
         className="flex items-center justify-center gap-2.5 w-full bg-blue-600 hover:bg-blue-500 active:scale-95 text-white py-4 px-6 rounded-xl font-bold text-base transition-all duration-200 hover:shadow-xl hover:shadow-blue-200 hover:-translate-y-0.5"
@@ -98,7 +98,7 @@ export default function PricingTierSelector({ tiers }: Props) {
       {/* Secondary contacts */}
       <div className="flex gap-3">
         <a
-          href="https://m.me/"
+          href="https://m.me/quanhquanh24"
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl border border-gray-200 hover:bg-purple-50 hover:border-purple-300 active:scale-95 transition-all duration-200 text-sm font-semibold text-gray-600"
@@ -107,7 +107,7 @@ export default function PricingTierSelector({ tiers }: Props) {
           Messenger
         </a>
         <a
-          href="https://facebook.com/"
+          href="https://www.facebook.com/quanhquanh24"
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl border border-gray-200 hover:bg-blue-50 hover:border-blue-300 active:scale-95 transition-all duration-200 text-sm font-semibold text-gray-600"
