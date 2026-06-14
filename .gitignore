@@ -27,3 +27,5 @@ next-env.d.ts
 
 # Claude Code config (personal tooling)
 .claude/
+
+.vercel

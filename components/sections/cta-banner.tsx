@@ -1,5 +1,6 @@
 import { MessageCircle } from "lucide-react";
 import AnimatedSection from "../ui/animated-section";
+import { SITE_CONFIG } from "@/lib/site-config";
 
 export default function CtaBanner() {
   return (
@@ -19,7 +20,7 @@ export default function CtaBanner() {
             Quỳnh Anh Premium Accounts.
           </p>
           <a
-            href="https://zalo.me/0339502155"
+            href={SITE_CONFIG.zaloUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex w-full sm:w-auto justify-center items-center gap-2.5 bg-blue-500 hover:bg-blue-400 active:scale-95 text-white px-8 py-4 rounded-xl font-bold text-base transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-0.5"

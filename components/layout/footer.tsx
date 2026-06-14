@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MessageCircle, Send, Clock, MapPin, Heart } from "lucide-react";
 import { FacebookIcon } from "@/components/ui/brand-icons";
+import { SITE_CONFIG } from "@/lib/site-config";
 
 const categoryLinks = [
   { label: "AI Chat", href: "/category/ai-chat" },
@@ -22,9 +23,9 @@ const policyLinks = [
 ];
 
 const contactLinks = [
-  { icon: MessageCircle, label: "Zalo: 0339.502.155", href: "https://zalo.me/0339502155" },
-  { icon: FacebookIcon,      label: "Facebook: quanhquanh24", href: "https://www.facebook.com/quanhquanh24/" },
-  { icon: Send,          label: "Messenger: quanhquanh24", href: "https://m.me/quanhquanh24" },
+  { icon: MessageCircle, label: `Zalo: ${SITE_CONFIG.phone.replace(/(\d{4})(\d{3})(\d{3})/, '$1.$2.$3')}`, href: SITE_CONFIG.zaloUrl },
+  { icon: FacebookIcon,  label: "Facebook: quanhquanh24", href: SITE_CONFIG.facebookUrl },
+  { icon: Send,          label: "Messenger: quanhquanh24", href: SITE_CONFIG.messengerUrl },
 ];
 
 export default function Footer() {

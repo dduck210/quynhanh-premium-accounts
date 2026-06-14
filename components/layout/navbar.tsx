@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { MessageCircle } from "lucide-react";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
+import { SITE_CONFIG } from "@/lib/site-config";
 
 const NAV_LINKS = [
   { label: "Danh mục", id: "categories" },
@@ -87,7 +88,7 @@ export default function Navbar() {
                 </a>
               ))}
               <a
-                href="https://zalo.me/0339502155"
+                href={SITE_CONFIG.zaloUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 bg-blue-600 hover:bg-blue-500 active:scale-95 text-white px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-200 shadow-sm hover:shadow-blue-200 hover:shadow-md whitespace-nowrap ml-1"
@@ -100,7 +101,7 @@ export default function Navbar() {
             {/* Mobile: Zalo button + hamburger */}
             <div className="flex md:hidden items-center gap-2">
               <a
-                href="https://zalo.me/0339502155"
+                href={SITE_CONFIG.zaloUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 bg-blue-600 hover:bg-blue-500 text-white px-3 py-2.5 rounded-lg font-semibold text-xs transition-all duration-200"
@@ -150,7 +151,7 @@ export default function Navbar() {
 
           <div className="border-t border-gray-100 pt-3 mt-3">
             <a
-              href="https://zalo.me/0339502155"
+              href={SITE_CONFIG.zaloUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-full bg-blue-600 hover:bg-blue-500 text-white px-4 py-3 rounded-xl font-bold text-sm transition-colors duration-200"

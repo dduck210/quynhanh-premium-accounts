@@ -21,6 +21,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     title: cat
       ? `${cat.name} – Quỳnh Anh Premium Accounts`
       : "Danh mục – Quỳnh Anh Premium Accounts",
+    description: cat
+      ? `Mua tài khoản ${cat.name} premium chính hãng, giá tốt nhất, bảo hành đầy đủ hạn.`
+      : undefined,
+    twitter: { card: "summary_large_image" as const },
   };
 }
 
@@ -35,7 +39,7 @@ export default async function CategoryPage({ params }: { params: { slug: string 
   const catProducts = products.filter((p: { categoryId: string }) => p.categoryId === params.slug);
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main id="main-content" className="min-h-screen bg-gray-50">
       <AnnouncementBar />
       <Navbar />
 

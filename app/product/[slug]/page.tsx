@@ -56,7 +56,24 @@ export default async function ProductPage({ params }: { params: { slug: string }
   ];
 
   return (
-    <main className="min-h-screen">
+    <main id="main-content" className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Product",
+            name: product.name,
+            description: product.description,
+            offers: tiers.length > 0 ? {
+              "@type": "Offer",
+              price: tiers[0].price,
+              priceCurrency: "VND",
+              availability: "https://schema.org/InStock",
+            } : undefined,
+          }),
+        }}
+      />
       <AnnouncementBar />
       <Navbar />
 

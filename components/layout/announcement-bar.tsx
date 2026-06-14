@@ -24,16 +24,20 @@ function MessageItem({ msg }: { msg: Message }) {
 }
 
 export default function AnnouncementBar() {
-  const track = [...MESSAGES, ...MESSAGES];
-
   return (
-    <div className="bg-blue-950 text-white text-xs py-2 overflow-hidden">
+    <div aria-label="Thông báo" className="bg-blue-950 text-white text-xs py-2 overflow-hidden">
       {/* Mobile: scrolling marquee */}
-      <div className="sm:hidden flex items-center">
+      <div className="sm:hidden flex items-center" aria-live="off">
         <div className="marquee-track flex gap-10 whitespace-nowrap text-blue-200 font-medium tracking-wide">
-          {track.map((msg, i) => (
+          {MESSAGES.map((msg, i) => (
             <MessageItem key={i} msg={msg} />
           ))}
+          {/* Duplicated set for seamless CSS loop — hidden from assistive tech */}
+          <span aria-hidden="true" className="contents">
+            {MESSAGES.map((msg, i) => (
+              <MessageItem key={`dup-${i}`} msg={msg} />
+            ))}
+          </span>
         </div>
       </div>
 

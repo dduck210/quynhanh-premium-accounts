@@ -15,6 +15,7 @@ export default function HeroCtaButtons() {
       style={{ animationDelay: "400ms" }}
     >
       <button
+        type="button"
         onClick={scrollTo("featured")}
         className="relative overflow-hidden w-full sm:w-auto bg-blue-600 hover:bg-blue-500 active:scale-95 text-white px-8 py-4 rounded-xl font-bold text-base transition-all duration-200 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-0.5 group"
       >
@@ -22,6 +23,7 @@ export default function HeroCtaButtons() {
         <span className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </button>
       <button
+        type="button"
         onClick={scrollTo("categories")}
         className="w-full sm:w-auto border-2 border-white/25 hover:border-white/50 active:scale-95 text-white px-8 py-4 rounded-xl font-bold text-base transition-all duration-200 hover:bg-white/10 hover:-translate-y-0.5 backdrop-blur-sm"
       >
