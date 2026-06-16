@@ -4,52 +4,74 @@ import { BadgeCheck, Zap, Lock, Headphones } from "lucide-react";
 import HeroCtaButtons from "./hero-cta-buttons";
 
 const STATS = [
-  { value: 50,   suffix: "+", label: "Sản phẩm"   },
-  { value: 1000, suffix: "+", label: "Khách hàng"  },
-  { value: 24,   suffix: "/7", label: "Hỗ trợ"    },
-  { value: 100,  suffix: "%", label: "Chính hãng"  },
+  { value: 50, suffix: "+", label: "Sản phẩm" },
+  { value: 1000, suffix: "+", label: "Khách hàng" },
+  { value: 24, suffix: "/7", label: "Hỗ trợ" },
+  { value: 100, suffix: "%", label: "Chính hãng" },
 ];
 
 const TRUST = [
   { icon: BadgeCheck, text: "Chính hãng 100%" },
-  { icon: Zap,        text: "Giao trong 15 phút" },
-  { icon: Lock,       text: "Thanh toán an toàn" },
+  { icon: Zap, text: "Giao trong 15 phút" },
+  { icon: Lock, text: "Thanh toán an toàn" },
   { icon: Headphones, text: "Hỗ trợ 24/7" },
 ];
 
-function useCountUp(target: number, suffix: string, ref: React.RefObject<HTMLSpanElement>) {
+function useCountUp(
+  target: number,
+  suffix: string,
+  ref: React.RefObject<HTMLSpanElement>,
+) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const obs = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) return;
-      obs.disconnect();
-      let start = 0;
-      const dur = 1400;
-      const step = (ts: number) => {
-        if (!startTime) startTime = ts;
-        const progress = Math.min((ts - startTime) / dur, 1);
-        const ease = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.floor(ease * target) + (progress >= 1 ? suffix : "");
-        if (progress < 1) requestAnimationFrame(step);
-      };
-      let startTime = 0;
-      requestAnimationFrame(step);
-    }, { threshold: 0.5 });
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        obs.disconnect();
+        let start = 0;
+        const dur = 1400;
+        const step = (ts: number) => {
+          if (!startTime) startTime = ts;
+          const progress = Math.min((ts - startTime) / dur, 1);
+          const ease = 1 - Math.pow(1 - progress, 3);
+          el.textContent =
+            Math.floor(ease * target) + (progress >= 1 ? suffix : "");
+          if (progress < 1) requestAnimationFrame(step);
+        };
+        let startTime = 0;
+        requestAnimationFrame(step);
+      },
+      { threshold: 0.5 },
+    );
     obs.observe(el);
     return () => obs.disconnect();
   }, [target, suffix, ref]);
 }
 
-function StatCounter({ value, suffix, label }: { value: number; suffix: string; label: string }) {
+function StatCounter({
+  value,
+  suffix,
+  label,
+}: {
+  value: number;
+  suffix: string;
+  label: string;
+}) {
   const ref = useRef<HTMLSpanElement>(null);
   useCountUp(value, suffix, ref);
   return (
     <div className="text-center px-6 py-4 relative">
       <div className="font-display text-4xl md:text-5xl font-light mb-1 gold-text-animated">
-        <span ref={ref}>{value}{suffix}</span>
+        <span ref={ref}>
+          {value}
+          {suffix}
+        </span>
       </div>
-      <div className="font-sans text-[10px] tracking-[0.2em] uppercase font-medium" style={{ color: "var(--lux-silver)" }}>
+      <div
+        className="font-sans text-[10px] tracking-[0.2em] uppercase font-medium"
+        style={{ color: "var(--lux-silver)" }}
+      >
         {label}
       </div>
     </div>
@@ -69,7 +91,8 @@ export default function HeroSection() {
       <div
         className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%)",
+          background:
+            "radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%)",
           filter: "blur(40px)",
           animation: "floatLuxury 8s ease-in-out infinite",
         }}
@@ -78,7 +101,8 @@ export default function HeroSection() {
       <div
         className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%)",
+          background:
+            "radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%)",
           filter: "blur(60px)",
           animation: "floatLuxury 12s ease-in-out infinite reverse",
         }}
@@ -87,7 +111,6 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 text-center">
-
         {/* Label */}
         <div className="animate-fade-in" style={{ animationDelay: "100ms" }}>
           <div className="lux-badge mb-8 mx-auto w-fit">
@@ -98,7 +121,13 @@ export default function HeroSection() {
 
         {/* Main headline */}
         <div className="animate-reveal-up" style={{ animationDelay: "200ms" }}>
-          <h1 className="font-display font-light leading-[1.1] mb-4" style={{ fontSize: "clamp(3rem, 8vw, 7.5rem)", color: "var(--lux-cream)" }}>
+          <h1
+            className="font-display font-light leading-[1.1] mb-4"
+            style={{
+              fontSize: "clamp(3rem, 8vw, 7.5rem)",
+              color: "var(--lux-cream)",
+            }}
+          >
             Tài khoản
             <span className="block gold-text-animated font-extralight italic">
               Premium
@@ -125,8 +154,8 @@ export default function HeroSection() {
           className="animate-fade-in text-lg md:text-xl font-light leading-relaxed mb-12 max-w-2xl mx-auto"
           style={{ color: "var(--lux-silver)", animationDelay: "400ms" }}
         >
-          Hơn 50 phần mềm premium chính hãng — Netflix, ChatGPT, Adobe, Spotify và nhiều hơn nữa.
-          Hỗ trợ kỹ thuật 24/7, bảo hành toàn bộ hạn dùng.
+          Hơn 50 phần mềm premium chính hãng — Netflix, ChatGPT, Adobe, Spotify
+          và nhiều hơn nữa. Hỗ trợ kỹ thuật 24/7, bảo hành toàn bộ.
         </p>
 
         {/* CTAs */}
@@ -152,11 +181,18 @@ export default function HeroSection() {
         {/* Trust badges */}
         <div
           className="animate-fade-in flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs pt-6"
-          style={{ borderTop: "1px solid var(--lux-gold-border)", color: "var(--lux-smoke)", animationDelay: "700ms" }}
+          style={{
+            borderTop: "1px solid var(--lux-gold-border)",
+            color: "var(--lux-smoke)",
+            animationDelay: "700ms",
+          }}
         >
           {TRUST.map(({ icon: Icon, text }) => (
             <span key={text} className="flex items-center gap-1.5 font-light">
-              <Icon className="w-3.5 h-3.5" style={{ color: "var(--lux-gold-dim)" }} />
+              <Icon
+                className="w-3.5 h-3.5"
+                style={{ color: "var(--lux-gold-dim)" }}
+              />
               {text}
             </span>
           ))}
@@ -164,9 +200,23 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-float-luxury" aria-hidden="true">
-        <span className="font-label text-[9px] tracking-[0.3em] uppercase" style={{ color: "var(--lux-smoke)" }}>Scroll</span>
-        <div className="w-px h-8" style={{ background: "linear-gradient(to bottom, var(--lux-gold-dim), transparent)" }} />
+      <div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-float-luxury"
+        aria-hidden="true"
+      >
+        <span
+          className="font-label text-[9px] tracking-[0.3em] uppercase"
+          style={{ color: "var(--lux-smoke)" }}
+        >
+          Scroll
+        </span>
+        <div
+          className="w-px h-8"
+          style={{
+            background:
+              "linear-gradient(to bottom, var(--lux-gold-dim), transparent)",
+          }}
+        />
       </div>
     </section>
   );
