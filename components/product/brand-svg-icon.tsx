@@ -23,7 +23,7 @@ export default function BrandSvgIcon({ productId, size = 64, className = "" }: P
       height={size}
       aria-label={icon.title}
       className={className}
-      style={{ fill: `#${icon.hex}` }}
+      style={{ fill: "var(--lux-cream)", opacity: 0.9 }}
     >
       <path d={icon.path} />
     </svg>

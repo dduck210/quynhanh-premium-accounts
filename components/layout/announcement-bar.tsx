@@ -16,40 +16,56 @@ const MESSAGES: Message[] = [
 function MessageItem({ msg }: { msg: Message }) {
   const Icon = msg.icon;
   return (
-    <span className="flex items-center gap-1.5 flex-shrink-0">
-      <Icon className="w-3.5 h-3.5" />
-      {msg.text}
+    <span className="flex items-center gap-2 flex-shrink-0">
+      <Icon className="w-3 h-3 opacity-70" style={{ color: "var(--lux-gold)" }} />
+      <span style={{ color: "var(--lux-silver)" }}>{msg.text}</span>
     </span>
   );
 }
 
+const DOT = (
+  <span className="flex-shrink-0 w-1 h-1 rounded-full" style={{ backgroundColor: "var(--lux-gold-dim)" }} />
+);
+
 export default function AnnouncementBar() {
   return (
-    <div aria-label="Thông báo" className="bg-blue-950 text-white text-xs py-2 overflow-hidden">
-      {/* Mobile: scrolling marquee */}
+    <div
+      className="text-[11px] py-2.5 overflow-hidden border-b"
+      style={{ backgroundColor: "var(--lux-obsidian)", borderColor: "var(--lux-gold-border)" }}
+      aria-label="Thông báo"
+    >
+      {/* Mobile: marquee */}
       <div className="sm:hidden flex items-center" aria-live="off">
-        <div className="marquee-track flex gap-10 whitespace-nowrap text-blue-200 font-medium tracking-wide">
+        <div className="marquee-track flex items-center gap-6 whitespace-nowrap font-sans tracking-widest">
           {MESSAGES.map((msg, i) => (
-            <MessageItem key={i} msg={msg} />
+            <span key={i} className="flex items-center gap-3">
+              <MessageItem msg={msg} />
+              {DOT}
+            </span>
           ))}
-          {/* Duplicated set for seamless CSS loop — hidden from assistive tech */}
           <span aria-hidden="true" className="contents">
             {MESSAGES.map((msg, i) => (
-              <MessageItem key={`dup-${i}`} msg={msg} />
+              <span key={`d-${i}`} className="flex items-center gap-3">
+                <MessageItem msg={msg} />
+                {DOT}
+              </span>
             ))}
           </span>
         </div>
       </div>
 
-      {/* Desktop: static layout */}
-      <div className="hidden sm:flex max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 items-center justify-between gap-4">
-        <p className="font-medium tracking-wide text-blue-100">
-          ✦ Chất lượng – Ưu đãi – Uy tín &nbsp;|&nbsp; Quỳnh Anh Premium
-          Accounts &nbsp;|&nbsp; Hỗ trợ 24/7
+      {/* Desktop: static */}
+      <div className="hidden sm:flex max-w-7xl mx-auto px-6 lg:px-8 items-center justify-between gap-6">
+        <p className="font-sans font-medium text-[10px] tracking-[0.2em] uppercase flex-shrink-0" style={{ color: "var(--lux-gold)" }}>
+          ✦ &nbsp;Quỳnh Anh Premium&nbsp; ✦
         </p>
-        <div className="flex items-center gap-5 text-blue-300 flex-shrink-0">
-          <MessageItem msg={MESSAGES[0]} />
-          <MessageItem msg={MESSAGES[1]} />
+        <div className="flex items-center gap-4">
+          {MESSAGES.map((msg, i) => (
+            <span key={i} className="flex items-center gap-4">
+              <MessageItem msg={msg} />
+              {i < MESSAGES.length - 1 && <span aria-hidden="true" style={{ color: "var(--lux-smoke)" }}>·</span>}
+            </span>
+          ))}
         </div>
       </div>
     </div>

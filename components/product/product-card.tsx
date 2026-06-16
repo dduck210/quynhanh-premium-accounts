@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Product, formatPrice } from "@/data/products";
@@ -13,18 +13,18 @@ function ProductLogo({ product }: { product: Product }) {
   if (BRAND_ICON_MAP[product.id]) {
     return (
       <div
-        className="w-12 h-12 rounded-xl flex items-center justify-center mb-3 flex-shrink-0 transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-110"
-        style={{ backgroundColor: product.logoColor + "15" }}
+        className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 flex-shrink-0 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:scale-110"
+        style={{ backgroundColor: product.logoColor + "18" }}
       >
-        <BrandSvgIcon productId={product.id} size={30} />
+        <BrandSvgIcon productId={product.id} size={28} />
       </div>
     );
   }
 
   return (
     <div
-      className="w-12 h-12 rounded-xl flex items-center justify-center mb-3 flex-shrink-0 transition-transform duration-500 group-hover:-translate-y-1 group-hover:scale-110 overflow-hidden"
-      style={{ backgroundColor: product.logoColor + "22" }}
+      className="w-12 h-12 rounded-lg flex items-center justify-center mb-4 flex-shrink-0 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:scale-110 overflow-hidden"
+      style={{ backgroundColor: product.logoColor + "20" }}
     >
       {err ? (
         <span className="text-2xl">{product.logoEmoji}</span>
@@ -32,9 +32,9 @@ function ProductLogo({ product }: { product: Product }) {
         <Image
           src={`/images/products/${product.id.toLowerCase()}.png`}
           alt={product.name}
-          width={40}
-          height={40}
-          className="w-9 h-9 object-contain"
+          width={36}
+          height={36}
+          className="w-8 h-8 object-contain"
           onError={() => setErr(true)}
           unoptimized
         />
@@ -44,55 +44,81 @@ function ProductLogo({ product }: { product: Product }) {
 }
 
 export default function ProductCard({ product }: { product: Product }) {
-  const firstTier = product.pricingTiers?.[0];
+  const firstTier   = product.pricingTiers?.[0];
   const discountPct = firstTier?.savings ?? null;
+  const cardRef     = useRef<HTMLAnchorElement>(null);
+
+  const onMouseMove = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+    const el = cardRef.current;
+    if (!el) return;
+    const rect  = el.getBoundingClientRect();
+    const x     = (e.clientX - rect.left) / rect.width  - 0.5;
+    const y     = (e.clientY - rect.top)  / rect.height - 0.5;
+    el.style.setProperty("--tilt-x", `${-y * 8}deg`);
+    el.style.setProperty("--tilt-y", `${x  * 8}deg`);
+  }, []);
+
+  const onMouseLeave = useCallback(() => {
+    const el = cardRef.current;
+    if (!el) return;
+    el.style.setProperty("--tilt-x", "0deg");
+    el.style.setProperty("--tilt-y", "0deg");
+  }, []);
 
   return (
     <Link
+      ref={cardRef}
       href={`/product/${product.id}`}
-      className="relative bg-white rounded-xl shadow-sm hover:shadow-lg hover:shadow-blue-100/60 border border-gray-100 hover:border-blue-200 transition-all duration-300 hover:-translate-y-1.5 flex flex-col h-full overflow-hidden group cursor-pointer"
+      className="relative tilt-card glass-card flex flex-col h-full group cursor-pointer active:opacity-80"
+      style={{ WebkitTapHighlightColor: "transparent" }}
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
     >
-      {/* Top-right badge — sale takes priority over new */}
+      {/* Badges */}
       {discountPct ? (
-        <span className="absolute top-3 right-3 bg-red-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full z-10 leading-5">
+        <span className="absolute top-3 right-3 z-10 text-[10px] font-bold px-2 py-0.5 rounded tracking-wider" style={{ backgroundColor: "var(--lux-gold)", color: "var(--lux-void)" }}>
           -{discountPct}%
         </span>
       ) : product.isNew ? (
-        <span className="absolute top-3 right-3 bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full z-10 leading-5">
-          Mới
-        </span>
+        <span className="absolute top-3 right-3 z-10 lux-badge" style={{ fontSize: "9px" }}>Mới</span>
       ) : null}
 
-      <div className="p-4 flex flex-col flex-1">
+      <div className="p-5 flex flex-col flex-1 relative z-[1]">
         <ProductLogo product={product} />
 
-        {/* Category pill */}
-        <span className="inline-block text-[11px] font-semibold text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-full mb-2 w-fit">
+        {/* Category */}
+        <span className="font-sans text-[9px] tracking-[0.2em] uppercase mb-2 font-medium" style={{ color: "var(--lux-gold-dim)" }}>
           {product.categoryName}
         </span>
 
-        {/* Name & description */}
-        <h3 className="font-bold text-gray-900 text-sm leading-snug mb-1 group-hover:text-blue-700 transition-colors duration-200">
+        {/* Name */}
+        <h3
+          className="font-display text-base font-normal leading-snug mb-1.5 transition-colors duration-200"
+          style={{ color: "var(--lux-cream)" }}
+        >
           {product.name}
         </h3>
-        <p className="text-gray-400 text-xs leading-relaxed flex-1 mb-3 line-clamp-2">
+
+        {/* Description */}
+        <p className="text-xs font-light leading-relaxed flex-1 mb-4 line-clamp-2" style={{ color: "var(--lux-silver)" }}>
           {product.description}
         </p>
 
-        {/* Pricing */}
+        {/* Price */}
         {firstTier && (
-          <div className="flex items-baseline gap-1.5 mb-3 flex-wrap">
-            <span className="text-lg font-black text-blue-600">
+          <div className="flex items-baseline gap-1.5 mb-4">
+            <span className="font-display text-xl font-medium" style={{ color: "var(--lux-gold)" }}>
               {formatPrice(firstTier.price)}
             </span>
-            <span className="text-xs text-gray-400">/{firstTier.duration}</span>
+            <span className="text-xs font-light" style={{ color: "var(--lux-smoke)" }}>/{firstTier.duration}</span>
           </div>
         )}
 
-        {/* CTA — shimmer effect on hover */}
-        <div className="relative block w-full py-2 px-3 rounded-lg border border-blue-200 text-blue-600 text-xs font-semibold text-center overflow-hidden transition-all duration-200 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 group-hover:shadow-md group-hover:shadow-blue-200">
-          <span className="relative z-10">Xem chi tiết</span>
-          <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-500 ease-in-out" />
+        {/* CTA — no inline color: inline style overrides hover classes */}
+        <div
+          className="w-full py-2 text-center text-xs font-sans font-medium tracking-[0.15em] uppercase border rounded transition-all duration-300 text-[var(--lux-gold)] border-[var(--lux-gold-border)] group-hover:bg-[var(--lux-gold)] group-hover:border-[var(--lux-gold)] group-hover:text-[var(--lux-void)]"
+        >
+          Xem chi tiết
         </div>
       </div>
     </Link>

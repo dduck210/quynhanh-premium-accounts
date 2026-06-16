@@ -12,42 +12,52 @@ interface Props {
 
 export default function PricingTierSelector({ tiers }: Props) {
   const defaultIndex = tiers.findIndex((t) => t.isPopular);
-  const [selected, setSelected] = useState(
-    defaultIndex >= 0 ? defaultIndex : 0,
-  );
+  const [selected, setSelected] = useState(defaultIndex >= 0 ? defaultIndex : 0);
   const tier = tiers[selected];
   const multiTier = tiers.length > 1;
 
   return (
     <div>
-      {/* Duration selector — hidden when only one option */}
+      {/* Duration selector */}
       {multiTier && (
         <>
-          <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">
+          <p className="font-sans font-medium text-[10px] tracking-[0.2em] uppercase mb-4" style={{ color: "var(--lux-gold-dim)" }}>
             Chọn thời hạn sử dụng
           </p>
-          <div className="flex flex-wrap gap-2.5 mb-6 pt-3">
+          <div className="flex flex-wrap gap-2.5 mb-6 pt-2">
             {tiers.map((t, i) => {
               const active = selected === i;
-              const btnLabel = t.label ?? t.duration;
               return (
                 <div key={`${t.duration}-${t.label ?? i}`} className="relative">
                   {t.isPopular && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-500 text-white text-[9px] font-black px-2 py-0.5 rounded-full whitespace-nowrap z-10 shadow-sm">
+                    <span
+                      className="absolute -top-3 left-1/2 -translate-x-1/2 font-sans font-bold text-[8px] tracking-widest px-2 py-0.5 rounded whitespace-nowrap z-10"
+                      style={{ backgroundColor: "var(--lux-gold)", color: "var(--lux-void)" }}
+                    >
                       PHỔ BIẾN
                     </span>
                   )}
                   <button
                     onClick={() => setSelected(i)}
-                    className={`relative px-4 py-2.5 rounded-xl border-2 font-semibold text-sm transition-all duration-200 active:scale-95 ${
+                    className="relative px-4 py-2.5 rounded-lg border font-sans font-medium text-xs tracking-widest uppercase transition-colors duration-200 active:opacity-70"
+                    style={
                       active
-                        ? "border-blue-600 bg-blue-600 text-white shadow-lg shadow-blue-300/50 scale-105"
-                        : "border-gray-200 bg-white text-gray-600 hover:border-blue-300 hover:bg-blue-50 hover:text-blue-600 hover:shadow-sm"
-                    }`}
+                        ? {
+                            borderColor: "var(--lux-gold)",
+                            backgroundColor: "var(--lux-gold)",
+                            color: "var(--lux-void)",
+                            transform: "scale(1.04)",
+                          }
+                        : {
+                            borderColor: "var(--lux-gold-border)",
+                            backgroundColor: "rgba(16,16,16,0.6)",
+                            color: "var(--lux-ivory)",
+                          }
+                    }
                   >
-                    {btnLabel}
+                    {t.label ?? t.duration}
                     {t.savings && (
-                      <span className={`ml-1.5 text-xs font-bold ${active ? "text-blue-200" : "text-emerald-500"}`}>
+                      <span className="ml-1.5 text-[10px] font-normal" style={{ color: "var(--lux-gold-light)" }}>
                         -{t.savings}%
                       </span>
                     )}
@@ -59,23 +69,23 @@ export default function PricingTierSelector({ tiers }: Props) {
         </>
       )}
 
-      {/* Price */}
+      {/* Price display */}
       <div className="flex items-baseline gap-2.5 mb-1">
         <span
           key={tier.price}
-          className="text-4xl font-black text-blue-600 animate-scale-in"
+          className="font-display text-4xl font-light gold-text-animated"
         >
           {formatPrice(tier.price)}
         </span>
-        <span className="text-gray-400 text-sm">/{tier.duration}</span>
+        <span className="text-sm font-light" style={{ color: "var(--lux-silver)" }}>
+          /{tier.duration}
+        </span>
       </div>
-      <div className="h-6 mb-5">
+
+      <div className="h-6 mb-6">
         {tier.savings && (
-          <p
-            key={`savings-${tier.duration}`}
-            className="flex items-center gap-1 text-sm text-emerald-600 font-semibold animate-fade-in"
-          >
-            <Check className="w-4 h-4" />
+          <p className="flex items-center gap-1.5 text-sm font-light" style={{ color: "var(--lux-gold-light)" }}>
+            <Check className="w-3.5 h-3.5" />
             Tiết kiệm {tier.savings}% so với mua từng tháng
           </p>
         )}
@@ -86,12 +96,12 @@ export default function PricingTierSelector({ tiers }: Props) {
         href={SITE_CONFIG.zaloUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center gap-2.5 w-full bg-blue-600 hover:bg-blue-500 active:scale-95 text-white py-4 px-6 rounded-xl font-bold text-base transition-all duration-200 hover:shadow-xl hover:shadow-blue-200 hover:-translate-y-0.5"
+        className="lux-btn-primary w-full"
       >
-        <MessageCircle className="w-5 h-5" />
+        <MessageCircle className="w-4 h-4" />
         Đặt mua ngay qua Zalo
       </a>
-      <p className="text-xs text-gray-400 text-center mt-2 mb-4">
+      <p className="text-xs text-center mt-2 mb-5 font-light" style={{ color: "var(--lux-smoke)" }}>
         Nhận tài khoản trong 5–15 phút sau khi thanh toán
       </p>
 
@@ -101,18 +111,28 @@ export default function PricingTierSelector({ tiers }: Props) {
           href={SITE_CONFIG.messengerUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl border border-gray-200 hover:bg-purple-50 hover:border-purple-300 active:scale-95 transition-all duration-200 text-sm font-semibold text-gray-600"
+          className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg border text-xs font-sans font-medium tracking-wider uppercase transition-colors duration-200 hover:border-[var(--lux-gold-border-hover)] hover:text-[var(--lux-ivory)] active:opacity-70"
+          style={{
+            borderColor: "var(--lux-gold-border)",
+            color: "var(--lux-silver)",
+            backgroundColor: "rgba(16,16,16,0.5)",
+          }}
         >
-          <Send className="w-4 h-4" />
+          <Send className="w-3.5 h-3.5" />
           Messenger
         </a>
         <a
           href={SITE_CONFIG.facebookUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl border border-gray-200 hover:bg-blue-50 hover:border-blue-300 active:scale-95 transition-all duration-200 text-sm font-semibold text-gray-600"
+          className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg border text-xs font-sans font-medium tracking-wider uppercase transition-colors duration-200 hover:border-[var(--lux-gold-border-hover)] hover:text-[var(--lux-ivory)] active:opacity-70"
+          style={{
+            borderColor: "var(--lux-gold-border)",
+            color: "var(--lux-silver)",
+            backgroundColor: "rgba(16,16,16,0.5)",
+          }}
         >
-          <FacebookIcon className="w-4 h-4" />
+          <FacebookIcon className="w-3.5 h-3.5" />
           Facebook
         </a>
       </div>

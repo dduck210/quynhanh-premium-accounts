@@ -1,18 +1,35 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Cormorant_Garamond, Cinzel, DM_Sans } from "next/font/google";
 import "./globals.css";
 import ScrollToTop from "@/components/ui/scroll-to-top";
+import ScrollProgress from "@/components/ui/scroll-progress";
+import CursorGlow from "@/components/ui/cursor-glow";
 
-const inter = Inter({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin", "vietnamese"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
-  preload: true,
+  variable: "--font-cormorant",
+});
+
+const cinzel = Cinzel({
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+  display: "swap",
+  variable: "--font-cinzel",
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin", "latin-ext"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-dm-sans",
 });
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#6366f1",
+  themeColor: "#020202",
 };
 
 export const metadata: Metadata = {
@@ -41,13 +58,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="vi">
-      <body className={inter.className}>
+      <body className={`${dmSans.variable} ${cormorant.variable} ${cinzel.variable} font-body`}>
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-blue-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:rounded focus:font-bold"
+          style={{ backgroundColor: "var(--lux-gold)", color: "var(--lux-void)" }}
         >
           Chuyển đến nội dung chính
         </a>
+        <ScrollProgress />
+        <CursorGlow />
         {children}
         <ScrollToTop />
       </body>

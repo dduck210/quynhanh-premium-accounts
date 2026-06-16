@@ -9,33 +9,86 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#3b82f6",
-        "primary-dark": "#2563eb",
+        // Luxury palette — use as bg-lux-void, text-lux-gold, etc.
+        lux: {
+          void:     "#020202",
+          obsidian: "#080808",
+          carbon:   "#101010",
+          graphite: "#181818",
+          charcoal: "#222222",
+          gold:     "#c9a84c",
+          "gold-light": "#e8c96c",
+          "gold-dim":   "#8a6f32",
+          cream:    "#f0ead8",
+          ivory:    "#cbc5b4",
+          silver:   "#888888",
+          smoke:    "#444444",
+        },
+      },
+      fontFamily: {
+        display: ["var(--font-cormorant)", "Georgia", "serif"],
+        label:   ["var(--font-cinzel)", "var(--font-dm-sans)", "system-ui", "sans-serif"],
+        sans:    ["var(--font-dm-sans)",   "system-ui", "sans-serif"],
       },
       animation: {
-        "fade-in": "fadeIn 0.6s ease-out both",
-        "slide-up": "slideUp 0.65s ease-out both",
-        "slide-up-slow": "slideUp 0.8s ease-out both",
-        "scale-in": "scaleIn 0.4s ease-out both",
-        float: "float 4s ease-in-out infinite",
+        "fade-in":        "fadeIn 0.7s ease-out both",
+        "slide-up":       "slideUp 0.7s cubic-bezier(.25,.46,.45,.94) both",
+        "slide-up-slow":  "slideUp 1s cubic-bezier(.25,.46,.45,.94) both",
+        "scale-in":       "scaleIn 0.5s cubic-bezier(.25,.46,.45,.94) both",
+        "scale-reveal":   "scaleReveal 0.6s cubic-bezier(.25,.46,.45,.94) both",
+        "gold-shimmer":   "goldShimmer 4s linear infinite",
+        "glow-pulse":     "glowPulse 3s ease-in-out infinite",
+        "float-luxury":   "floatLuxury 5s ease-in-out infinite",
+        "line-expand":    "lineExpand 0.8s cubic-bezier(.25,.46,.45,.94) both",
+        "count-up":       "countUp 0.5s ease-out both",
+        "reveal-up":      "revealUp 0.8s cubic-bezier(.25,.46,.45,.94) both",
       },
       keyframes: {
         fadeIn: {
           from: { opacity: "0" },
-          to: { opacity: "1" },
+          to:   { opacity: "1" },
         },
         slideUp: {
-          from: { opacity: "0", transform: "translateY(22px)" },
-          to: { opacity: "1", transform: "translateY(0)" },
+          from: { opacity: "0", transform: "translateY(28px)" },
+          to:   { opacity: "1", transform: "translateY(0)" },
         },
         scaleIn: {
-          from: { opacity: "0", transform: "scale(0.95)" },
-          to: { opacity: "1", transform: "scale(1)" },
+          from: { opacity: "0", transform: "scale(0.94)" },
+          to:   { opacity: "1", transform: "scale(1)" },
         },
-        float: {
+        scaleReveal: {
+          from: { opacity: "0", transform: "scale(0.96) translateY(12px)" },
+          to:   { opacity: "1", transform: "scale(1) translateY(0)" },
+        },
+        goldShimmer: {
+          "0%":   { backgroundPosition: "0% center" },
+          "100%": { backgroundPosition: "300% center" },
+        },
+        glowPulse: {
+          "0%, 100%": { boxShadow: "0 0 15px rgba(201,168,76,0.2)" },
+          "50%":      { boxShadow: "0 0 40px rgba(201,168,76,0.45)" },
+        },
+        floatLuxury: {
           "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-7px)" },
+          "50%":      { transform: "translateY(-9px)" },
         },
+        lineExpand: {
+          from: { transform: "scaleX(0)", opacity: "0" },
+          to:   { transform: "scaleX(1)", opacity: "1" },
+        },
+        countUp: {
+          from: { opacity: "0", transform: "translateY(12px)" },
+          to:   { opacity: "1", transform: "translateY(0)" },
+        },
+        revealUp: {
+          from: { opacity: "0", transform: "translateY(32px)" },
+          to:   { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      transitionDuration: {
+        '250': '250ms',
+        '350': '350ms',
+        '400': '400ms',
       },
     },
   },

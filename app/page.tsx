@@ -33,7 +33,7 @@ export default async function Home() {
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const catProducts = products.filter((p: any) => p.categoryId === cat.id).slice(0, 4);
           return (
-            <div key={cat.id} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+            <div key={cat.id} style={{ backgroundColor: index % 2 === 0 ? "var(--lux-obsidian)" : "var(--lux-void)" }}>
               <ProductSection
                 categoryId={cat.id}
                 categoryName={cat.name}

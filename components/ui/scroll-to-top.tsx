@@ -26,8 +26,8 @@ export default function ScrollToTop() {
       ref={btnRef}
       onClick={() => smoothScrollTo(0)}
       aria-label="Về đầu trang"
-      style={{ opacity: 0, pointerEvents: "none", transform: "translateY(8px)" }}
-      className="fixed bottom-6 right-6 z-50 w-11 h-11 bg-blue-600 hover:bg-blue-500 active:scale-95 text-white rounded-full shadow-lg shadow-blue-500/30 flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5"
+      style={{ opacity: 0, pointerEvents: "none", transform: "translateY(8px)", backgroundColor: "var(--lux-obsidian)" }}
+      className="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full border flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 active:scale-95 text-[var(--lux-gold)] border-[var(--lux-gold)] hover:bg-[var(--lux-gold)] hover:text-[var(--lux-void)] shadow-[0_4px_20px_rgba(201,168,76,0.25)]"
     >
       <svg
         width="18"

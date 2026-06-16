@@ -24,24 +24,32 @@ export default function ProductDetailLogo({ id, name, logoEmoji, logoColor }: Pr
   }
 
   return (
-    <div className="w-full h-full flex items-center justify-center p-8 sm:p-12">
+    <div className="w-full h-full flex items-center justify-center p-6 sm:p-10">
       {err ? (
         <div
-          className="w-40 h-40 rounded-3xl flex items-center justify-center"
-          style={{ backgroundColor: logoColor + "22" }}
+          className="w-44 h-44 rounded-3xl flex items-center justify-center"
+          style={{ backgroundColor: logoColor + "22", border: `1px solid ${logoColor}30` }}
         >
           <span className="text-[5rem] leading-none">{logoEmoji}</span>
         </div>
       ) : (
-        <Image
-          src={`/images/products/${id.toLowerCase()}.png`}
-          alt={name}
-          width={240}
-          height={240}
-          className="w-full h-full object-contain drop-shadow-md"
-          onError={() => setErr(true)}
-          unoptimized
-        />
+        <div
+          className="w-44 h-44 sm:w-52 sm:h-52 rounded-2xl flex items-center justify-center overflow-hidden"
+          style={{
+            backgroundColor: "rgba(255,255,255,0.95)",
+            boxShadow: "0 4px 24px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,76,0.15)",
+          }}
+        >
+          <Image
+            src={`/images/products/${id.toLowerCase()}.png`}
+            alt={name}
+            width={200}
+            height={200}
+            className="w-36 h-36 sm:w-44 sm:h-44 object-contain"
+            onError={() => setErr(true)}
+            unoptimized
+          />
+        </div>
       )}
     </div>
   );

@@ -5,9 +5,10 @@ import AnimatedSection from "../ui/animated-section";
 
 interface Channel {
   label: string;
+  sub: string;
   icon: ComponentType<{ className?: string }>;
   href: string;
-  className: string;
+  color: string;
 }
 
 interface TrustPoint {
@@ -17,23 +18,25 @@ interface TrustPoint {
 
 const CHANNELS: Channel[] = [
   {
-    label: "Nhóm Zalo",
+    label: "Zalo",
+    sub: "0339 502 155",
     icon: MessageCircle,
     href: "https://zalo.me/0339502155",
-    className: "bg-blue-500 hover:bg-blue-400 hover:shadow-blue-500/30",
+    color: "var(--lux-gold)",
   },
   {
-    label: "Fanpage Facebook",
+    label: "Facebook",
+    sub: "quanhquanh24",
     icon: FacebookIcon,
     href: "https://www.facebook.com/quanhquanh24/",
-    className: "bg-blue-700 hover:bg-blue-600 hover:shadow-blue-700/30",
+    color: "var(--lux-ivory)",
   },
   {
     label: "Messenger",
+    sub: "quanhquanh24",
     icon: Send,
     href: "https://m.me/quanhquanh24",
-    className:
-      "bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-500 hover:to-pink-400",
+    color: "var(--lux-gold-light)",
   },
 ];
 
@@ -46,44 +49,67 @@ const TRUST_POINTS: TrustPoint[] = [
 export default function ContactCta() {
   return (
     <AnimatedSection>
-      <section id="contact" className="py-16 bg-blue-50">
+      <section
+        id="contact"
+        className="py-20"
+        style={{ backgroundColor: "var(--lux-carbon)" }}
+      >
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <span className="inline-block text-xs font-bold uppercase tracking-widest text-blue-500 mb-3">
-            Hỗ trợ khách hàng
-          </span>
-          <h2 className="text-3xl font-black text-gray-900 mb-3">
-            Liên hệ ngay
+          <div className="lux-ornament mb-8 text-[10px] tracking-[0.4em]">✦ HỖ TRỢ ✦</div>
+
+          <h2 className="font-display text-4xl md:text-5xl font-light mb-4" style={{ color: "var(--lux-cream)" }}>
+            Liên hệ{" "}
+            <span className="gold-text-animated italic font-extralight">ngay</span>
           </h2>
-          <p className="text-gray-500 text-lg mb-8 max-w-xl mx-auto">
-            Đội ngũ Quỳnh Anh Premium sẵn sàng tư vấn miễn phí và hỗ trợ
-            bạn 24/7
+
+          <p className="text-base font-light leading-relaxed mb-8 max-w-lg mx-auto" style={{ color: "var(--lux-silver)" }}>
+            Đội ngũ Quỳnh Anh Premium sẵn sàng tư vấn miễn phí và hỗ trợ bạn mọi lúc
           </p>
 
           {/* Trust points */}
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-10 text-sm text-gray-500">
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 mb-12 text-sm font-light" style={{ color: "var(--lux-silver)" }}>
             {TRUST_POINTS.map(({ icon: Icon, text }) => (
-              <span key={text} className="flex items-center gap-1.5">
-                <Icon className="w-4 h-4 text-blue-500" />
+              <span key={text} className="flex items-center gap-2">
+                <span style={{ color: "var(--lux-gold-dim)" }}>
+                  <Icon className="w-3.5 h-3.5" />
+                </span>
                 {text}
               </span>
             ))}
           </div>
 
-          {/* Channel buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            {CHANNELS.map(({ label, icon: Icon, href, className }) => (
+          {/* Channel cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+            {CHANNELS.map(({ label, sub, icon: Icon, href, color }) => (
               <a
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex items-center justify-center gap-2.5 active:scale-95 text-white px-7 py-3.5 rounded-xl font-bold text-sm transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 ${className}`}
+                className="group glass-card flex flex-col items-center gap-3 py-6 px-4 transition-all duration-300 hover:-translate-y-1"
               >
-                <Icon className="w-4 h-4" />
-                {label}
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                  style={{ backgroundColor: color + "22", color }}
+                >
+                  <Icon className="w-6 h-6" />
+                </div>
+                <div>
+                  <div className="font-display text-base font-normal" style={{ color: "var(--lux-cream)" }}>
+                    {label}
+                  </div>
+                  <div className="text-xs font-light mt-0.5" style={{ color: "var(--lux-silver)" }}>
+                    {sub}
+                  </div>
+                </div>
+                <div className="font-sans font-medium text-[10px] tracking-[0.15em] uppercase mt-1 transition-colors duration-200" style={{ color }}>
+                  Nhắn tin →
+                </div>
               </a>
             ))}
           </div>
+
+          <div className="lux-ornament text-[10px] tracking-[0.4em]">✦ PREMIUM ✦</div>
         </div>
       </section>
     </AnimatedSection>

@@ -7,22 +7,23 @@ interface BreadcrumbItem {
 
 export default function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
   return (
-    <nav
-      aria-label="breadcrumb"
-      className="flex items-center gap-1.5 text-sm text-gray-500 flex-wrap"
-    >
+    <nav aria-label="breadcrumb" className="flex items-center gap-1.5 text-sm font-light flex-wrap">
       {items.map((item, i) => (
         <span key={i} className="flex items-center gap-1.5">
-          {i > 0 && <span className="text-gray-300 select-none">/</span>}
+          {i > 0 && (
+            <span className="select-none" style={{ color: "var(--lux-gold-border)" }}>/</span>
+          )}
           {item.href ? (
             <Link
               href={item.href}
-              className="hover:text-blue-600 transition-colors"
+              className="transition-colors duration-200 text-[var(--lux-silver)] hover:text-[var(--lux-gold)]"
             >
               {item.label}
             </Link>
           ) : (
-            <span className="text-gray-900 font-medium">{item.label}</span>
+            <span className="font-normal" style={{ color: "var(--lux-cream)" }}>
+              {item.label}
+            </span>
           )}
         </span>
       ))}

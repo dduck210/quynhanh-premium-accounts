@@ -1,108 +1,172 @@
-import { BadgeCheck, Zap, Lock, Headphones, type LucideIcon } from "lucide-react";
+"use client";
+import { useEffect, useRef } from "react";
+import { BadgeCheck, Zap, Lock, Headphones } from "lucide-react";
 import HeroCtaButtons from "./hero-cta-buttons";
 
 const STATS = [
-  { value: "50+", label: "Sản phẩm" },
-  { value: "1000+", label: "Khách hàng" },
-  { value: "24/7", label: "Hỗ trợ" },
-  { value: "100%", label: "Chính hãng" },
+  { value: 50,   suffix: "+", label: "Sản phẩm"   },
+  { value: 1000, suffix: "+", label: "Khách hàng"  },
+  { value: 24,   suffix: "/7", label: "Hỗ trợ"    },
+  { value: 100,  suffix: "%", label: "Chính hãng"  },
 ];
 
-const TRUST_BADGES: { icon: LucideIcon; text: string }[] = [
-  { icon: BadgeCheck, text: "Bảo hành chính hãng" },
-  { icon: Zap,        text: "Kích hoạt ngay lập tức" },
+const TRUST = [
+  { icon: BadgeCheck, text: "Chính hãng 100%" },
+  { icon: Zap,        text: "Giao trong 15 phút" },
   { icon: Lock,       text: "Thanh toán an toàn" },
   { icon: Headphones, text: "Hỗ trợ 24/7" },
 ];
 
+function useCountUp(target: number, suffix: string, ref: React.RefObject<HTMLSpanElement>) {
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      obs.disconnect();
+      let start = 0;
+      const dur = 1400;
+      const step = (ts: number) => {
+        if (!startTime) startTime = ts;
+        const progress = Math.min((ts - startTime) / dur, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(ease * target) + (progress >= 1 ? suffix : "");
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      let startTime = 0;
+      requestAnimationFrame(step);
+    }, { threshold: 0.5 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [target, suffix, ref]);
+}
+
+function StatCounter({ value, suffix, label }: { value: number; suffix: string; label: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  useCountUp(value, suffix, ref);
+  return (
+    <div className="text-center px-6 py-4 relative">
+      <div className="font-display text-4xl md:text-5xl font-light mb-1 gold-text-animated">
+        <span ref={ref}>{value}{suffix}</span>
+      </div>
+      <div className="font-sans text-[10px] tracking-[0.2em] uppercase font-medium" style={{ color: "var(--lux-silver)" }}>
+        {label}
+      </div>
+    </div>
+  );
+}
+
 export default function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-br from-slate-950 via-blue-950 to-purple-950 py-24 md:py-36 overflow-hidden">
-      {/* Radial glow layers */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,rgba(99,102,241,0.22),transparent_55%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_60%,rgba(168,85,247,0.14),transparent_55%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(99,102,241,0.1),transparent_50%)]" />
+    <section
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden noise-overlay"
+      style={{ backgroundColor: "var(--lux-void)" }}
+    >
+      {/* Particle background */}
+      <div className="hero-particles" aria-hidden="true" />
 
-      {/* Dot grid */}
+      {/* Ambient glow orbs */}
       <div
-        className="absolute inset-0 opacity-[0.055]"
+        className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full pointer-events-none"
         style={{
-          backgroundImage:
-            "radial-gradient(circle, #a5b4fc 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
+          background: "radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%)",
+          filter: "blur(40px)",
+          animation: "floatLuxury 8s ease-in-out infinite",
         }}
-      />
-
-      {/* Animated floating orbs */}
-      <div className="absolute top-1/4 left-8 w-72 h-72 rounded-full bg-blue-600/10 blur-3xl animate-float pointer-events-none" />
-      <div
-        className="absolute bottom-1/4 right-8 w-64 h-64 rounded-full bg-purple-600/10 blur-3xl animate-float pointer-events-none"
-        style={{ animationDelay: "2s" }}
+        aria-hidden="true"
       />
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-blue-500/5 blur-3xl animate-float pointer-events-none"
-        style={{ animationDelay: "1s" }}
+        className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%)",
+          filter: "blur(60px)",
+          animation: "floatLuxury 12s ease-in-out infinite reverse",
+        }}
+        aria-hidden="true"
       />
 
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Badge */}
-        <div className="animate-slide-up inline-flex items-center gap-2 bg-blue-500/15 border border-blue-400/30 rounded-full px-5 py-2 mb-7">
-          <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-          <span className="text-blue-300 text-sm font-semibold tracking-wide">
+      {/* Content */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 text-center">
+
+        {/* Label */}
+        <div className="animate-fade-in" style={{ animationDelay: "100ms" }}>
+          <div className="lux-badge mb-8 mx-auto w-fit">
+            <span style={{ color: "var(--lux-gold)" }}>✦</span>
             Chính hãng 100% · Uy tín hàng đầu Việt Nam
-          </span>
+          </div>
         </div>
 
-        {/* Headline */}
-        <h1
-          className="animate-slide-up text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.08] tracking-tight"
-          style={{ animationDelay: "120ms" }}
-        >
-          Tài khoản premium
-          <span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mt-1">
+        {/* Main headline */}
+        <div className="animate-reveal-up" style={{ animationDelay: "200ms" }}>
+          <h1 className="font-display font-light leading-[1.1] mb-4" style={{ fontSize: "clamp(3rem, 8vw, 7.5rem)", color: "var(--lux-cream)" }}>
+            Tài khoản
+            <span className="block gold-text-animated font-extralight italic">
+              Premium
+            </span>
             giá tốt nhất
-          </span>
-        </h1>
+          </h1>
+        </div>
 
-        {/* Subtext */}
+        {/* Gold line */}
+        <div
+          className="mx-auto mb-8 animate-line-expand"
+          style={{
+            width: "80px",
+            height: "1px",
+            background: "var(--lux-gold-gradient)",
+            animationDelay: "500ms",
+            transformOrigin: "center",
+          }}
+          aria-hidden="true"
+        />
+
+        {/* Sub */}
         <p
-          className="animate-slide-up text-lg md:text-xl text-slate-300/90 mb-10 max-w-2xl mx-auto leading-relaxed"
-          style={{ animationDelay: "260ms" }}
+          className="animate-fade-in text-lg md:text-xl font-light leading-relaxed mb-12 max-w-2xl mx-auto"
+          style={{ color: "var(--lux-silver)", animationDelay: "400ms" }}
         >
-          Hơn 50 phần mềm premium chính hãng — Netflix, ChatGPT, Adobe, Spotify
-          và nhiều hơn nữa. Hỗ trợ kỹ thuật 24/7, bảo hành toàn bộ hạn dùng.
+          Hơn 50 phần mềm premium chính hãng — Netflix, ChatGPT, Adobe, Spotify và nhiều hơn nữa.
+          Hỗ trợ kỹ thuật 24/7, bảo hành toàn bộ hạn dùng.
         </p>
 
-        {/* CTA Buttons */}
-        <HeroCtaButtons />
+        {/* CTAs */}
+        <div className="animate-fade-in" style={{ animationDelay: "500ms" }}>
+          <HeroCtaButtons />
+        </div>
 
         {/* Stats row */}
         <div
-          className="animate-fade-in grid grid-cols-2 sm:grid-cols-4 gap-4 mt-14 mb-8 max-w-xl mx-auto"
-          style={{ animationDelay: "550ms" }}
+          className="animate-fade-in mt-20 mb-10 grid grid-cols-2 sm:grid-cols-4 rounded-xl overflow-hidden border divide-x divide-y sm:divide-y-0"
+          style={{
+            borderColor: "var(--lux-gold-border)",
+            backgroundColor: "rgba(10,10,10,0.6)",
+            backdropFilter: "blur(12px)",
+            animationDelay: "600ms",
+          }}
         >
           {STATS.map((s) => (
-            <div key={s.label} className="text-center">
-              <div className="text-2xl md:text-3xl font-black text-white leading-none mb-1">
-                {s.value}
-              </div>
-              <div className="text-xs text-slate-400 font-medium">{s.label}</div>
-            </div>
+            <StatCounter key={s.label} {...s} />
           ))}
         </div>
 
         {/* Trust badges */}
         <div
-          className="animate-fade-in flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-slate-400 text-xs sm:text-sm border-t border-white/10 pt-6"
-          style={{ animationDelay: "680ms" }}
+          className="animate-fade-in flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs pt-6"
+          style={{ borderTop: "1px solid var(--lux-gold-border)", color: "var(--lux-smoke)", animationDelay: "700ms" }}
         >
-          {TRUST_BADGES.map(({ icon: Icon, text }) => (
-            <span key={text} className="flex items-center gap-1.5">
-              <Icon className="w-3.5 h-3.5 text-blue-400" />
+          {TRUST.map(({ icon: Icon, text }) => (
+            <span key={text} className="flex items-center gap-1.5 font-light">
+              <Icon className="w-3.5 h-3.5" style={{ color: "var(--lux-gold-dim)" }} />
               {text}
             </span>
           ))}
         </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-float-luxury" aria-hidden="true">
+        <span className="font-label text-[9px] tracking-[0.3em] uppercase" style={{ color: "var(--lux-smoke)" }}>Scroll</span>
+        <div className="w-px h-8" style={{ background: "linear-gradient(to bottom, var(--lux-gold-dim), transparent)" }} />
       </div>
     </section>
   );

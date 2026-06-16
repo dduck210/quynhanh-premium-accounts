@@ -10,39 +10,73 @@ const ICON_MAP: Record<string, LucideIcon> = {
   Bot, Music, Palette, BookOpen, Film, Zap, Briefcase, Shield,
 };
 
+const PALETTE = [
+  { bg: "rgba(201,168,76,0.10)",  accent: "#c9a84c" },
+  { bg: "rgba(201,168,76,0.07)",  accent: "#8a6f32" },
+  { bg: "rgba(240,234,216,0.07)", accent: "#cbc5b4" },
+  { bg: "rgba(232,201,108,0.09)", accent: "#e8c96c" },
+  { bg: "rgba(201,168,76,0.10)",  accent: "#c9a84c" },
+  { bg: "rgba(201,168,76,0.07)",  accent: "#8a6f32" },
+  { bg: "rgba(240,234,216,0.07)", accent: "#cbc5b4" },
+  { bg: "rgba(232,201,108,0.09)", accent: "#e8c96c" },
+];
+
 export default function CategoryGrid({ categories }: { categories: Category[] }) {
   return (
-    <section id="categories" className="py-14 bg-gray-50">
+    <section
+      id="categories"
+      className="py-20 border-b"
+      style={{ backgroundColor: "var(--lux-carbon)", borderColor: "var(--lux-gold-border)" }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-2">
-            Danh mục sản phẩm
+        <AnimatedSection className="text-center mb-14">
+          <div className="lux-ornament mb-6 text-[10px] tracking-[0.4em]">✦ DANH MỤC ✦</div>
+          <h2 className="font-display text-4xl md:text-5xl font-light mb-3" style={{ color: "var(--lux-cream)" }}>
+            Khám phá{" "}
+            <span className="gold-text-animated italic font-extralight">danh mục</span>
           </h2>
-          <p className="text-gray-500">
-            Khám phá hơn 50 sản phẩm premium chính hãng
+          <p className="text-sm font-light" style={{ color: "var(--lux-silver)" }}>
+            Hơn 50 sản phẩm premium chính hãng
           </p>
         </AnimatedSection>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {categories.map((cat, i) => {
             const Icon = ICON_MAP[cat.icon] ?? Zap;
+            const { bg, accent } = PALETTE[i % PALETTE.length];
             return (
-              <AnimatedSection key={cat.id} delay={i * 55}>
+              <AnimatedSection key={cat.id} delay={i * 50}>
                 <Link
                   href={`/category/${cat.id}`}
-                  className="block bg-white rounded-xl p-5 text-center border border-gray-100 hover:border-blue-200 hover:shadow-lg hover:shadow-blue-100/40 transition-all duration-300 hover:-translate-y-1 group cursor-pointer"
+                  className="group flex flex-col items-center text-center p-6 rounded-xl border transition-all duration-350 hover:-translate-y-1"
+                  style={{
+                    backgroundColor: "rgba(14,14,14,0.8)",
+                    borderColor: "var(--lux-gold-border)",
+                  }}
                 >
+                  {/* Hover border glow via CSS vars won't work inline — rely on glass-card for that */}
                   <div
-                    className={`w-14 h-14 rounded-2xl ${cat.bgColor} flex items-center justify-center mx-auto mb-3 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5`}
+                    className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-0.5"
+                    style={{ backgroundColor: bg }}
                   >
-                    <Icon className={`w-7 h-7 ${cat.textColor}`} strokeWidth={1.75} />
+                    <Icon className="w-7 h-7" style={{ color: accent }} strokeWidth={1.5} />
                   </div>
-                  <h3 className="font-bold text-gray-900 text-sm mb-1 group-hover:text-blue-700 transition-colors duration-200">
+
+                  <h3
+                    className="font-display text-base font-light mb-1 transition-colors duration-200 group-hover:text-[var(--lux-cream)]"
+                    style={{ color: "var(--lux-ivory)" }}
+                  >
                     {cat.name}
                   </h3>
-                  <span className={`text-xs font-medium ${cat.textColor}`}>
+                  <span className="font-sans font-medium text-[10px] tracking-[0.15em]" style={{ color: accent }}>
                     {cat.count} sản phẩm
                   </span>
+
+                  {/* Gold underline on hover */}
+                  <div
+                    className="h-px w-0 group-hover:w-8 transition-all duration-400 mt-3"
+                    style={{ backgroundColor: accent }}
+                  />
                 </Link>
               </AnimatedSection>
             );

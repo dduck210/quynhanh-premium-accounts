@@ -1,20 +1,50 @@
 import { notFound } from "next/navigation";
+import {
+  Bot,
+  Music,
+  Palette,
+  BookOpen,
+  Film,
+  Zap,
+  Briefcase,
+  Shield,
+  type LucideIcon,
+} from "lucide-react";
 import { sanityClient } from "@/sanity/lib/sanity-client";
-import { ALL_CATEGORIES_QUERY, ALL_PRODUCTS_QUERY } from "@/sanity/lib/sanity-queries";
+import {
+  ALL_CATEGORIES_QUERY,
+  ALL_PRODUCTS_QUERY,
+} from "@/sanity/lib/sanity-queries";
 import AnnouncementBar from "@/components/layout/announcement-bar";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import Breadcrumb from "@/components/ui/breadcrumb";
 import ProductCard from "@/components/product/product-card";
+import AnimatedSection from "@/components/ui/animated-section";
 
 export const revalidate = 60;
+
+const ICON_MAP: Record<string, LucideIcon> = {
+  Bot,
+  Music,
+  Palette,
+  BookOpen,
+  Film,
+  Zap,
+  Briefcase,
+  Shield,
+};
 
 export async function generateStaticParams() {
   const categories = await sanityClient.fetch(ALL_CATEGORIES_QUERY);
   return categories.map((c: { id: string }) => ({ slug: c.id }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const categories = await sanityClient.fetch(ALL_CATEGORIES_QUERY);
   const cat = categories.find((c: { id: string }) => c.id === params.slug);
   return {
@@ -22,13 +52,17 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       ? `${cat.name} – Quỳnh Anh Premium Accounts`
       : "Danh mục – Quỳnh Anh Premium Accounts",
     description: cat
-      ? `Mua tài khoản ${cat.name} premium chính hãng, giá tốt nhất, bảo hành đầy đủ hạn.`
+      ? `Mua tài khoản ${cat.name} premium chính hãng, giá tốt nhất, bảo hành đầy đủ.`
       : undefined,
     twitter: { card: "summary_large_image" as const },
   };
 }
 
-export default async function CategoryPage({ params }: { params: { slug: string } }) {
+export default async function CategoryPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const [categories, products] = await Promise.all([
     sanityClient.fetch(ALL_CATEGORIES_QUERY),
     sanityClient.fetch(ALL_PRODUCTS_QUERY),
@@ -36,36 +70,87 @@ export default async function CategoryPage({ params }: { params: { slug: string 
   const category = categories.find((c: { id: string }) => c.id === params.slug);
   if (!category) notFound();
 
-  const catProducts = products.filter((p: { categoryId: string }) => p.categoryId === params.slug);
+  const catProducts = products.filter(
+    (p: { categoryId: string }) => p.categoryId === params.slug,
+  );
+  const Icon = ICON_MAP[category.icon] ?? Zap;
 
   return (
-    <main id="main-content" className="min-h-screen bg-gray-50">
+    <main
+      id="main-content"
+      className="min-h-screen"
+      style={{ backgroundColor: "var(--lux-void)" }}
+    >
       <AnnouncementBar />
       <Navbar />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <Breadcrumb
-          items={[{ label: "Trang chủ", href: "/" }, { label: category.name }]}
-        />
+      {/* Header section */}
+      <div
+        className="border-b"
+        style={{
+          backgroundColor: "var(--lux-obsidian)",
+          borderColor: "var(--lux-gold-border)",
+        }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <Breadcrumb
+            items={[
+              { label: "Trang chủ", href: "/" },
+              { label: category.name },
+            ]}
+          />
 
-        <div className="flex items-center gap-4 mt-6 mb-8">
-          <div className={`w-14 h-14 rounded-2xl ${category.bgColor} flex items-center justify-center text-3xl flex-shrink-0`}>
-            {category.icon}
-          </div>
-          <div>
-            <h1 className="text-2xl md:text-3xl font-black text-gray-900">{category.name}</h1>
-            <p className="text-gray-500 text-sm mt-0.5">{category.count} sản phẩm chính hãng</p>
-          </div>
+          <AnimatedSection className="flex items-center gap-5 mt-8">
+            {/* Icon */}
+            <div
+              className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
+              style={{ backgroundColor: "rgba(201,168,76,0.10)" }}
+            >
+              <Icon
+                className="w-8 h-8"
+                style={{ color: "var(--lux-gold)" }}
+                strokeWidth={1.5}
+              />
+            </div>
+
+            <div>
+              <div className="lux-ornament mb-2 text-[9px] tracking-[0.4em]">
+                ✦ DANH MỤC ✦
+              </div>
+              <h1
+                className="font-display text-3xl md:text-4xl font-light leading-tight"
+                style={{ color: "var(--lux-cream)" }}
+              >
+                {category.name}
+              </h1>
+              <p
+                className="font-sans text-xs font-light mt-1.5"
+                style={{ color: "var(--lux-silver)" }}
+              >
+                {catProducts.length} sản phẩm chính hãng
+              </p>
+            </div>
+          </AnimatedSection>
         </div>
+      </div>
 
+      {/* Products grid */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {catProducts.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {catProducts.map((p: { id: string }) => (
-              <ProductCard key={p.id} product={p as never} />
+            {catProducts.map((p: { id: string }, i: number) => (
+              <AnimatedSection key={p.id} delay={i * 60}>
+                <ProductCard product={p as never} />
+              </AnimatedSection>
             ))}
           </div>
         ) : (
-          <div className="text-center py-24 text-gray-400">Chưa có sản phẩm trong danh mục này.</div>
+          <div
+            className="text-center py-24 font-light text-sm"
+            style={{ color: "var(--lux-silver)" }}
+          >
+            Chưa có sản phẩm trong danh mục này.
+          </div>
         )}
       </div>
 
