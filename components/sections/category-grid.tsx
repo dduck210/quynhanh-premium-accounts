@@ -48,23 +48,23 @@ export default function CategoryGrid({ categories }: { categories: Category[] })
               <AnimatedSection key={cat.id} delay={i * 50}>
                 <Link
                   href={`/category/${cat.id}`}
-                  className="group flex flex-col items-center text-center p-6 rounded-xl border transition-all duration-350 hover:-translate-y-1"
+                  className="group flex flex-col items-center text-center p-6 rounded-xl border transition-[transform,opacity,border-color,box-shadow] duration-300 hover:-translate-y-1 active:opacity-70 active:scale-[0.98]"
                   style={{
                     backgroundColor: "rgba(14,14,14,0.8)",
                     borderColor: "var(--lux-gold-border)",
+                    WebkitTapHighlightColor: "transparent",
                   }}
                 >
-                  {/* Hover border glow via CSS vars won't work inline — rely on glass-card for that */}
                   <div
-                    className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-0.5"
+                    className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-0.5"
                     style={{ backgroundColor: bg }}
                   >
                     <Icon className="w-7 h-7" style={{ color: accent }} strokeWidth={1.5} />
                   </div>
 
+                  {/* No inline color — allows group-hover Tailwind class to work */}
                   <h3
-                    className="font-display text-base font-light mb-1 transition-colors duration-200 group-hover:text-[var(--lux-cream)]"
-                    style={{ color: "var(--lux-ivory)" }}
+                    className="font-display text-base font-light mb-1 transition-colors duration-200 text-[var(--lux-ivory)] group-hover:text-[var(--lux-cream)]"
                   >
                     {cat.name}
                   </h3>

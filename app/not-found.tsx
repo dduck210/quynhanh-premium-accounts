@@ -2,18 +2,38 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4">
-      <div className="text-8xl font-black text-blue-100 select-none mb-2">404</div>
-      <h1 className="text-2xl font-black text-gray-900 mb-2">Trang không tồn tại</h1>
-      <p className="text-gray-500 text-sm mb-8 text-center max-w-sm">
-        Trang bạn tìm kiếm đã bị xóa hoặc đường dẫn không đúng.
-      </p>
-      <Link
-        href="/"
-        className="bg-blue-600 hover:bg-blue-500 active:scale-95 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-200 hover:shadow-lg hover:shadow-blue-200 hover:-translate-y-0.5"
-      >
-        Về trang chủ
-      </Link>
-    </div>
+    <main
+      className="min-h-screen flex flex-col items-center justify-center px-4 animate-fade-in"
+      style={{ backgroundColor: "var(--lux-void)" }}
+    >
+      <div className="text-center">
+        <div className="lux-ornament mb-6 text-[9px] tracking-[0.4em]">✦ LỖI ✦</div>
+
+        <div
+          className="font-display font-light select-none mb-4 leading-none"
+          style={{ fontSize: "clamp(6rem, 20vw, 12rem)", color: "var(--lux-gold)", opacity: 0.15 }}
+          aria-hidden="true"
+        >
+          404
+        </div>
+
+        <h1
+          className="font-display text-2xl md:text-3xl font-light mb-3 -mt-8"
+          style={{ color: "var(--lux-cream)" }}
+        >
+          Trang không tồn tại
+        </h1>
+        <p className="font-sans text-sm font-light mb-10 max-w-xs mx-auto" style={{ color: "var(--lux-silver)" }}>
+          Trang bạn tìm kiếm đã bị xóa hoặc đường dẫn không đúng.
+        </p>
+
+        <Link
+          href="/"
+          className="lux-btn-primary"
+        >
+          Về trang chủ
+        </Link>
+      </div>
+    </main>
   );
 }

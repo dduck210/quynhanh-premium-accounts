@@ -123,7 +123,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen((v) => !v)}
                 aria-label={menuOpen ? "Đóng menu" : "Mở menu"}
                 aria-expanded={menuOpen}
-                className="p-2.5 rounded"
+                className="p-2.5 rounded transition-opacity duration-150 active:opacity-50"
                 style={{ color: "var(--lux-silver)" }}
               >
                 <span className="block w-5 h-0.5 bg-current transition-all duration-300 origin-center" style={{ transform: menuOpen ? "translateY(6px) rotate(45deg)" : "" }} />

@@ -15,30 +15,39 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4">
-      <div className="mb-6 w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center">
-        <AlertTriangle className="w-8 h-8 text-amber-500" />
-      </div>
-      <h1 className="text-2xl font-black text-gray-900 mb-2">
-        Đã có lỗi xảy ra
-      </h1>
-      <p className="text-gray-500 text-sm mb-8 text-center max-w-sm">
-        Trang này gặp sự cố. Vui lòng thử lại hoặc quay về trang chủ.
-      </p>
-      <div className="flex gap-3">
-        <button
-          onClick={reset}
-          className="bg-blue-600 hover:bg-blue-500 text-white px-5 py-2.5 rounded-xl font-semibold text-sm transition-colors"
+    <main
+      className="min-h-screen flex flex-col items-center justify-center px-4 animate-fade-in"
+      style={{ backgroundColor: "var(--lux-void)" }}
+    >
+      <div className="text-center">
+        <div className="lux-ornament mb-6 text-[9px] tracking-[0.4em]">✦ LỖI ✦</div>
+
+        <div
+          className="mx-auto mb-6 w-16 h-16 rounded-full flex items-center justify-center"
+          style={{ backgroundColor: "rgba(201,168,76,0.10)", border: "1px solid var(--lux-gold-border)" }}
         >
-          Thử lại
-        </button>
-        <Link
-          href="/"
-          className="border border-gray-200 hover:border-blue-300 text-gray-700 hover:text-blue-600 px-5 py-2.5 rounded-xl font-semibold text-sm transition-colors"
+          <AlertTriangle className="w-7 h-7" style={{ color: "var(--lux-gold)" }} />
+        </div>
+
+        <h1
+          className="font-display text-2xl md:text-3xl font-light mb-3"
+          style={{ color: "var(--lux-cream)" }}
         >
-          Về trang chủ
-        </Link>
+          Đã có lỗi xảy ra
+        </h1>
+        <p className="font-sans text-sm font-light mb-10 max-w-xs mx-auto" style={{ color: "var(--lux-silver)" }}>
+          Trang này gặp sự cố. Vui lòng thử lại hoặc quay về trang chủ.
+        </p>
+
+        <div className="flex gap-3 justify-center">
+          <button onClick={reset} className="lux-btn-primary">
+            Thử lại
+          </button>
+          <Link href="/" className="lux-btn-outline">
+            Về trang chủ
+          </Link>
+        </div>
       </div>
-    </div>
+    </main>
   );
 }

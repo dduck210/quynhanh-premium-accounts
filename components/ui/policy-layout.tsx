@@ -16,7 +16,10 @@ export default function PolicyLayout({
   children,
 }: Props) {
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main
+      className="min-h-screen animate-fade-in"
+      style={{ backgroundColor: "var(--lux-void)" }}
+    >
       <AnnouncementBar />
       <Navbar />
 
@@ -25,13 +28,27 @@ export default function PolicyLayout({
           items={[{ label: "Trang chủ", href: "/" }, { label: title }]}
         />
 
-        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 mt-6">
-          <h1 className="text-2xl md:text-3xl font-black text-gray-900 mb-2">
+        <div
+          className="rounded-xl border p-8 mt-6"
+          style={{
+            backgroundColor: "var(--lux-obsidian)",
+            borderColor: "var(--lux-gold-border)",
+          }}
+        >
+          <div className="lux-ornament mb-5 text-[9px] tracking-[0.4em]">✦ CHÍNH SÁCH ✦</div>
+
+          <h1
+            className="font-display text-2xl md:text-3xl font-light mb-2"
+            style={{ color: "var(--lux-cream)" }}
+          >
             {title}
           </h1>
-          <p className="text-gray-400 text-sm mb-8">
+          <p className="font-sans text-xs font-light mb-8" style={{ color: "var(--lux-silver)" }}>
             Cập nhật lần cuối: {lastUpdated}
           </p>
+
+          <div className="gold-divider mb-8" />
+
           <div className="prose-policy">{children}</div>
         </div>
       </div>

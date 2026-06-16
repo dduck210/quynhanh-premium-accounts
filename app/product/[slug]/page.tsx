@@ -80,7 +80,7 @@ export default async function ProductPage({
   return (
     <main
       id="main-content"
-      className="min-h-screen"
+      className="min-h-screen animate-fade-in"
       style={{ backgroundColor: "var(--lux-void)" }}
     >
       <script

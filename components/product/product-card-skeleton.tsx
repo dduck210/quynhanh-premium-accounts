@@ -1,14 +1,20 @@
 export default function ProductCardSkeleton() {
   return (
-    <div className="bg-white rounded-xl border border-gray-100 p-4 flex flex-col h-full animate-pulse">
-      <div className="w-12 h-12 rounded-xl bg-gray-100 mb-3" />
-      <div className="h-4 w-20 rounded-full bg-gray-100 mb-2" />
-      <div className="h-4 w-3/4 rounded bg-gray-100 mb-1" />
-      <div className="h-3 w-full rounded bg-gray-100 mb-1" />
-      <div className="h-3 w-2/3 rounded bg-gray-100 mb-3" />
+    <div
+      className="rounded-xl border p-5 flex flex-col h-full animate-pulse"
+      style={{
+        backgroundColor: "var(--lux-obsidian)",
+        borderColor: "var(--lux-gold-border)",
+      }}
+    >
+      <div className="w-12 h-12 rounded-lg mb-4" style={{ backgroundColor: "rgba(201,168,76,0.08)" }} />
+      <div className="h-2.5 w-16 rounded-full mb-3" style={{ backgroundColor: "rgba(201,168,76,0.06)" }} />
+      <div className="h-4 w-3/4 rounded mb-1.5" style={{ backgroundColor: "rgba(255,255,255,0.05)" }} />
+      <div className="h-3 w-full rounded mb-1" style={{ backgroundColor: "rgba(255,255,255,0.04)" }} />
+      <div className="h-3 w-2/3 rounded mb-4" style={{ backgroundColor: "rgba(255,255,255,0.04)" }} />
       <div className="mt-auto">
-        <div className="h-6 w-24 rounded bg-gray-100 mb-3" />
-        <div className="h-8 w-full rounded-lg bg-gray-100" />
+        <div className="h-5 w-24 rounded mb-4" style={{ backgroundColor: "rgba(201,168,76,0.08)" }} />
+        <div className="h-8 w-full rounded" style={{ backgroundColor: "rgba(201,168,76,0.06)" }} />
       </div>
     </div>
   );

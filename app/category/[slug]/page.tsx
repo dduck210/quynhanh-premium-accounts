@@ -78,7 +78,7 @@ export default async function CategoryPage({
   return (
     <main
       id="main-content"
-      className="min-h-screen"
+      className="min-h-screen animate-fade-in"
       style={{ backgroundColor: "var(--lux-void)" }}
     >
       <AnnouncementBar />
