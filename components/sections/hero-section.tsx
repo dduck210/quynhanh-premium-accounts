@@ -197,26 +197,23 @@ export default function HeroSection() {
             </span>
           ))}
         </div>
-      </div>
 
-      {/* Scroll indicator — hidden on mobile to avoid overlapping trust badges */}
-      <div
-        className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 animate-float-luxury"
-        aria-hidden="true"
-      >
-        <span
-          className="font-label text-[9px] tracking-[0.3em] uppercase"
-          style={{ color: "#7A5068" }}
-        >
-          Scroll
-        </span>
+        {/* Scroll indicator — in flow so it never overlaps trust badges */}
         <div
-          className="w-px h-8"
-          style={{
-            background:
-              "linear-gradient(to bottom, var(--lux-gold-dim), transparent)",
-          }}
-        />
+          className="flex flex-col items-center gap-2 mt-8 animate-float-luxury"
+          aria-hidden="true"
+        >
+          <span
+            className="font-label text-[9px] tracking-[0.3em] uppercase"
+            style={{ color: "#7A5068" }}
+          >
+            Scroll
+          </span>
+          <div
+            className="w-px h-8"
+            style={{ background: "linear-gradient(to bottom, var(--lux-gold-dim), transparent)" }}
+          />
+        </div>
       </div>
     </section>
   );
