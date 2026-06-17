@@ -44,31 +44,12 @@ export default function AnnouncementBar() {
       style={{ backgroundColor: "#FBEEF3", borderColor: "rgba(142,80,112,0.2)" }}
       aria-label="Thông báo"
     >
-      <style>{`
-        @keyframes qa-scroll {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
-        }
-        .qa-marquee {
-          display: flex;
-          align-items: center;
-          gap: 1.5rem;
-          white-space: nowrap;
-          width: max-content;
-          min-width: max-content;
-          animation: qa-scroll 28s linear infinite;
-        }
-        .qa-marquee:hover {
-          animation-play-state: paused;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .qa-marquee { animation-play-state: paused; }
-        }
-      `}</style>
-
-      {/* Mobile: marquee — runs on all phones */}
+      {/* Mobile: marquee */}
       <div className="sm:hidden overflow-hidden relative" aria-live="off">
-        <div className="qa-marquee font-sans tracking-widest">
+        <div
+          className="animate-ticker flex items-center gap-6 whitespace-nowrap font-sans tracking-widest hover:[animation-play-state:paused]"
+          style={{ width: "max-content", minWidth: "max-content" }}
+        >
           {MESSAGES.map((msg, i) => (
             <span key={i} className="flex items-center gap-3 px-2">
               <MessageItem msg={msg} />

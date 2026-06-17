@@ -42,6 +42,7 @@ const config: Config = {
         "line-expand":    "lineExpand 0.8s cubic-bezier(.25,.46,.45,.94) both",
         "count-up":       "countUp 0.5s ease-out both",
         "reveal-up":      "revealUp 0.8s cubic-bezier(.25,.46,.45,.94) both",
+        "ticker":         "ticker 28s linear infinite",
       },
       keyframes: {
         fadeIn: {
@@ -83,6 +84,10 @@ const config: Config = {
         revealUp: {
           from: { opacity: "0", transform: "translateY(32px)" },
           to:   { opacity: "1", transform: "translateY(0)" },
+        },
+        ticker: {
+          from: { transform: "translateX(0)" },
+          to:   { transform: "translateX(-50%)" },
         },
       },
       transitionDuration: {
