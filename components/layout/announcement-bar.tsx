@@ -24,8 +24,8 @@ function MessageItem({ msg }: { msg: Message }) {
   const Icon = msg.icon;
   return (
     <span className="flex items-center gap-2 flex-shrink-0">
-      <Icon className="w-3 h-3 opacity-80" style={{ color: "rgba(255,255,255,0.9)" }} />
-      <span style={{ color: "rgba(255,255,255,0.92)" }}>{msg.text}</span>
+      <Icon className="w-3 h-3" style={{ color: "var(--lux-gold)" }} />
+      <span style={{ color: "#3a1060" }}>{msg.text}</span>
     </span>
   );
 }
@@ -33,16 +33,17 @@ function MessageItem({ msg }: { msg: Message }) {
 const DOT = (
   <span
     className="flex-shrink-0 w-1 h-1 rounded-full"
-    style={{ backgroundColor: "rgba(255,255,255,0.4)" }}
+    style={{ backgroundColor: "var(--lux-gold-dim)" }}
   />
 );
 
 export default function AnnouncementBar() {
   return (
     <div
-      className="text-xs py-2.5 overflow-hidden"
+      className="text-xs py-2.5 overflow-hidden border-b"
       style={{
-        background: "linear-gradient(90deg, var(--lux-gold-dim) 0%, var(--lux-gold) 50%, var(--lux-gold-dim) 100%)",
+        backgroundColor: "#f0e8ff",
+        borderColor: "rgba(155,64,212,0.2)",
       }}
       aria-label="Thông báo"
     >
@@ -70,7 +71,7 @@ export default function AnnouncementBar() {
       <div className="hidden sm:flex max-w-7xl mx-auto px-6 lg:px-8 items-center justify-between gap-6">
         <p
           className="font-sans font-bold text-[11px] tracking-[0.2em] uppercase flex-shrink-0"
-          style={{ color: "rgba(255,255,255,0.95)" }}
+          style={{ color: "var(--lux-gold)" }}
         >
           ✦ &nbsp;Quỳnh Anh Premium&nbsp; ✦
         </p>
@@ -79,7 +80,7 @@ export default function AnnouncementBar() {
             <span key={i} className="flex items-center gap-4">
               <MessageItem msg={msg} />
               {i < MESSAGES.length - 1 && (
-                <span aria-hidden="true" style={{ color: "rgba(255,255,255,0.35)" }}>
+                <span aria-hidden="true" style={{ color: "rgba(155,64,212,0.3)" }}>
                   ·
                 </span>
               )}
