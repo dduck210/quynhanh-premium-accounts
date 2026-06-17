@@ -24,11 +24,8 @@ function MessageItem({ msg }: { msg: Message }) {
   const Icon = msg.icon;
   return (
     <span className="flex items-center gap-2 flex-shrink-0">
-      <Icon
-        className="w-3 h-3 opacity-70"
-        style={{ color: "var(--lux-gold)" }}
-      />
-      <span style={{ color: "var(--lux-silver)" }}>{msg.text}</span>
+      <Icon className="w-3 h-3 opacity-80" style={{ color: "rgba(255,255,255,0.9)" }} />
+      <span style={{ color: "rgba(255,255,255,0.92)" }}>{msg.text}</span>
     </span>
   );
 }
@@ -36,17 +33,16 @@ function MessageItem({ msg }: { msg: Message }) {
 const DOT = (
   <span
     className="flex-shrink-0 w-1 h-1 rounded-full"
-    style={{ backgroundColor: "var(--lux-gold-dim)" }}
+    style={{ backgroundColor: "rgba(255,255,255,0.4)" }}
   />
 );
 
 export default function AnnouncementBar() {
   return (
     <div
-      className="text-xs py-2.5 overflow-hidden border-b"
+      className="text-xs py-2.5 overflow-hidden"
       style={{
-        backgroundColor: "var(--lux-obsidian)",
-        borderColor: "var(--lux-gold-border)",
+        background: "linear-gradient(90deg, var(--lux-gold-dim) 0%, var(--lux-gold) 50%, var(--lux-gold-dim) 100%)",
       }}
       aria-label="Thông báo"
     >
@@ -73,8 +69,8 @@ export default function AnnouncementBar() {
       {/* Desktop: static */}
       <div className="hidden sm:flex max-w-7xl mx-auto px-6 lg:px-8 items-center justify-between gap-6">
         <p
-          className="font-sans font-medium text-[11px] tracking-[0.2em] uppercase flex-shrink-0"
-          style={{ color: "var(--lux-gold)" }}
+          className="font-sans font-bold text-[11px] tracking-[0.2em] uppercase flex-shrink-0"
+          style={{ color: "rgba(255,255,255,0.95)" }}
         >
           ✦ &nbsp;Quỳnh Anh Premium&nbsp; ✦
         </p>
@@ -83,7 +79,7 @@ export default function AnnouncementBar() {
             <span key={i} className="flex items-center gap-4">
               <MessageItem msg={msg} />
               {i < MESSAGES.length - 1 && (
-                <span aria-hidden="true" style={{ color: "var(--lux-smoke)" }}>
+                <span aria-hidden="true" style={{ color: "rgba(255,255,255,0.35)" }}>
                   ·
                 </span>
               )}
