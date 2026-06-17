@@ -70,10 +70,10 @@ export default function Navbar() {
               >
                 QA
               </div>
-              <span className="font-display text-lg font-light tracking-wide hidden sm:block" style={{ color: "var(--lux-cream)" }}>
+              <span className="font-display text-base font-light tracking-wide" style={{ color: "var(--lux-cream)" }}>
                 Quỳnh Anh
               </span>
-              <span className="font-label text-xs tracking-[0.15em] uppercase hidden sm:block" style={{ color: "var(--lux-gold)" }}>
+              <span className="font-label text-[10px] tracking-[0.15em] uppercase hidden sm:block" style={{ color: "var(--lux-gold)" }}>
                 Premium
               </span>
             </Link>
@@ -154,7 +154,7 @@ export default function Navbar() {
               href={`/#${link.id}`}
               onClick={scrollToSection(link.id)}
               className="flex items-center gap-3 px-4 py-3 rounded font-sans text-xs tracking-widest uppercase font-medium transition-colors duration-150"
-              style={{ color: "var(--lux-silver)" }}
+              style={{ color: "var(--lux-cream)" }}
             >
               <span className="w-1 h-1 rounded-full" style={{ backgroundColor: "var(--lux-gold)" }} />
               {link.label}
