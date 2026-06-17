@@ -87,16 +87,6 @@ export default function HeroSection() {
       {/* Particle background */}
       <div className="hero-particles" aria-hidden="true" />
 
-      {/* Floral decorations */}
-      <img src="/flowers-deco.png" alt="" aria-hidden="true" className="absolute pointer-events-none select-none"
-        style={{ top: "-5%", left: "-8%", width: "38%", maxWidth: 420, opacity: 0.55, mixBlendMode: "multiply", transform: "rotate(-15deg)" }} />
-      <img src="/flowers-deco.png" alt="" aria-hidden="true" className="absolute pointer-events-none select-none"
-        style={{ top: "-5%", right: "-8%", width: "36%", maxWidth: 400, opacity: 0.50, mixBlendMode: "multiply", transform: "rotate(20deg) scaleX(-1)" }} />
-      <img src="/flowers-deco.png" alt="" aria-hidden="true" className="absolute pointer-events-none select-none"
-        style={{ bottom: "-8%", left: "-6%", width: "32%", maxWidth: 360, opacity: 0.45, mixBlendMode: "multiply", transform: "rotate(10deg)" }} />
-      <img src="/flowers-deco.png" alt="" aria-hidden="true" className="absolute pointer-events-none select-none"
-        style={{ bottom: "-8%", right: "-6%", width: "30%", maxWidth: 340, opacity: 0.40, mixBlendMode: "multiply", transform: "rotate(-12deg) scaleX(-1)" }} />
-
       {/* Ambient glow orbs */}
       <div
         className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full pointer-events-none"

@@ -54,11 +54,6 @@ export default function ContactCta() {
         className="py-20 relative overflow-hidden"
         style={{ backgroundColor: "var(--lux-carbon)" }}
       >
-        {/* Floral decorations — screen blend makes pink fade, white flowers glow */}
-        <img src="/flowers-deco.png" alt="" aria-hidden="true" className="absolute pointer-events-none select-none"
-          style={{ top: "-10%", left: "-5%", width: "35%", maxWidth: 380, opacity: 0.18, mixBlendMode: "screen", transform: "rotate(-8deg)" }} />
-        <img src="/flowers-deco.png" alt="" aria-hidden="true" className="absolute pointer-events-none select-none"
-          style={{ bottom: "-10%", right: "-5%", width: "32%", maxWidth: 360, opacity: 0.16, mixBlendMode: "screen", transform: "rotate(12deg) scaleX(-1)" }} />
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <div className="lux-ornament mb-8 text-[10px] tracking-[0.4em]">✦ HỖ TRỢ ✦</div>
 
