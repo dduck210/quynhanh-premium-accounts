@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect } from "react";
 import {
   Zap,
   ShieldCheck,
@@ -13,10 +16,10 @@ interface Message {
 }
 
 const MESSAGES: Message[] = [
-  { icon: Zap,         text: "Kích hoạt trong 15 phút"      },
-  { icon: ShieldCheck, text: "Bảo hành toàn bộ"             },
-  { icon: Headphones,  text: "Hỗ trợ kỹ thuật 24/7"         },
-  { icon: CreditCard,  text: "Thanh toán an toàn & bảo mật" },
+  { icon: Zap,         text: "Kích hoạt trong 15 phút"       },
+  { icon: ShieldCheck, text: "Bảo hành toàn bộ"              },
+  { icon: Headphones,  text: "Hỗ trợ kỹ thuật 24/7"          },
+  { icon: CreditCard,  text: "Thanh toán an toàn & bảo mật"  },
   { icon: Flame,       text: "Hơn 1000 khách hàng tin tưởng" },
 ];
 
@@ -31,23 +34,43 @@ function MessageItem({ msg }: { msg: Message }) {
 }
 
 const DOT = (
-  <span
-    className="flex-shrink-0 w-1 h-1 rounded-full"
-    style={{ backgroundColor: "var(--lux-gold-dim)" }}
-  />
+  <span className="flex-shrink-0 w-1 h-1 rounded-full" style={{ backgroundColor: "var(--lux-gold-dim)" }} />
 );
 
 export default function AnnouncementBar() {
+  useEffect(() => {
+    const id = "qa-ticker-css";
+    if (document.getElementById(id)) return;
+    const style = document.createElement("style");
+    style.id = id;
+    style.textContent = `
+      @keyframes qa-ticker {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .qa-ticker {
+        animation: qa-ticker 22s linear infinite;
+      }
+      .qa-ticker:hover {
+        animation-play-state: paused;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .qa-ticker { animation-play-state: paused; }
+      }
+    `;
+    document.head.appendChild(style);
+  }, []);
+
   return (
     <div
       className="text-xs py-2.5 overflow-hidden border-b"
       style={{ backgroundColor: "#FBEEF3", borderColor: "rgba(142,80,112,0.2)" }}
       aria-label="Thông báo"
     >
-      {/* Mobile: marquee */}
+      {/* Mobile: continuous ticker */}
       <div className="sm:hidden overflow-hidden relative" aria-live="off">
         <div
-          className="animate-ticker flex items-center gap-6 whitespace-nowrap font-sans tracking-widest hover:[animation-play-state:paused]"
+          className="qa-ticker flex items-center gap-6 whitespace-nowrap font-sans tracking-widest"
           style={{ width: "max-content", minWidth: "max-content" }}
         >
           {MESSAGES.map((msg, i) => (
@@ -56,7 +79,6 @@ export default function AnnouncementBar() {
               {DOT}
             </span>
           ))}
-          {/* duplicate for seamless loop */}
           <span aria-hidden="true" className="contents">
             {MESSAGES.map((msg, i) => (
               <span key={`d-${i}`} className="flex items-center gap-3 px-2">
@@ -66,19 +88,16 @@ export default function AnnouncementBar() {
             ))}
           </span>
         </div>
-        {/* Fade edges */}
         <div className="absolute left-0 top-0 bottom-0 w-8 pointer-events-none z-10"
           style={{ background: "linear-gradient(to right, #FBEEF3, transparent)" }} />
         <div className="absolute right-0 top-0 bottom-0 w-8 pointer-events-none z-10"
           style={{ background: "linear-gradient(to left, #FBEEF3, transparent)" }} />
       </div>
 
-      {/* Desktop: static items */}
+      {/* Desktop: static */}
       <div className="hidden sm:flex max-w-7xl mx-auto px-6 lg:px-8 items-center justify-between gap-6">
-        <p
-          className="font-sans font-bold text-[11px] tracking-[0.2em] uppercase flex-shrink-0"
-          style={{ color: "var(--lux-gold)" }}
-        >
+        <p className="font-sans font-bold text-[11px] tracking-[0.2em] uppercase flex-shrink-0"
+          style={{ color: "var(--lux-gold)" }}>
           ✦ &nbsp;Quỳnh Anh Premium&nbsp; ✦
         </p>
         <div className="flex items-center gap-4">
