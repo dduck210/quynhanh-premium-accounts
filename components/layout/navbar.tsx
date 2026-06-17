@@ -110,7 +110,7 @@ export default function Navbar() {
                 href={SITE_CONFIG.zaloUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="lux-btn-primary !py-2 !px-3 !text-[10px] flex items-center gap-1"
+                className="lux-btn-primary !py-2.5 !px-3 !text-[11px] !min-h-[44px] flex items-center gap-1"
               >
                 <MessageCircle className="w-3 h-3" />
                 Zalo
@@ -119,7 +119,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen((v) => !v)}
                 aria-label={menuOpen ? "Đóng menu" : "Mở menu"}
                 aria-expanded={menuOpen}
-                className="p-2.5 rounded transition-opacity duration-150 active:opacity-50"
+                className="p-3 min-w-[44px] min-h-[44px] rounded transition-opacity duration-150 active:opacity-50 flex flex-col justify-center"
                 style={{ color: "var(--lux-silver)" }}
               >
                 <span className="block w-5 h-0.5 bg-current transition-all duration-300 origin-center" style={{ transform: menuOpen ? "translateY(6px) rotate(45deg)" : "" }} />

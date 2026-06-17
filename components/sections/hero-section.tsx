@@ -70,7 +70,7 @@ function StatCounter({
       </div>
       <div
         className="font-sans text-[10px] tracking-[0.2em] uppercase font-medium"
-        style={{ color: "#B07C97" }}
+        style={{ color: "#7A5068" }}
       >
         {label}
       </div>
@@ -152,7 +152,7 @@ export default function HeroSection() {
         {/* Sub */}
         <p
           className="animate-fade-in text-lg md:text-xl font-light leading-relaxed mb-12 max-w-2xl mx-auto"
-          style={{ color: "#B07C97", animationDelay: "400ms" }}
+          style={{ color: "#7A5068", animationDelay: "400ms" }}
         >
           Hơn 50 phần mềm premium chính hãng — Netflix, ChatGPT, Adobe, Spotify
           và nhiều hơn nữa. Hỗ trợ kỹ thuật 24/7, bảo hành toàn bộ.
@@ -183,7 +183,7 @@ export default function HeroSection() {
           className="animate-fade-in flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs pt-6"
           style={{
             borderTop: "1px solid rgba(142,80,112,0.2)",
-            color: "#B07C97",
+            color: "#7A5068",
             animationDelay: "700ms",
           }}
         >
@@ -206,7 +206,7 @@ export default function HeroSection() {
       >
         <span
           className="font-label text-[9px] tracking-[0.3em] uppercase"
-          style={{ color: "#B07C97" }}
+          style={{ color: "#7A5068" }}
         >
           Scroll
         </span>

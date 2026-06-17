@@ -76,11 +76,11 @@ export default function ProductCard({ product }: { product: Product }) {
     >
       {/* Badges */}
       {discountPct ? (
-        <span className="absolute top-3 right-3 z-10 text-[10px] font-bold px-2 py-0.5 rounded tracking-wider" style={{ backgroundColor: "var(--lux-gold)", color: "var(--lux-void)" }}>
+        <span className="absolute top-3 right-3 z-10 text-[11px] font-bold px-2 py-1 rounded tracking-wider" style={{ backgroundColor: "var(--lux-gold)", color: "var(--lux-void)" }}>
           -{discountPct}%
         </span>
       ) : product.isNew ? (
-        <span className="absolute top-3 right-3 z-10 lux-badge" style={{ fontSize: "9px" }}>Mới</span>
+        <span className="absolute top-3 right-3 z-10 lux-badge" style={{ fontSize: "11px" }}>Mới</span>
       ) : null}
 
       <div className="p-5 flex flex-col flex-1 relative z-[1]">
