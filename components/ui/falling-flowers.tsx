@@ -1,91 +1,138 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
-const COLORS = [
-  { petal: "rgba(230, 155, 185, 0.92)", center: "#F7CC42" },
-  { petal: "rgba(245, 185, 210, 0.88)", center: "#EDAB00" },
-  { petal: "rgba(210, 120, 158, 0.85)", center: "#F5B830" },
-];
-
-function DaisySVG({ petal, center }: { petal: string; center: string }) {
-  return (
-    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style={{ width: "100%", height: "100%" }}>
-      {[0, 45, 90, 135, 180, 225, 270, 315].map((a) => (
-        <ellipse key={a} cx="50" cy="20" rx="9" ry="22" fill={petal} transform={`rotate(${a} 50 50)`} />
-      ))}
-      <circle cx="50" cy="50" r="15" fill={center} />
-      <circle cx="50" cy="50" r="9"  fill={center} style={{ filter: "brightness(0.75)" }} />
-    </svg>
-  );
+interface Particle {
+  x: number;
+  y: number;
+  size: number;
+  speedY: number;
+  swayAmp: number;
+  swayFreq: number;
+  swayPhase: number;
+  rotation: number;
+  rotSpeed: number;
+  alpha: number;
+  petalColor: string;
+  centerColor: string;
 }
 
-interface Flower {
-  id: number;
-  left: number;
-  size: number;
-  duration: number;
-  delay: number;
-  opacity: number;
-  colorIdx: number;
-  swayDuration: number;
-  top?: number;
+const PETAL_COLORS = [
+  "rgba(230, 155, 185, 0.88)",
+  "rgba(245, 185, 210, 0.84)",
+  "rgba(210, 120, 158, 0.82)",
+  "rgba(238, 170, 200, 0.80)",
+];
+const CENTER_COLORS = ["#F7CC42", "#EDAB00", "#F5B830", "#E8C040"];
+
+function drawDaisy(
+  ctx: CanvasRenderingContext2D,
+  x: number, y: number,
+  size: number, rotation: number,
+  petalColor: string, centerColor: string,
+  alpha: number,
+) {
+  ctx.save();
+  ctx.globalAlpha = alpha;
+  ctx.translate(x, y);
+  ctx.rotate(rotation);
+
+  ctx.fillStyle = petalColor;
+  for (let i = 0; i < 8; i++) {
+    ctx.save();
+    ctx.rotate((i * Math.PI * 2) / 8);
+    ctx.beginPath();
+    ctx.ellipse(0, -(size * 0.34), size * 0.12, size * 0.28, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  ctx.fillStyle = centerColor;
+  ctx.beginPath();
+  ctx.arc(0, 0, size * 0.17, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.restore();
+}
+
+function makeParticle(w: number, h: number, fromTop: boolean): Particle {
+  const ci = Math.floor(Math.random() * PETAL_COLORS.length);
+  return {
+    x: Math.random() * w,
+    y: fromTop ? -(Math.random() * 80 + 10) : Math.random() * h,
+    size: 13 + Math.random() * 22,
+    speedY: 0.6 + Math.random() * 1.5,
+    swayAmp: 20 + Math.random() * 35,
+    swayFreq: 0.007 + Math.random() * 0.007,
+    swayPhase: Math.random() * Math.PI * 2,
+    rotation: Math.random() * Math.PI * 2,
+    rotSpeed: (Math.random() - 0.5) * 0.04,
+    alpha: 0.55 + Math.random() * 0.35,
+    petalColor: PETAL_COLORS[ci],
+    centerColor: CENTER_COLORS[ci],
+  };
 }
 
 export default function FallingFlowers() {
   const pathname = usePathname();
-  const [flowers, setFlowers] = useState<Flower[]>([]);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     if (pathname.startsWith("/studio")) return;
 
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const mobile = window.innerWidth < 768;
-    const count = mobile ? 9 : 16;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
-    setFlowers(
-      Array.from({ length: count }, (_, i) => ({
-        id: i,
-        left: (i * (98 / count) + (i % 3) * 2.8 + (i % 7) * 1.2) % 98,
-        size: mobile ? 22 + (i % 4) * 7 : 28 + (i % 5) * 9,
-        duration: reducedMotion ? 0 : 12 + (i % 7) * 1.9,
-        delay: reducedMotion ? 0 : -(i * (20 / count)),
-        opacity: 0.55 + (i % 5) * 0.08,
-        colorIdx: i % COLORS.length,
-        swayDuration: reducedMotion ? 0 : 2.5 + (i % 4) * 0.9,
-        top: reducedMotion ? (i * (95 / count)) % 95 : undefined,
-      }))
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resize();
+    window.addEventListener("resize", resize);
+
+    const count = window.innerWidth < 768 ? 14 : 22;
+    const particles: Particle[] = Array.from({ length: count }, () =>
+      makeParticle(canvas.width, canvas.height, false),
     );
+
+    let rafId: number;
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (const p of particles) {
+        p.y += p.speedY;
+        p.x += Math.sin(p.y * p.swayFreq + p.swayPhase) * (p.swayAmp * 0.04);
+        p.rotation += p.rotSpeed;
+
+        if (p.y > canvas.height + 60) {
+          Object.assign(p, makeParticle(canvas.width, canvas.height, true));
+        }
+
+        drawDaisy(ctx, p.x, p.y, p.size, p.rotation, p.petalColor, p.centerColor, p.alpha);
+      }
+
+      rafId = requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener("resize", resize);
+    };
   }, [pathname]);
 
-  if (flowers.length === 0) return null;
+  if (pathname.startsWith("/studio")) return null;
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 3 }} aria-hidden="true">
-      {flowers.map((f) => (
-        <div
-          key={f.id}
-          style={{
-            position: "absolute",
-            left: `${f.left}%`,
-            ...(f.top !== undefined ? { top: `${f.top}%` } : {}),
-            width: f.size,
-            height: f.size,
-            animation: f.duration > 0 ? `flowerFall ${f.duration}s ${f.delay}s linear infinite` : "none",
-          }}
-        >
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              opacity: f.opacity,
-              animation: f.swayDuration > 0 ? `flowerSway ${f.swayDuration}s ease-in-out infinite alternate` : "none",
-            }}
-          >
-            <DaisySVG {...COLORS[f.colorIdx]} />
-          </div>
-        </div>
-      ))}
-    </div>
+    <canvas
+      ref={canvasRef}
+      className="fixed inset-0 pointer-events-none"
+      style={{ zIndex: 3 }}
+      aria-hidden="true"
+    />
   );
 }

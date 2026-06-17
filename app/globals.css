@@ -720,19 +720,3 @@ body {
   z-index: 9998;
   transition: opacity 0.3s ease;
 }
-
-/* ═══════════════════════════════════════════════════
-   FALLING FLOWERS
-═══════════════════════════════════════════════════ */
-
-@keyframes flowerFall {
-  0%   { transform: translateY(-90px)  rotate(0deg);   opacity: 0; }
-  6%   { opacity: 1; }
-  92%  { opacity: 1; }
-  100% { transform: translateY(108vh) rotate(600deg);  opacity: 0; }
-}
-
-@keyframes flowerSway {
-  from { transform: translateX(-50px) rotate(-12deg); }
-  to   { transform: translateX(50px)  rotate(12deg);  }
-}
