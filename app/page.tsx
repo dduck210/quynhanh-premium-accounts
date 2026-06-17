@@ -7,7 +7,6 @@ import CategoryGrid from "@/components/sections/category-grid";
 import ProductSection from "@/components/sections/product-section";
 import ContactCta from "@/components/sections/contact-cta";
 import Footer from "@/components/layout/footer";
-import SocialProofTicker from "@/components/ui/social-proof-ticker";
 import { sanityClient } from "@/sanity/lib/sanity-client";
 import { ALL_PRODUCTS_QUERY, ALL_CATEGORIES_QUERY } from "@/sanity/lib/sanity-queries";
 
@@ -24,8 +23,7 @@ export default async function Home() {
       <AnnouncementBar />
       <Navbar />
       <HeroSection />
-      <SocialProofTicker />
-      <FeaturedProducts products={products} />
+<FeaturedProducts products={products} />
       <CtaBanner />
       <CategoryGrid categories={categories} />
 
