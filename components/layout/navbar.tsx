@@ -164,7 +164,7 @@ export default function Navbar() {
 
         {/* Mobile panel */}
         <div
-          className={`absolute top-full left-0 right-0 md:hidden border-b transition-all duration-300 ease-out ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3 pointer-events-none"}`}
+          className={`absolute top-full left-0 right-0 z-50 md:hidden border-b transition-all duration-300 ease-out ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3 pointer-events-none"}`}
           style={{ backgroundColor: "var(--lux-carbon)", borderColor: "var(--lux-gold-border)" }}
         >
           <div className="px-4 py-5 space-y-1">
