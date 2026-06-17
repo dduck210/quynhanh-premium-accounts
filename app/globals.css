@@ -318,11 +318,11 @@ body {
 
 .hero-particles::before {
   background-image:
-    radial-gradient(circle, rgba(196,77,255,0.9) 1px, transparent 1px),
-    radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px),
-    radial-gradient(circle, rgba(155,64,212,0.7) 1px, transparent 1px),
-    radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px),
-    radial-gradient(circle, rgba(196,77,255,0.4) 1px, transparent 1px);
+    radial-gradient(circle, rgba(155,64,212,0.5) 1px, transparent 1px),
+    radial-gradient(circle, rgba(107,47,160,0.35) 1px, transparent 1px),
+    radial-gradient(circle, rgba(196,77,255,0.45) 1px, transparent 1px),
+    radial-gradient(circle, rgba(107,47,160,0.2) 1px, transparent 1px),
+    radial-gradient(circle, rgba(155,64,212,0.3) 1px, transparent 1px);
   background-size: 320px 240px, 180px 280px, 420px 180px, 260px 360px, 500px 200px;
   background-position: 40px 60px, 120px 40px, 70px 180px, 200px 100px, 350px 80px;
   animation: particle-drift 60s linear infinite;
@@ -330,9 +330,9 @@ body {
 
 .hero-particles::after {
   background-image:
-    radial-gradient(circle, rgba(155,64,212,0.8) 1px, transparent 1px),
-    radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px),
-    radial-gradient(circle, rgba(196,77,255,0.5) 1px, transparent 1px);
+    radial-gradient(circle, rgba(107,47,160,0.4) 1px, transparent 1px),
+    radial-gradient(circle, rgba(196,77,255,0.3) 1px, transparent 1px),
+    radial-gradient(circle, rgba(155,64,212,0.35) 1px, transparent 1px);
   background-size: 280px 320px, 380px 200px, 220px 400px;
   background-position: 160px 30px, 80px 160px, 300px 50px;
   animation: particle-drift-reverse 80s linear infinite;
