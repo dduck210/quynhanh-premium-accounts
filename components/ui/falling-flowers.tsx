@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 const COLORS = [
-  { petal: "rgba(255,255,255,0.94)", center: "#F7CC42" },
-  { petal: "rgba(255,244,247,0.88)", center: "#EDAB00" },
-  { petal: "rgba(255,253,240,0.85)", center: "#F5B830" },
+  { petal: "rgba(230, 155, 185, 0.92)", center: "#F7CC42" },
+  { petal: "rgba(245, 185, 210, 0.88)", center: "#EDAB00" },
+  { petal: "rgba(210, 120, 158, 0.85)", center: "#F5B830" },
 ];
 
 function DaisySVG({ petal, center }: { petal: string; center: string }) {
@@ -29,6 +29,7 @@ interface Flower {
   opacity: number;
   colorIdx: number;
   swayDuration: number;
+  top?: number;
 }
 
 export default function FallingFlowers() {
@@ -37,8 +38,8 @@ export default function FallingFlowers() {
 
   useEffect(() => {
     if (pathname.startsWith("/studio")) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const mobile = window.innerWidth < 768;
     const count = mobile ? 9 : 16;
 
@@ -47,11 +48,12 @@ export default function FallingFlowers() {
         id: i,
         left: (i * (98 / count) + (i % 3) * 2.8 + (i % 7) * 1.2) % 98,
         size: mobile ? 22 + (i % 4) * 7 : 28 + (i % 5) * 9,
-        duration: 12 + (i % 7) * 1.9,
-        delay: -(i * (20 / count)),
-        opacity: 0.38 + (i % 5) * 0.08,
+        duration: reducedMotion ? 0 : 12 + (i % 7) * 1.9,
+        delay: reducedMotion ? 0 : -(i * (20 / count)),
+        opacity: 0.55 + (i % 5) * 0.08,
         colorIdx: i % COLORS.length,
-        swayDuration: 2.5 + (i % 4) * 0.9,
+        swayDuration: reducedMotion ? 0 : 2.5 + (i % 4) * 0.9,
+        top: reducedMotion ? (i * (95 / count)) % 95 : undefined,
       }))
     );
   }, [pathname]);
@@ -66,9 +68,10 @@ export default function FallingFlowers() {
           style={{
             position: "absolute",
             left: `${f.left}%`,
+            ...(f.top !== undefined ? { top: `${f.top}%` } : {}),
             width: f.size,
             height: f.size,
-            animation: `flowerFall ${f.duration}s ${f.delay}s linear infinite`,
+            animation: f.duration > 0 ? `flowerFall ${f.duration}s ${f.delay}s linear infinite` : "none",
           }}
         >
           <div
@@ -76,7 +79,7 @@ export default function FallingFlowers() {
               width: "100%",
               height: "100%",
               opacity: f.opacity,
-              animation: `flowerSway ${f.swayDuration}s ease-in-out infinite alternate`,
+              animation: f.swayDuration > 0 ? `flowerSway ${f.swayDuration}s ease-in-out infinite alternate` : "none",
             }}
           >
             <DaisySVG {...COLORS[f.colorIdx]} />
