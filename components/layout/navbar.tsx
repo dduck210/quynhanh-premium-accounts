@@ -154,7 +154,7 @@ export default function Navbar() {
               href={`/#${link.id}`}
               onClick={scrollToSection(link.id)}
               className="flex items-center gap-3 px-4 py-3 rounded font-sans text-xs tracking-widest uppercase font-medium transition-colors duration-150"
-              style={{ color: "var(--lux-cream)" }}
+              style={{ color: "var(--lux-silver)" }}
             >
               <span className="w-1 h-1 rounded-full" style={{ backgroundColor: "var(--lux-gold)" }} />
               {link.label}
