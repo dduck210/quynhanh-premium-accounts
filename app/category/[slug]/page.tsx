@@ -15,7 +15,6 @@ import {
   ALL_CATEGORIES_QUERY,
   ALL_PRODUCTS_QUERY,
 } from "@/sanity/lib/sanity-queries";
-import SiteHeader from "@/components/layout/site-header";
 import Footer from "@/components/layout/footer";
 import Breadcrumb from "@/components/ui/breadcrumb";
 import ProductCard from "@/components/product/product-card";
@@ -80,8 +79,6 @@ export default async function CategoryPage({
       className="min-h-screen animate-fade-in"
       style={{ backgroundColor: "var(--lux-void)" }}
     >
-      <SiteHeader />
-
       {/* Header section */}
       <div
         className="border-b"

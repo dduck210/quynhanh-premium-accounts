@@ -3,6 +3,7 @@ import "./globals.css";
 import ScrollToTop from "@/components/ui/scroll-to-top";
 import ScrollProgress from "@/components/ui/scroll-progress";
 import CursorGlow from "@/components/ui/cursor-glow";
+import SiteHeaderWrapper from "@/components/layout/site-header-wrapper";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -46,6 +47,7 @@ export default function RootLayout({
         </a>
         <ScrollProgress />
         <CursorGlow />
+        <SiteHeaderWrapper />
         {children}
         <ScrollToTop />
       </body>

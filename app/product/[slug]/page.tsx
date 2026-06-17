@@ -15,7 +15,6 @@ import {
   ALL_CATEGORIES_QUERY,
   SITE_SETTINGS_QUERY,
 } from "@/sanity/lib/sanity-queries";
-import SiteHeader from "@/components/layout/site-header";
 import Footer from "@/components/layout/footer";
 import Breadcrumb from "@/components/ui/breadcrumb";
 import PricingTierSelector from "@/components/product/pricing-tier-selector";
@@ -102,8 +101,6 @@ export default async function ProductPage({
           }),
         }}
       />
-      <SiteHeader />
-
       {/* ── TOP SECTION ─────────────────────────────────── */}
       <div
         className="border-b"

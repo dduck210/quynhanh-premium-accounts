@@ -1,4 +1,3 @@
-import SiteHeader from "@/components/layout/site-header";
 import HeroSection from "@/components/sections/hero-section";
 import FeaturedProducts from "@/components/sections/featured-products";
 import CtaBanner from "@/components/sections/cta-banner";
@@ -19,7 +18,6 @@ export default async function Home() {
 
   return (
     <main>
-      <SiteHeader />
       <HeroSection />
 <FeaturedProducts products={products} />
       <CtaBanner />
