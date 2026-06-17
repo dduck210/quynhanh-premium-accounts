@@ -4,7 +4,9 @@ import Navbar from "@/components/layout/navbar";
 export default function SiteHeader() {
   return (
     <div className="sticky top-0 z-50">
-      <AnnouncementBar />
+      <div className="relative z-50">
+        <AnnouncementBar />
+      </div>
       <Navbar />
     </div>
   );

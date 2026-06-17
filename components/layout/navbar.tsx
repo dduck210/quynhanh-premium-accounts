@@ -62,7 +62,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className="transition-all duration-500"
+        className="relative z-50 transition-all duration-500"
         style={{
           backgroundColor: scrolled ? "rgba(253,245,249,0.97)" : "rgba(253,245,249,0.85)",
           backdropFilter: "blur(24px)",
