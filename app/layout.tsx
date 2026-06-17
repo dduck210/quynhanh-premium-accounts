@@ -7,7 +7,7 @@ import CursorGlow from "@/components/ui/cursor-glow";
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#020202",
+  themeColor: "#fff5f8",
 };
 
 export const metadata: Metadata = {

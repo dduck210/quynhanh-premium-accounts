@@ -24,7 +24,7 @@ export default function Error({
 
         <div
           className="mx-auto mb-6 w-16 h-16 rounded-full flex items-center justify-center"
-          style={{ backgroundColor: "rgba(155,64,212,0.12)", border: "1px solid var(--lux-gold-border)" }}
+          style={{ backgroundColor: "rgba(233,30,140,0.12)", border: "1px solid var(--lux-gold-border)" }}
         >
           <AlertTriangle className="w-7 h-7" style={{ color: "var(--lux-gold)" }} />
         </div>

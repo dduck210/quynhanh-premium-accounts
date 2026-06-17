@@ -42,8 +42,8 @@ export default function AnnouncementBar() {
     <div
       className="text-xs py-2.5 overflow-hidden border-b"
       style={{
-        backgroundColor: "#f0e8ff",
-        borderColor: "rgba(155,64,212,0.2)",
+        backgroundColor: "#fce8f0",
+        borderColor: "rgba(233,30,140,0.2)",
       }}
       aria-label="Thông báo"
     >
@@ -80,7 +80,7 @@ export default function AnnouncementBar() {
             <span key={i} className="flex items-center gap-4">
               <MessageItem msg={msg} />
               {i < MESSAGES.length - 1 && (
-                <span aria-hidden="true" style={{ color: "rgba(155,64,212,0.3)" }}>
+                <span aria-hidden="true" style={{ color: "rgba(233,30,140,0.3)" }}>
                   ·
                 </span>
               )}

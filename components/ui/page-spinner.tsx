@@ -7,7 +7,7 @@ export default function PageSpinner() {
       <div className="relative w-14 h-14">
         <div
           className="absolute inset-0 rounded-full border-[3px]"
-          style={{ borderColor: "rgba(155,64,212,0.15)" }}
+          style={{ borderColor: "rgba(233,30,140,0.15)" }}
         />
         <div
           className="absolute inset-0 rounded-full border-[3px] animate-spin"

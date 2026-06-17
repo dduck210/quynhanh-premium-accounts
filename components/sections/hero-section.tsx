@@ -70,7 +70,7 @@ function StatCounter({
       </div>
       <div
         className="font-sans text-[10px] tracking-[0.2em] uppercase font-medium"
-        style={{ color: "#7a5a9a" }}
+        style={{ color: "#be185d" }}
       >
         {label}
       </div>
@@ -82,7 +82,7 @@ export default function HeroSection() {
   return (
     <section
       className="relative min-h-screen flex flex-col justify-center overflow-hidden noise-overlay"
-      style={{ backgroundColor: "#f5f0ff" }}
+      style={{ backgroundColor: "#fff5f8" }}
     >
       {/* Particle background */}
       <div className="hero-particles" aria-hidden="true" />
@@ -92,7 +92,7 @@ export default function HeroSection() {
         className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(155,64,212,0.20) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(233,30,140,0.20) 0%, transparent 70%)",
           filter: "blur(40px)",
           animation: "floatLuxury 8s ease-in-out infinite",
         }}
@@ -102,7 +102,7 @@ export default function HeroSection() {
         className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(155,64,212,0.14) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(233,30,140,0.14) 0%, transparent 70%)",
           filter: "blur(60px)",
           animation: "floatLuxury 12s ease-in-out infinite reverse",
         }}
@@ -125,7 +125,7 @@ export default function HeroSection() {
             className="font-display font-light leading-[1.1] mb-4"
             style={{
               fontSize: "clamp(3rem, 8vw, 7.5rem)",
-              color: "#1a0838",
+              color: "#3d0020",
             }}
           >
             Tài khoản
@@ -152,7 +152,7 @@ export default function HeroSection() {
         {/* Sub */}
         <p
           className="animate-fade-in text-lg md:text-xl font-light leading-relaxed mb-12 max-w-2xl mx-auto"
-          style={{ color: "#5a3a7a", animationDelay: "400ms" }}
+          style={{ color: "#7c1547", animationDelay: "400ms" }}
         >
           Hơn 50 phần mềm premium chính hãng — Netflix, ChatGPT, Adobe, Spotify
           và nhiều hơn nữa. Hỗ trợ kỹ thuật 24/7, bảo hành toàn bộ.
@@ -167,7 +167,7 @@ export default function HeroSection() {
         <div
           className="animate-fade-in mt-20 mb-10 grid grid-cols-2 sm:grid-cols-4 rounded-xl overflow-hidden border divide-x divide-y sm:divide-y-0"
           style={{
-            borderColor: "rgba(155,64,212,0.2)",
+            borderColor: "rgba(233,30,140,0.2)",
             backgroundColor: "rgba(255,255,255,0.6)",
             backdropFilter: "blur(12px)",
             animationDelay: "600ms",
@@ -182,8 +182,8 @@ export default function HeroSection() {
         <div
           className="animate-fade-in flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs pt-6"
           style={{
-            borderTop: "1px solid rgba(155,64,212,0.2)",
-            color: "#5a3a7a",
+            borderTop: "1px solid rgba(233,30,140,0.2)",
+            color: "#7c1547",
             animationDelay: "700ms",
           }}
         >
@@ -206,7 +206,7 @@ export default function HeroSection() {
       >
         <span
           className="font-label text-[9px] tracking-[0.3em] uppercase"
-          style={{ color: "#7a5a9a" }}
+          style={{ color: "#be185d" }}
         >
           Scroll
         </span>

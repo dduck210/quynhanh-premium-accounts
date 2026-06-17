@@ -11,18 +11,18 @@ const config: Config = {
       colors: {
         // Luxury palette — use as bg-lux-void, text-lux-gold, etc.
         lux: {
-          void:     "#020202",
-          obsidian: "#080808",
-          carbon:   "#101010",
-          graphite: "#181818",
-          charcoal: "#222222",
-          gold:     "#c9a84c",
-          "gold-light": "#e8c96c",
-          "gold-dim":   "#8a6f32",
-          cream:    "#f0ead8",
-          ivory:    "#cbc5b4",
-          silver:   "#888888",
-          smoke:    "#444444",
+          void:     "#fff5f8",
+          obsidian: "#fce8f0",
+          carbon:   "#fad5e6",
+          graphite: "#f5b8d0",
+          charcoal: "#f093bb",
+          gold:     "#e91e8c",
+          "gold-light": "#f472b6",
+          "gold-dim":   "#be185d",
+          cream:    "#3d0020",
+          ivory:    "#7c1547",
+          silver:   "#be185d",
+          smoke:    "#f0b3cc",
         },
       },
       fontFamily: {
@@ -65,8 +65,8 @@ const config: Config = {
           "100%": { backgroundPosition: "300% center" },
         },
         glowPulse: {
-          "0%, 100%": { boxShadow: "0 0 15px rgba(201,168,76,0.2)" },
-          "50%":      { boxShadow: "0 0 40px rgba(201,168,76,0.45)" },
+          "0%, 100%": { boxShadow: "0 0 15px rgba(233,30,140,0.2)" },
+          "50%":      { boxShadow: "0 0 40px rgba(233,30,140,0.45)" },
         },
         floatLuxury: {
           "0%, 100%": { transform: "translateY(0px)" },

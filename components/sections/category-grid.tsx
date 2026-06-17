@@ -11,14 +11,14 @@ const ICON_MAP: Record<string, LucideIcon> = {
 };
 
 const PALETTE = [
-  { bg: "rgba(155,64,212,0.12)",  accent: "#9b40d4" },
-  { bg: "rgba(107,47,160,0.10)",  accent: "#6b2fa0" },
-  { bg: "rgba(196,77,255,0.09)",  accent: "#c44dff" },
-  { bg: "rgba(155,64,212,0.08)",  accent: "#9b40d4" },
-  { bg: "rgba(155,64,212,0.12)",  accent: "#9b40d4" },
-  { bg: "rgba(107,47,160,0.10)",  accent: "#6b2fa0" },
-  { bg: "rgba(196,77,255,0.09)",  accent: "#c44dff" },
-  { bg: "rgba(155,64,212,0.08)",  accent: "#9b40d4" },
+  { bg: "rgba(233,30,140,0.10)",  accent: "#e91e8c" },
+  { bg: "rgba(190,24,93,0.08)",   accent: "#be185d" },
+  { bg: "rgba(244,114,182,0.10)", accent: "#f472b6" },
+  { bg: "rgba(233,30,140,0.07)",  accent: "#e91e8c" },
+  { bg: "rgba(233,30,140,0.10)",  accent: "#e91e8c" },
+  { bg: "rgba(190,24,93,0.08)",   accent: "#be185d" },
+  { bg: "rgba(244,114,182,0.10)", accent: "#f472b6" },
+  { bg: "rgba(233,30,140,0.07)",  accent: "#e91e8c" },
 ];
 
 export default function CategoryGrid({ categories }: { categories: Category[] }) {
@@ -50,7 +50,7 @@ export default function CategoryGrid({ categories }: { categories: Category[] })
                   href={`/category/${cat.id}`}
                   className="group flex flex-col items-center text-center p-6 rounded-xl border transition-[transform,opacity,border-color,box-shadow] duration-300 hover:-translate-y-1 active:opacity-70 active:scale-[0.98]"
                   style={{
-                    backgroundColor: "rgba(14,8,32,0.8)",
+                    backgroundColor: "rgba(252,232,240,0.8)",
                     borderColor: "var(--lux-gold-border)",
                     WebkitTapHighlightColor: "transparent",
                   }}
