@@ -1,6 +1,3 @@
-"use client";
-
-import { useEffect } from "react";
 import {
   Zap,
   ShieldCheck,
@@ -37,48 +34,34 @@ const DOT = (
   <span className="flex-shrink-0 w-1 h-1 rounded-full" style={{ backgroundColor: "var(--lux-gold-dim)" }} />
 );
 
-export default function AnnouncementBar() {
-  useEffect(() => {
-    const id = "qa-ticker-css";
-    if (document.getElementById(id)) return;
-    const style = document.createElement("style");
-    style.id = id;
-    style.textContent = `
-      @keyframes qa-ticker {
-        0%   { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-      }
-      .qa-ticker {
-        animation: qa-ticker 22s linear infinite;
-      }
-      .qa-ticker:hover {
-        animation-play-state: paused;
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .qa-ticker { animation-play-state: paused; }
-      }
-    `;
-    document.head.appendChild(style);
-  }, []);
+// Inline style for the scrolling track — references @keyframes marquee in globals.css
+const TICKER_STYLE: React.CSSProperties = {
+  display: "flex",
+  alignItems: "center",
+  gap: "1.5rem",
+  whiteSpace: "nowrap",
+  width: "max-content",
+  minWidth: "max-content",
+  animation: "marquee 22s linear infinite",
+};
 
+export default function AnnouncementBar() {
   return (
     <div
       className="text-xs py-2.5 overflow-hidden border-b"
       style={{ backgroundColor: "#FBEEF3", borderColor: "rgba(142,80,112,0.2)" }}
       aria-label="Thông báo"
     >
-      {/* Mobile: continuous ticker */}
-      <div className="sm:hidden overflow-hidden relative" aria-live="off">
-        <div
-          className="qa-ticker flex items-center gap-6 whitespace-nowrap font-sans tracking-widest"
-          style={{ width: "max-content", minWidth: "max-content" }}
-        >
+      {/* Mobile: continuous ticker — @keyframes marquee defined in globals.css */}
+      <div className="sm:hidden relative" style={{ overflow: "hidden" }} aria-live="off">
+        <div style={TICKER_STYLE}>
           {MESSAGES.map((msg, i) => (
             <span key={i} className="flex items-center gap-3 px-2">
               <MessageItem msg={msg} />
               {DOT}
             </span>
           ))}
+          {/* Duplicate for seamless loop */}
           <span aria-hidden="true" className="contents">
             {MESSAGES.map((msg, i) => (
               <span key={`d-${i}`} className="flex items-center gap-3 px-2">
@@ -94,7 +77,7 @@ export default function AnnouncementBar() {
           style={{ background: "linear-gradient(to left, #FBEEF3, transparent)" }} />
       </div>
 
-      {/* Desktop: static */}
+      {/* Desktop: static items */}
       <div className="hidden sm:flex max-w-7xl mx-auto px-6 lg:px-8 items-center justify-between gap-6">
         <p className="font-sans font-bold text-[11px] tracking-[0.2em] uppercase flex-shrink-0"
           style={{ color: "var(--lux-gold)" }}>
