@@ -20,8 +20,10 @@ export default async function Home() {
 
   return (
     <main>
-      <AnnouncementBar />
-      <Navbar />
+      <div className="sticky top-0 z-50">
+        <AnnouncementBar />
+        <Navbar />
+      </div>
       <HeroSection />
 <FeaturedProducts products={products} />
       <CtaBanner />

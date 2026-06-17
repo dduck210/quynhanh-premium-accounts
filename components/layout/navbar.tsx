@@ -51,7 +51,7 @@ export default function Navbar() {
       if (pathname === "/") {
         const el = document.getElementById(id);
         if (!el) return;
-        smoothScrollTo(el.getBoundingClientRect().top + window.scrollY - 68);
+        smoothScrollTo(el.getBoundingClientRect().top + window.scrollY - 104);
       } else {
         router.push(`/#${id}`);
       }
@@ -62,7 +62,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className="sticky top-0 z-50 transition-all duration-500"
+        className="transition-all duration-500"
         style={{
           backgroundColor: scrolled ? "rgba(253,245,249,0.97)" : "rgba(253,245,249,0.85)",
           backdropFilter: "blur(24px)",
