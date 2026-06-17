@@ -18,8 +18,11 @@ yarn-error.log*
 # Vercel
 .vercel
 
-# Screenshots (large binary files)
+# Screenshots and binary artifacts (test/audit output)
+plans/reports/*.png
+plans/reports/*.jpg
 plans/screenshots/*.png
+.claire/
 
 # TypeScript
 *.tsbuildinfo
