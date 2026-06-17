@@ -92,7 +92,7 @@ export default function HeroSection() {
         className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(155,64,212,0.06) 0%, transparent 70%)",
           filter: "blur(40px)",
           animation: "floatLuxury 8s ease-in-out infinite",
         }}
@@ -102,7 +102,7 @@ export default function HeroSection() {
         className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(155,64,212,0.04) 0%, transparent 70%)",
           filter: "blur(60px)",
           animation: "floatLuxury 12s ease-in-out infinite reverse",
         }}
@@ -168,7 +168,7 @@ export default function HeroSection() {
           className="animate-fade-in mt-20 mb-10 grid grid-cols-2 sm:grid-cols-4 rounded-xl overflow-hidden border divide-x divide-y sm:divide-y-0"
           style={{
             borderColor: "var(--lux-gold-border)",
-            backgroundColor: "rgba(10,10,10,0.6)",
+            backgroundColor: "rgba(8,4,20,0.7)",
             backdropFilter: "blur(12px)",
             animationDelay: "600ms",
           }}

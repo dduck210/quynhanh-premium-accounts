@@ -3,33 +3,33 @@
 @tailwind utilities;
 
 /* ═══════════════════════════════════════════════════
-   LUXURY DESIGN SYSTEM — Black × Gold × Cream
+   LUXURY DESIGN SYSTEM — Dark Galaxy × Purple × Starlight
    Quỳnh Anh Premium Accounts
 ═══════════════════════════════════════════════════ */
 
 :root {
-  /* ── Core Surfaces ── */
-  --lux-void:      #020202;
-  --lux-obsidian:  #080808;
-  --lux-carbon:    #101010;
-  --lux-graphite:  #181818;
-  --lux-charcoal:  #222222;
+  /* ── Core Surfaces — Deep Space ── */
+  --lux-void:      #030308;
+  --lux-obsidian:  #080818;
+  --lux-carbon:    #0e0820;
+  --lux-graphite:  #170e2e;
+  --lux-charcoal:  #221440;
 
-  /* ── Gold System ── */
-  --lux-gold:              #c9a84c;
-  --lux-gold-light:        #e8c96c;
-  --lux-gold-dim:          #8a6f32;
-  --lux-gold-pale:         rgba(201, 168, 76, 0.06);
-  --lux-gold-glow:         rgba(201, 168, 76, 0.22);
-  --lux-gold-border:       rgba(201, 168, 76, 0.12);
-  --lux-gold-border-hover: rgba(201, 168, 76, 0.45);
-  --lux-gold-gradient:     linear-gradient(135deg, #8a6f32 0%, #c9a84c 30%, #e8c96c 50%, #c9a84c 70%, #8a6f32 100%);
+  /* ── Purple Accent System ── */
+  --lux-gold:              #9b40d4;
+  --lux-gold-light:        #c44dff;
+  --lux-gold-dim:          #6b2fa0;
+  --lux-gold-pale:         rgba(155, 64, 212, 0.07);
+  --lux-gold-glow:         rgba(155, 64, 212, 0.28);
+  --lux-gold-border:       rgba(155, 64, 212, 0.14);
+  --lux-gold-border-hover: rgba(155, 64, 212, 0.45);
+  --lux-gold-gradient:     linear-gradient(135deg, #6b2fa0 0%, #9b40d4 30%, #c44dff 50%, #9b40d4 70%, #6b2fa0 100%);
 
-  /* ── Text ── */
-  --lux-cream:  #f0ead8;
-  --lux-ivory:  #cbc5b4;
-  --lux-silver: #888888;
-  --lux-smoke:  #444444;
+  /* ── Text — Starlight ── */
+  --lux-cream:  #f0e8ff;
+  --lux-ivory:  #c4a8ff;
+  --lux-silver: #8888aa;
+  --lux-smoke:  #3a3a5c;
 
   /* ── Radius ── */
   --lux-radius-sm: 4px;
@@ -107,9 +107,9 @@ body {
   background-clip: text;
 }
 
-/* Animated shimmer on gold text */
+/* Animated shimmer on accent text */
 .gold-text-animated {
-  background: linear-gradient(90deg, #8a6f32 0%, #c9a84c 25%, #f0d060 50%, #c9a84c 75%, #8a6f32 100%);
+  background: linear-gradient(90deg, #6b2fa0 0%, #9b40d4 25%, #e0aaff 50%, #9b40d4 75%, #6b2fa0 100%);
   background-size: 300% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -152,7 +152,7 @@ body {
 ═══════════════════════════════════════════════════ */
 
 .glass-card {
-  background: rgba(16, 16, 16, 0.85);
+  background: rgba(14, 8, 32, 0.85);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid var(--lux-gold-border);
@@ -194,7 +194,7 @@ body {
   background: var(--lux-gold);
   color: var(--lux-void);
   font-family: var(--font-dm-sans), system-ui, sans-serif;
-  font-size: 0.73rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -239,7 +239,7 @@ body {
   background: transparent;
   color: var(--lux-cream);
   font-family: var(--font-dm-sans), system-ui, sans-serif;
-  font-size: 0.73rem;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -271,7 +271,7 @@ body {
   gap: 0.3rem;
   padding: 0.25rem 0.75rem;
   font-family: var(--font-dm-sans), system-ui, sans-serif;
-  font-size: 0.6rem;
+  font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -318,11 +318,11 @@ body {
 
 .hero-particles::before {
   background-image:
-    radial-gradient(circle, rgba(201,168,76,0.8) 1px, transparent 1px),
-    radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px),
-    radial-gradient(circle, rgba(201,168,76,0.5) 1px, transparent 1px),
-    radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px),
-    radial-gradient(circle, rgba(201,168,76,0.3) 1px, transparent 1px);
+    radial-gradient(circle, rgba(196,77,255,0.9) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px),
+    radial-gradient(circle, rgba(155,64,212,0.7) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px),
+    radial-gradient(circle, rgba(196,77,255,0.4) 1px, transparent 1px);
   background-size: 320px 240px, 180px 280px, 420px 180px, 260px 360px, 500px 200px;
   background-position: 40px 60px, 120px 40px, 70px 180px, 200px 100px, 350px 80px;
   animation: particle-drift 60s linear infinite;
@@ -330,9 +330,9 @@ body {
 
 .hero-particles::after {
   background-image:
-    radial-gradient(circle, rgba(201,168,76,0.6) 1px, transparent 1px),
-    radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px),
-    radial-gradient(circle, rgba(201,168,76,0.4) 1px, transparent 1px);
+    radial-gradient(circle, rgba(155,64,212,0.8) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px),
+    radial-gradient(circle, rgba(196,77,255,0.5) 1px, transparent 1px);
   background-size: 280px 320px, 380px 200px, 220px 400px;
   background-position: 160px 30px, 80px 160px, 300px 50px;
   animation: particle-drift-reverse 80s linear infinite;
@@ -371,7 +371,7 @@ body {
 
 @keyframes glow-pulse {
   0%, 100% { box-shadow: 0 0 15px var(--lux-gold-glow); }
-  50%       { box-shadow: 0 0 40px rgba(201, 168, 76, 0.45); }
+  50%       { box-shadow: 0 0 40px rgba(155, 64, 212, 0.45); }
 }
 
 @keyframes float-luxury {
@@ -549,7 +549,7 @@ body {
 
 .lux-section-label {
   font-family: var(--font-cinzel), serif;
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -575,7 +575,7 @@ body {
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(155, 64, 212, 0.06) 0%, transparent 70%);
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 9998;

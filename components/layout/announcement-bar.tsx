@@ -43,7 +43,7 @@ const DOT = (
 export default function AnnouncementBar() {
   return (
     <div
-      className="text-[11px] py-2.5 overflow-hidden border-b"
+      className="text-xs py-2.5 overflow-hidden border-b"
       style={{
         backgroundColor: "var(--lux-obsidian)",
         borderColor: "var(--lux-gold-border)",
@@ -73,7 +73,7 @@ export default function AnnouncementBar() {
       {/* Desktop: static */}
       <div className="hidden sm:flex max-w-7xl mx-auto px-6 lg:px-8 items-center justify-between gap-6">
         <p
-          className="font-sans font-medium text-[10px] tracking-[0.2em] uppercase flex-shrink-0"
+          className="font-sans font-medium text-[11px] tracking-[0.2em] uppercase flex-shrink-0"
           style={{ color: "var(--lux-gold)" }}
         >
           ✦ &nbsp;Quỳnh Anh Premium&nbsp; ✦

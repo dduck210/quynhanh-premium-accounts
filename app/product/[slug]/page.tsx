@@ -134,7 +134,7 @@ export default async function ProductPage({
                 style={{
                   backgroundColor: "var(--lux-carbon)",
                   borderColor: "var(--lux-gold-border)",
-                  boxShadow: "0 0 60px rgba(201,168,76,0.06)",
+                  boxShadow: "0 0 60px rgba(155,64,212,0.10)",
                 }}
               >
                 {/* Corner accents */}
@@ -221,7 +221,7 @@ export default async function ProductPage({
                     style={{
                       color: "var(--lux-gold-light)",
                       borderColor: "var(--lux-gold-border)",
-                      backgroundColor: "rgba(201,168,76,0.08)",
+                      backgroundColor: "rgba(155,64,212,0.10)",
                     }}
                   >
                     HOT SALE

@@ -51,11 +51,11 @@ export default function Navbar() {
       <nav
         className="sticky top-0 z-50 transition-all duration-500"
         style={{
-          backgroundColor: scrolled ? "rgba(2,2,2,0.96)" : "rgba(2,2,2,0.7)",
+          backgroundColor: scrolled ? "rgba(3,3,8,0.96)" : "rgba(3,3,8,0.7)",
           backdropFilter: "blur(24px)",
           borderBottom: scrolled
-            ? "1px solid rgba(201,168,76,0.18)"
-            : "1px solid rgba(201,168,76,0.06)",
+            ? "1px solid rgba(155,64,212,0.18)"
+            : "1px solid rgba(155,64,212,0.06)",
           boxShadow: scrolled ? "0 4px 40px rgba(0,0,0,0.6)" : "none",
         }}
       >

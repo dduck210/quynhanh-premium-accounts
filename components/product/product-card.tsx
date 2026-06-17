@@ -87,7 +87,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <ProductLogo product={product} />
 
         {/* Category */}
-        <span className="font-sans text-[9px] tracking-[0.2em] uppercase mb-2 font-medium" style={{ color: "var(--lux-gold-dim)" }}>
+        <span className="font-sans text-[11px] tracking-[0.2em] uppercase mb-2 font-medium" style={{ color: "var(--lux-gold-dim)" }}>
           {product.categoryName}
         </span>
 
@@ -100,7 +100,7 @@ export default function ProductCard({ product }: { product: Product }) {
         </h3>
 
         {/* Description */}
-        <p className="text-xs font-light leading-relaxed flex-1 mb-4 line-clamp-2" style={{ color: "var(--lux-silver)" }}>
+        <p className="text-sm font-light leading-relaxed flex-1 mb-4 line-clamp-2" style={{ color: "var(--lux-silver)" }}>
           {product.description}
         </p>
 
@@ -116,7 +116,7 @@ export default function ProductCard({ product }: { product: Product }) {
 
         {/* CTA — no inline color: inline style overrides hover classes */}
         <div
-          className="w-full py-2 text-center text-xs font-sans font-medium tracking-[0.15em] uppercase border rounded transition-all duration-300 text-[var(--lux-gold)] border-[var(--lux-gold-border)] group-hover:bg-[var(--lux-gold)] group-hover:border-[var(--lux-gold)] group-hover:text-[var(--lux-void)]"
+          className="w-full py-2 text-center text-[13px] font-sans font-medium tracking-[0.15em] uppercase border rounded transition-all duration-300 text-[var(--lux-gold)] border-[var(--lux-gold-border)] group-hover:bg-[var(--lux-gold)] group-hover:border-[var(--lux-gold)] group-hover:text-[var(--lux-void)]"
         >
           Xem chi tiết
         </div>

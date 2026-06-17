@@ -104,7 +104,7 @@ export default async function CategoryPage({
             {/* Icon */}
             <div
               className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
-              style={{ backgroundColor: "rgba(201,168,76,0.10)" }}
+              style={{ backgroundColor: "rgba(155,64,212,0.12)" }}
             >
               <Icon
                 className="w-8 h-8"
