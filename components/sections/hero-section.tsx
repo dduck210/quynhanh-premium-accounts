@@ -110,7 +110,7 @@ export default function HeroSection() {
       />
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-20 text-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 text-center">
         {/* Label */}
         <div className="animate-fade-in" style={{ animationDelay: "100ms" }}>
           <div className="lux-badge mb-8 mx-auto w-fit">
