@@ -3,33 +3,33 @@
 @tailwind utilities;
 
 /* ═══════════════════════════════════════════════════
-   DESIGN SYSTEM — Pastel Pink
+   DESIGN SYSTEM — Logo Palette
    Quỳnh Anh Premium Accounts
 ═══════════════════════════════════════════════════ */
 
 :root {
-  /* ── Core Surfaces — Blush Light ── */
-  --lux-void:      #fff5f8;
-  --lux-obsidian:  #fce8f0;
-  --lux-carbon:    #fad5e6;
-  --lux-graphite:  #f5b8d0;
-  --lux-charcoal:  #f093bb;
+  /* ── Core Surfaces ── */
+  --lux-void:      #FDF5F9;
+  --lux-obsidian:  #FBEEF3;
+  --lux-carbon:    #F3C4D6;
+  --lux-graphite:  #E69AB8;
+  --lux-charcoal:  #D9A8C0;
 
-  /* ── Pink Accent System ── */
-  --lux-gold:              #e91e8c;
-  --lux-gold-light:        #f472b6;
-  --lux-gold-dim:          #be185d;
-  --lux-gold-pale:         rgba(233, 30, 140, 0.08);
-  --lux-gold-glow:         rgba(233, 30, 140, 0.22);
-  --lux-gold-border:       rgba(233, 30, 140, 0.18);
-  --lux-gold-border-hover: rgba(233, 30, 140, 0.45);
-  --lux-gold-gradient:     linear-gradient(135deg, #be185d 0%, #e91e8c 30%, #f9a8d4 50%, #e91e8c 70%, #be185d 100%);
+  /* ── Rose & Gold Accent System (from logo palette) ── */
+  --lux-gold:              #8E5070;
+  --lux-gold-light:        #E69AB8;
+  --lux-gold-dim:          #B07C97;
+  --lux-gold-pale:         rgba(142, 80, 112, 0.08);
+  --lux-gold-glow:         rgba(142, 80, 112, 0.22);
+  --lux-gold-border:       rgba(142, 80, 112, 0.18);
+  --lux-gold-border-hover: rgba(142, 80, 112, 0.45);
+  --lux-gold-gradient:     linear-gradient(135deg, #B07C97 0%, #8E5070 30%, #D9A86A 50%, #8E5070 70%, #B07C97 100%);
 
-  /* ── Text — Rose ── */
-  --lux-cream:  #3d0020;
-  --lux-ivory:  #7c1547;
-  --lux-silver: #be185d;
-  --lux-smoke:  #f0b3cc;
+  /* ── Text — Deep Rose ── */
+  --lux-cream:  #8E5070;
+  --lux-ivory:  #B07C97;
+  --lux-silver: #B07C97;
+  --lux-smoke:  #E69AB8;
 
   /* ── Radius ── */
   --lux-radius-sm: 4px;
@@ -109,7 +109,7 @@ body {
 
 /* Animated shimmer on accent text */
 .gold-text-animated {
-  background: linear-gradient(90deg, #be185d 0%, #e91e8c 25%, #f9a8d4 50%, #e91e8c 75%, #be185d 100%);
+  background: linear-gradient(90deg, #B07C97 0%, #8E5070 25%, #D9A86A 50%, #8E5070 75%, #B07C97 100%);
   background-size: 300% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -152,7 +152,7 @@ body {
 ═══════════════════════════════════════════════════ */
 
 .glass-card {
-  background: rgba(252, 232, 240, 0.80);
+  background: rgba(251, 238, 243, 0.80);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid var(--lux-gold-border);
@@ -318,11 +318,11 @@ body {
 
 .hero-particles::before {
   background-image:
-    radial-gradient(circle, rgba(233,30,140,0.5) 1px, transparent 1px),
-    radial-gradient(circle, rgba(190,24,93,0.35) 1px, transparent 1px),
-    radial-gradient(circle, rgba(244,114,182,0.45) 1px, transparent 1px),
-    radial-gradient(circle, rgba(190,24,93,0.2) 1px, transparent 1px),
-    radial-gradient(circle, rgba(233,30,140,0.3) 1px, transparent 1px);
+    radial-gradient(circle, rgba(142,80,112,0.5) 1px, transparent 1px),
+    radial-gradient(circle, rgba(176,124,151,0.35) 1px, transparent 1px),
+    radial-gradient(circle, rgba(230,154,184,0.45) 1px, transparent 1px),
+    radial-gradient(circle, rgba(176,124,151,0.2) 1px, transparent 1px),
+    radial-gradient(circle, rgba(142,80,112,0.3) 1px, transparent 1px);
   background-size: 320px 240px, 180px 280px, 420px 180px, 260px 360px, 500px 200px;
   background-position: 40px 60px, 120px 40px, 70px 180px, 200px 100px, 350px 80px;
   animation: particle-drift 60s linear infinite;
@@ -330,9 +330,9 @@ body {
 
 .hero-particles::after {
   background-image:
-    radial-gradient(circle, rgba(190,24,93,0.4) 1px, transparent 1px),
-    radial-gradient(circle, rgba(244,114,182,0.3) 1px, transparent 1px),
-    radial-gradient(circle, rgba(233,30,140,0.35) 1px, transparent 1px);
+    radial-gradient(circle, rgba(176,124,151,0.4) 1px, transparent 1px),
+    radial-gradient(circle, rgba(230,154,184,0.3) 1px, transparent 1px),
+    radial-gradient(circle, rgba(142,80,112,0.35) 1px, transparent 1px);
   background-size: 280px 320px, 380px 200px, 220px 400px;
   background-position: 160px 30px, 80px 160px, 300px 50px;
   animation: particle-drift-reverse 80s linear infinite;
@@ -371,7 +371,7 @@ body {
 
 @keyframes glow-pulse {
   0%, 100% { box-shadow: 0 0 15px var(--lux-gold-glow); }
-  50%       { box-shadow: 0 0 40px rgba(233, 30, 140, 0.45); }
+  50%       { box-shadow: 0 0 40px rgba(142, 80, 112, 0.45); }
 }
 
 @keyframes float-luxury {

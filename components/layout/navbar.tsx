@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { MessageCircle } from "lucide-react";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 import { SITE_CONFIG } from "@/lib/site-config";
+import LogoMark from "@/components/ui/logo-mark";
 
 const NAV_LINKS = [
   { label: "Danh mục", id: "categories" },
@@ -51,11 +52,11 @@ export default function Navbar() {
       <nav
         className="sticky top-0 z-50 transition-all duration-500"
         style={{
-          backgroundColor: scrolled ? "rgba(255,245,248,0.97)" : "rgba(255,245,248,0.85)",
+          backgroundColor: scrolled ? "rgba(253,245,249,0.97)" : "rgba(253,245,249,0.85)",
           backdropFilter: "blur(24px)",
           borderBottom: scrolled
-            ? "1px solid rgba(233,30,140,0.20)"
-            : "1px solid rgba(233,30,140,0.08)",
+            ? "1px solid rgba(142,80,112,0.20)"
+            : "1px solid rgba(142,80,112,0.08)",
           boxShadow: scrolled ? "0 4px 40px rgba(0,0,0,0.6)" : "none",
         }}
       >
@@ -63,13 +64,8 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16">
 
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 select-none">
-              <div
-                className="w-7 h-7 rounded-sm flex items-center justify-center text-xs font-black font-label"
-                style={{ backgroundColor: "var(--lux-gold)", color: "var(--lux-void)" }}
-              >
-                QA
-              </div>
+            <Link href="/" className="flex items-center gap-1.5 select-none">
+              <LogoMark size={34} />
               <span className="font-display text-base font-light tracking-wide" style={{ color: "var(--lux-cream)" }}>
                 Quỳnh Anh
               </span>

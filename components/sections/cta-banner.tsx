@@ -24,7 +24,7 @@ export default function CtaBanner() {
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse 60% 60% at 50% 50%, rgba(233,30,140,0.08) 0%, transparent 70%)",
+              "radial-gradient(ellipse 60% 60% at 50% 50%, rgba(142,80,112,0.08) 0%, transparent 70%)",
           }}
           aria-hidden="true"
         />

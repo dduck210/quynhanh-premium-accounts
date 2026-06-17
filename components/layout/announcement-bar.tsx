@@ -25,7 +25,7 @@ function MessageItem({ msg }: { msg: Message }) {
   return (
     <span className="flex items-center gap-2 flex-shrink-0">
       <Icon className="w-3 h-3" style={{ color: "var(--lux-gold)" }} />
-      <span style={{ color: "#3a1060" }}>{msg.text}</span>
+      <span style={{ color: "#8E5070" }}>{msg.text}</span>
     </span>
   );
 }
@@ -42,8 +42,8 @@ export default function AnnouncementBar() {
     <div
       className="text-xs py-2.5 overflow-hidden border-b"
       style={{
-        backgroundColor: "#fce8f0",
-        borderColor: "rgba(233,30,140,0.2)",
+        backgroundColor: "#FBEEF3",
+        borderColor: "rgba(142,80,112,0.2)",
       }}
       aria-label="Thông báo"
     >
@@ -80,7 +80,7 @@ export default function AnnouncementBar() {
             <span key={i} className="flex items-center gap-4">
               <MessageItem msg={msg} />
               {i < MESSAGES.length - 1 && (
-                <span aria-hidden="true" style={{ color: "rgba(233,30,140,0.3)" }}>
+                <span aria-hidden="true" style={{ color: "rgba(142,80,112,0.3)" }}>
                   ·
                 </span>
               )}
