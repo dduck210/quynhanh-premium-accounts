@@ -475,8 +475,17 @@ body {
   animation-play-state: paused;
 }
 
+.social-proof-track {
+  width: max-content;
+  animation: marquee 50s linear infinite;
+}
+.group:hover .social-proof-track {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track {
+  .marquee-track,
+  .social-proof-track {
     animation-play-state: paused;
   }
   .scroll-progress {
