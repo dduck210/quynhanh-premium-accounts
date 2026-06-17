@@ -2,22 +2,34 @@
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, ChevronDown, Bot, Music, Palette, BookOpen, Film, Shield, Briefcase, Zap } from "lucide-react";
 import { smoothScrollTo } from "@/lib/smooth-scroll";
 import { SITE_CONFIG } from "@/lib/site-config";
 import LogoMark from "@/components/ui/logo-mark";
+import CategoryDropdown from "@/components/layout/category-dropdown";
 
-const NAV_LINKS = [
-  { label: "Danh mục", id: "categories" },
+const SCROLL_LINKS = [
   { label: "Sản phẩm", id: "products" },
-  { label: "Liên hệ",  id: "contact"    },
+  { label: "Liên hệ",  id: "contact"  },
+];
+
+const MOBILE_CATEGORIES = [
+  { label: "AI Chat",        slug: "ai-chat",     icon: Bot       },
+  { label: "Âm nhạc",       slug: "am-nhac",      icon: Music     },
+  { label: "Design & Photo", slug: "design-photo", icon: Palette   },
+  { label: "Học tập",        slug: "hoc-tap",      icon: BookOpen  },
+  { label: "Phim ảnh",       slug: "phim-anh",     icon: Film      },
+  { label: "VPN",            slug: "vpn",          icon: Shield    },
+  { label: "Văn phòng",      slug: "van-phong",    icon: Briefcase },
+  { label: "Tiện ích khác",  slug: "tien-ich",     icon: Zap       },
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled]   = useState(false);
-  const [menuOpen, setMenuOpen]   = useState(false);
-  const pathname  = usePathname();
-  const router    = useRouter();
+  const [scrolled, setScrolled]           = useState(false);
+  const [menuOpen, setMenuOpen]           = useState(false);
+  const [mobileCatOpen, setMobileCatOpen] = useState(false);
+  const pathname = usePathname();
+  const router   = useRouter();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -54,9 +66,7 @@ export default function Navbar() {
         style={{
           backgroundColor: scrolled ? "rgba(253,245,249,0.97)" : "rgba(253,245,249,0.85)",
           backdropFilter: "blur(24px)",
-          borderBottom: scrolled
-            ? "1px solid rgba(142,80,112,0.20)"
-            : "1px solid rgba(142,80,112,0.08)",
+          borderBottom: scrolled ? "1px solid rgba(142,80,112,0.20)" : "1px solid rgba(142,80,112,0.08)",
           boxShadow: scrolled ? "0 4px 24px rgba(142,80,112,0.15)" : "none",
         }}
       >
@@ -78,7 +88,26 @@ export default function Navbar() {
 
             {/* Desktop nav */}
             <div className="hidden md:flex items-center gap-1">
-              {NAV_LINKS.map((link) => (
+
+              {/* Danh mục — CSS-only dropdown (group/nav hover) */}
+              <div className="group/nav relative h-full flex items-center">
+                <button
+                  className="flex items-center gap-1 px-4 py-2 text-sm transition-colors duration-200 relative group-hover/nav:text-[var(--lux-cream)]"
+                  style={{ color: "var(--lux-silver)" }}
+                  aria-haspopup="true"
+                >
+                  Danh mục
+                  <ChevronDown className="w-3.5 h-3.5 transition-transform duration-200 group-hover/nav:rotate-180" />
+                  <span
+                    className="absolute bottom-0 left-4 right-4 h-px origin-left scale-x-0 group-hover/nav:scale-x-100 transition-transform duration-300"
+                    style={{ backgroundColor: "var(--lux-gold)" }}
+                  />
+                </button>
+                <CategoryDropdown onLinkClick={() => setMenuOpen(false)} />
+              </div>
+
+              {/* Regular scroll links */}
+              {SCROLL_LINKS.map((link) => (
                 <a
                   key={link.id}
                   href={`/#${link.id}`}
@@ -95,6 +124,7 @@ export default function Navbar() {
                   />
                 </a>
               ))}
+
               <a
                 href={SITE_CONFIG.zaloUrl}
                 target="_blank"
@@ -106,7 +136,7 @@ export default function Navbar() {
               </a>
             </div>
 
-            {/* Mobile */}
+            {/* Mobile hamburger */}
             <div className="flex md:hidden items-center gap-2">
               <a
                 href={SITE_CONFIG.zaloUrl}
@@ -132,13 +162,52 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile panel — absolute top-full so it always sits flush below the sticky nav */}
+        {/* Mobile panel */}
         <div
           className={`absolute top-full left-0 right-0 md:hidden border-b transition-all duration-300 ease-out ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3 pointer-events-none"}`}
           style={{ backgroundColor: "var(--lux-carbon)", borderColor: "var(--lux-gold-border)" }}
         >
           <div className="px-4 py-5 space-y-1">
-            {NAV_LINKS.map((link) => (
+
+            {/* Danh mục expandable */}
+            <button
+              onClick={() => setMobileCatOpen((v) => !v)}
+              className="w-full flex items-center justify-between gap-3 px-4 py-3 rounded font-sans text-xs tracking-widest uppercase font-medium transition-colors duration-150"
+              style={{ color: "var(--lux-silver)" }}
+            >
+              <span className="flex items-center gap-3">
+                <span className="w-1 h-1 rounded-full" style={{ backgroundColor: "var(--lux-gold)" }} />
+                Danh mục
+              </span>
+              <ChevronDown
+                className="w-3.5 h-3.5 transition-transform duration-200"
+                style={{ transform: mobileCatOpen ? "rotate(180deg)" : "rotate(0deg)", color: "var(--lux-gold)" }}
+              />
+            </button>
+
+            {/* Mobile categories grid */}
+            <div
+              className="overflow-hidden transition-all duration-300 ease-out"
+              style={{ maxHeight: mobileCatOpen ? "400px" : "0px", opacity: mobileCatOpen ? 1 : 0 }}
+            >
+              <div className="grid grid-cols-2 gap-1 px-4 pb-2">
+                {MOBILE_CATEGORIES.map(({ label, slug, icon: Icon }) => (
+                  <Link
+                    key={slug}
+                    href={`/category/${slug}`}
+                    onClick={() => setMenuOpen(false)}
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-light transition-colors duration-150"
+                    style={{ color: "var(--lux-silver)", backgroundColor: "rgba(142,80,112,0.06)" }}
+                  >
+                    <Icon className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "var(--lux-gold)" }} strokeWidth={1.5} />
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Regular scroll links */}
+            {SCROLL_LINKS.map((link) => (
               <a
                 key={link.id}
                 href={`/#${link.id}`}
@@ -150,6 +219,7 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+
             <div className="pt-3 mt-2" style={{ borderTop: "1px solid var(--lux-gold-border)" }}>
               <a
                 href={SITE_CONFIG.zaloUrl}

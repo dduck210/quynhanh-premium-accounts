@@ -9,31 +9,38 @@
 
 :root {
   /* ── Core Surfaces ── */
-  --lux-void:      #FDF5F9;
-  --lux-obsidian:  #FBEEF3;
-  --lux-carbon:    #F3C4D6;
-  --lux-graphite:  #E69AB8;
-  --lux-charcoal:  #D9A8C0;
+  --lux-void: #fdf5f9;
+  --lux-obsidian: #fbeef3;
+  --lux-carbon: #f3c4d6;
+  --lux-graphite: #e69ab8;
+  --lux-charcoal: #d9a8c0;
 
   /* ── Rose & Gold Accent System (from logo palette) ── */
-  --lux-gold:              #8E5070;
-  --lux-gold-light:        #E69AB8;
-  --lux-gold-dim:          #B07C97;
-  --lux-gold-pale:         rgba(142, 80, 112, 0.08);
-  --lux-gold-glow:         rgba(142, 80, 112, 0.22);
-  --lux-gold-border:       rgba(142, 80, 112, 0.18);
+  --lux-gold: #8e5070;
+  --lux-gold-light: #e69ab8;
+  --lux-gold-dim: #b07c97;
+  --lux-gold-pale: rgba(142, 80, 112, 0.08);
+  --lux-gold-glow: rgba(142, 80, 112, 0.22);
+  --lux-gold-border: rgba(142, 80, 112, 0.18);
   --lux-gold-border-hover: rgba(142, 80, 112, 0.45);
-  --lux-gold-gradient:     linear-gradient(135deg, #B07C97 0%, #8E5070 30%, #D9A86A 50%, #8E5070 70%, #B07C97 100%);
+  --lux-gold-gradient: linear-gradient(
+    135deg,
+    #b07c97 0%,
+    #8e5070 30%,
+    #d9a86a 50%,
+    #8e5070 70%,
+    #b07c97 100%
+  );
 
   /* ── Text — Deep Rose ── */
-  --lux-cream:  #8E5070;
-  --lux-ivory:  #7A5068;
-  --lux-silver: #7A5068;
-  --lux-smoke:  #E69AB8;
+  --lux-cream: #8e5070;
+  --lux-ivory: #7a5068;
+  --lux-silver: #7a5068;
+  --lux-smoke: #e69ab8;
 
   /* ── Radius ── */
   --lux-radius-sm: 4px;
-  --lux-radius:    8px;
+  --lux-radius: 8px;
   --lux-radius-lg: 16px;
   --lux-radius-xl: 24px;
 }
@@ -42,7 +49,11 @@
    BASE RESET
 ═══════════════════════════════════════════════════ */
 
-*, *::before, *::after { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
@@ -81,17 +92,17 @@ body {
 ═══════════════════════════════════════════════════ */
 
 .font-display {
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   letter-spacing: 0.01em;
 }
 
 .font-label {
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   letter-spacing: 0.12em;
 }
 
 .font-body {
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -109,7 +120,14 @@ body {
 
 /* Animated shimmer on accent text */
 .gold-text-animated {
-  background: linear-gradient(90deg, #B07C97 0%, #8E5070 25%, #D9A86A 50%, #8E5070 75%, #B07C97 100%);
+  background: linear-gradient(
+    90deg,
+    #b07c97 0%,
+    #8e5070 25%,
+    #d9a86a 50%,
+    #8e5070 75%,
+    #b07c97 100%
+  );
   background-size: 300% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -118,15 +136,26 @@ body {
 }
 
 @keyframes gold-shimmer {
-  0%   { background-position: 0% center; }
-  100% { background-position: 300% center; }
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 300% center;
+  }
 }
 
 /* Gold line divider */
 .gold-divider {
   width: 100%;
   height: 1px;
-  background: linear-gradient(to right, transparent, var(--lux-gold-dim), var(--lux-gold), var(--lux-gold-dim), transparent);
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--lux-gold-dim),
+    var(--lux-gold),
+    var(--lux-gold-dim),
+    transparent
+  );
   opacity: 0.5;
 }
 
@@ -141,10 +170,15 @@ body {
 }
 .lux-ornament::before,
 .lux-ornament::after {
-  content: '';
+  content: "";
   flex: 1;
   height: 1px;
-  background: linear-gradient(to right, transparent, var(--lux-gold-dim), transparent);
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--lux-gold-dim),
+    transparent
+  );
 }
 
 /* ═══════════════════════════════════════════════════
@@ -152,24 +186,29 @@ body {
 ═══════════════════════════════════════════════════ */
 
 .glass-card {
-  background: rgba(251, 238, 243, 0.80);
+  background: rgba(251, 238, 243, 0.8);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid var(--lux-gold-border);
   border-radius: var(--lux-radius-lg);
   position: relative;
   overflow: hidden;
-  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease;
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.3s ease;
 }
 
 .glass-card:hover {
   border-color: var(--lux-gold-border-hover);
-  box-shadow: 0 0 40px var(--lux-gold-glow), 0 8px 32px rgba(142, 80, 112, 0.18);
+  box-shadow:
+    0 0 40px var(--lux-gold-glow),
+    0 8px 32px rgba(142, 80, 112, 0.18);
 }
 
 /* Noise texture overlay for glass cards */
 .glass-card::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
@@ -194,7 +233,7 @@ body {
   min-height: 44px;
   background: var(--lux-gold);
   color: var(--lux-void);
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -203,14 +242,22 @@ body {
   border-radius: var(--lux-radius);
   cursor: pointer;
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
 }
 
 .lux-btn-primary::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.25) 50%, transparent 100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 100%
+  );
   background-size: 200% 100%;
   transform: translateX(-100%);
   transition: transform 0.5s ease;
@@ -240,7 +287,7 @@ body {
   min-height: 44px;
   background: transparent;
   color: var(--lux-cream);
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -272,7 +319,7 @@ body {
   align-items: center;
   gap: 0.3rem;
   padding: 0.25rem 0.75rem;
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -313,40 +360,64 @@ body {
 
 .hero-particles::before,
 .hero-particles::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
 }
 
 .hero-particles::before {
   background-image:
-    radial-gradient(circle, rgba(142,80,112,0.5) 1px, transparent 1px),
-    radial-gradient(circle, rgba(176,124,151,0.35) 1px, transparent 1px),
-    radial-gradient(circle, rgba(230,154,184,0.45) 1px, transparent 1px),
-    radial-gradient(circle, rgba(176,124,151,0.2) 1px, transparent 1px),
-    radial-gradient(circle, rgba(142,80,112,0.3) 1px, transparent 1px);
-  background-size: 320px 240px, 180px 280px, 420px 180px, 260px 360px, 500px 200px;
-  background-position: 40px 60px, 120px 40px, 70px 180px, 200px 100px, 350px 80px;
+    radial-gradient(circle, rgba(142, 80, 112, 0.5) 1px, transparent 1px),
+    radial-gradient(circle, rgba(176, 124, 151, 0.35) 1px, transparent 1px),
+    radial-gradient(circle, rgba(230, 154, 184, 0.45) 1px, transparent 1px),
+    radial-gradient(circle, rgba(176, 124, 151, 0.2) 1px, transparent 1px),
+    radial-gradient(circle, rgba(142, 80, 112, 0.3) 1px, transparent 1px);
+  background-size:
+    320px 240px,
+    180px 280px,
+    420px 180px,
+    260px 360px,
+    500px 200px;
+  background-position:
+    40px 60px,
+    120px 40px,
+    70px 180px,
+    200px 100px,
+    350px 80px;
   animation: particle-drift 60s linear infinite;
 }
 
 .hero-particles::after {
   background-image:
-    radial-gradient(circle, rgba(176,124,151,0.4) 1px, transparent 1px),
-    radial-gradient(circle, rgba(230,154,184,0.3) 1px, transparent 1px),
-    radial-gradient(circle, rgba(142,80,112,0.35) 1px, transparent 1px);
-  background-size: 280px 320px, 380px 200px, 220px 400px;
-  background-position: 160px 30px, 80px 160px, 300px 50px;
+    radial-gradient(circle, rgba(176, 124, 151, 0.4) 1px, transparent 1px),
+    radial-gradient(circle, rgba(230, 154, 184, 0.3) 1px, transparent 1px),
+    radial-gradient(circle, rgba(142, 80, 112, 0.35) 1px, transparent 1px);
+  background-size:
+    280px 320px,
+    380px 200px,
+    220px 400px;
+  background-position:
+    160px 30px,
+    80px 160px,
+    300px 50px;
   animation: particle-drift-reverse 80s linear infinite;
 }
 
 @keyframes particle-drift {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-50px); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50px);
+  }
 }
 @keyframes particle-drift-reverse {
-  from { transform: translateY(0); }
-  to   { transform: translateY(30px); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(30px);
+  }
 }
 
 /* ═══════════════════════════════════════════════════
@@ -357,7 +428,7 @@ body {
   position: relative;
 }
 .noise-overlay::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
@@ -372,33 +443,65 @@ body {
 ═══════════════════════════════════════════════════ */
 
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 15px var(--lux-gold-glow); }
-  50%       { box-shadow: 0 0 40px rgba(142, 80, 112, 0.45); }
+  0%,
+  100% {
+    box-shadow: 0 0 15px var(--lux-gold-glow);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(142, 80, 112, 0.45);
+  }
 }
 
 @keyframes float-luxury {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-8px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 @keyframes reveal-up {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes scale-reveal {
-  from { opacity: 0; transform: scale(0.94); }
-  to   { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes line-expand {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
 @keyframes count-up {
-  from { opacity: 0; transform: translateY(10px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ═══════════════════════════════════════════════════
@@ -408,8 +511,9 @@ body {
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition:
+    opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .animate-on-scroll.in-view {
@@ -429,7 +533,9 @@ body {
    UTILITY — SCROLLBAR HIDE
 ═══════════════════════════════════════════════════ */
 
-.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -440,11 +546,13 @@ body {
 ═══════════════════════════════════════════════════ */
 
 @layer base {
-  button, a {
+  button,
+  a {
     @apply focus:outline-none;
     -webkit-tap-highlight-color: transparent;
   }
-  button:focus-visible, a:focus-visible {
+  button:focus-visible,
+  a:focus-visible {
     outline: 2px solid var(--lux-gold);
     outline-offset: 2px;
   }
@@ -463,8 +571,12 @@ body {
 ═══════════════════════════════════════════════════ */
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .marquee-track {
@@ -512,7 +624,7 @@ body {
 ═══════════════════════════════════════════════════ */
 
 .prose-policy h2 {
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 1.1rem;
   font-weight: 300;
   color: var(--lux-cream);
@@ -537,10 +649,16 @@ body {
   padding-left: 1.25rem;
 }
 
-.prose-policy ul { list-style-type: disc; }
-.prose-policy ol { list-style-type: decimal; }
+.prose-policy ul {
+  list-style-type: disc;
+}
+.prose-policy ol {
+  list-style-type: decimal;
+}
 
-.prose-policy li { margin-bottom: 0.25rem; }
+.prose-policy li {
+  margin-bottom: 0.25rem;
+}
 
 .prose-policy > div {
   margin-bottom: 2rem;
@@ -551,8 +669,12 @@ body {
 ═══════════════════════════════════════════════════ */
 
 .tilt-card {
-  transform: perspective(1200px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
-  transition: transform 0.15s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transform: perspective(1200px) rotateX(var(--tilt-x, 0deg))
+    rotateY(var(--tilt-y, 0deg));
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
   will-change: transform;
 }
 
@@ -561,7 +683,7 @@ body {
 ═══════════════════════════════════════════════════ */
 
 .lux-section-label {
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.25em;
@@ -571,7 +693,7 @@ body {
 }
 
 .lux-section-title {
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 300;
   line-height: 1.15;
@@ -588,7 +710,11 @@ body {
   width: 300px;
   height: 300px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(233, 30, 140, 0.06) 0%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    rgba(233, 30, 140, 0.06) 0%,
+    transparent 70%
+  );
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 9998;
