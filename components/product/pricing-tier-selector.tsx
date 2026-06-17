@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { MessageCircle, Send, Check } from "lucide-react";
 import { FacebookIcon } from "@/components/ui/brand-icons";
-import { PricingTier, formatPrice } from "@/data/products";
+import { PricingTier, formatPrice } from "@/types/product";
 import { SITE_CONFIG } from "@/lib/site-config";
 
 interface Props {

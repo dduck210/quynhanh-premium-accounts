@@ -7,7 +7,7 @@ import {
   Sparkles,
   ShoppingCart,
 } from "lucide-react";
-import { formatPrice } from "@/data/products";
+import { formatPrice } from "@/types/product";
 import { sanityClient } from "@/sanity/lib/sanity-client";
 import {
   ALL_PRODUCTS_QUERY,

@@ -1,4 +1,4 @@
-import { Product } from "@/data/products";
+import { Product } from "@/types/product";
 import ProductCard from "../product/product-card";
 import AnimatedSection from "../ui/animated-section";
 

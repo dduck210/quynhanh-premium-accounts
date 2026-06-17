@@ -3,7 +3,7 @@ import {
   Bot, Music, Palette, BookOpen, Film, Zap, Briefcase, Shield,
   type LucideIcon,
 } from "lucide-react";
-import { Category } from "@/data/products";
+import { Category } from "@/types/product";
 import AnimatedSection from "../ui/animated-section";
 
 const ICON_MAP: Record<string, LucideIcon> = {

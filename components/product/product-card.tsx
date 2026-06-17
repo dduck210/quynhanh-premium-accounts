@@ -3,7 +3,7 @@
 import { useState, useRef, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Product, formatPrice } from "@/data/products";
+import { Product, formatPrice } from "@/types/product";
 import BrandSvgIcon from "./brand-svg-icon";
 import { BRAND_ICON_MAP } from "@/lib/product-brand-icons";
 
