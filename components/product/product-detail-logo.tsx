@@ -37,7 +37,7 @@ export default function ProductDetailLogo({ id, name, logoEmoji, logoColor }: Pr
           className="w-44 h-44 sm:w-52 sm:h-52 rounded-2xl flex items-center justify-center overflow-hidden"
           style={{
             backgroundColor: "rgba(255,255,255,0.95)",
-            boxShadow: "0 4px 24px rgba(0,0,0,0.5), 0 0 0 1px rgba(142,80,112,0.15)",
+            boxShadow: "0 4px 24px rgba(142,80,112,0.20), 0 0 0 1px rgba(142,80,112,0.15)",
           }}
         >
           <Image

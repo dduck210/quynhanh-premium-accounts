@@ -57,7 +57,7 @@ export default function Navbar() {
           borderBottom: scrolled
             ? "1px solid rgba(142,80,112,0.20)"
             : "1px solid rgba(142,80,112,0.08)",
-          boxShadow: scrolled ? "0 4px 40px rgba(0,0,0,0.6)" : "none",
+          boxShadow: scrolled ? "0 4px 24px rgba(142,80,112,0.15)" : "none",
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -50,7 +50,7 @@ export default function PricingTierSelector({ tiers }: Props) {
                           }
                         : {
                             borderColor: "var(--lux-gold-border)",
-                            backgroundColor: "rgba(16,16,16,0.6)",
+                            backgroundColor: "var(--lux-obsidian)",
                             color: "var(--lux-ivory)",
                           }
                     }
@@ -115,7 +115,7 @@ export default function PricingTierSelector({ tiers }: Props) {
           style={{
             borderColor: "var(--lux-gold-border)",
             color: "var(--lux-silver)",
-            backgroundColor: "rgba(16,16,16,0.5)",
+            backgroundColor: "rgba(142,80,112,0.06)",
           }}
         >
           <Send className="w-3.5 h-3.5" />
@@ -129,7 +129,7 @@ export default function PricingTierSelector({ tiers }: Props) {
           style={{
             borderColor: "var(--lux-gold-border)",
             color: "var(--lux-silver)",
-            backgroundColor: "rgba(16,16,16,0.5)",
+            backgroundColor: "rgba(142,80,112,0.06)",
           }}
         >
           <FacebookIcon className="w-3.5 h-3.5" />

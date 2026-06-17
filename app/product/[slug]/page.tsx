@@ -195,7 +195,7 @@ export default async function ProductPage({
                     key={text}
                     className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-xs font-light border"
                     style={{
-                      backgroundColor: "rgba(16,16,16,0.6)",
+                      backgroundColor: "rgba(142,80,112,0.06)",
                       borderColor: "var(--lux-gold-border)",
                       color: "var(--lux-ivory)",
                     }}
