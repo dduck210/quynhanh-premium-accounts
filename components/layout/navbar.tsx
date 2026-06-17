@@ -219,18 +219,6 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
-
-            <div className="pt-3 mt-2" style={{ borderTop: "1px solid var(--lux-gold-border)" }}>
-              <a
-                href={SITE_CONFIG.zaloUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="lux-btn-primary w-full justify-center"
-              >
-                <MessageCircle className="w-4 h-4" />
-                Tham gia nhóm Zalo
-              </a>
-            </div>
           </div>
         </div>
       </nav>
