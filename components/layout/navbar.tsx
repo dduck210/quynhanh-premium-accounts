@@ -64,14 +64,16 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16">
 
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-1.5 select-none">
+            <Link href="/" className="flex items-center gap-2 select-none">
               <LogoMark size={34} />
-              <span className="font-display text-base font-light tracking-wide" style={{ color: "var(--lux-cream)" }}>
-                Quỳnh Anh
-              </span>
-              <span className="font-label text-[10px] tracking-[0.15em] uppercase hidden sm:block" style={{ color: "var(--lux-gold)" }}>
-                Premium
-              </span>
+              <div className="flex flex-col leading-tight">
+                <span className="font-display text-sm font-light tracking-wide" style={{ color: "var(--lux-cream)" }}>
+                  Quỳnh Anh
+                </span>
+                <span className="font-label text-[9px] tracking-[0.12em] uppercase" style={{ color: "var(--lux-gold)" }}>
+                  Accounts Premium
+                </span>
+              </div>
             </Link>
 
             {/* Desktop nav */}
