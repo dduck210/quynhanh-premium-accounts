@@ -48,23 +48,26 @@ export default function AnnouncementBar() {
       aria-label="Thông báo"
     >
       {/* Mobile: marquee */}
-      <div className="sm:hidden overflow-hidden" aria-live="off">
+      <div className="sm:hidden overflow-hidden relative" aria-live="off">
         <div className="marquee-track flex items-center gap-6 whitespace-nowrap font-sans tracking-widest">
           {MESSAGES.map((msg, i) => (
-            <span key={i} className="flex items-center gap-3">
+            <span key={i} className="flex items-center gap-3 px-2">
               <MessageItem msg={msg} />
               {DOT}
             </span>
           ))}
           <span aria-hidden="true" className="contents">
             {MESSAGES.map((msg, i) => (
-              <span key={`d-${i}`} className="flex items-center gap-3">
+              <span key={`d-${i}`} className="flex items-center gap-3 px-2">
                 <MessageItem msg={msg} />
                 {DOT}
               </span>
             ))}
           </span>
         </div>
+        {/* Fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-8 pointer-events-none" style={{ background: "linear-gradient(to right, #FBEEF3, transparent)" }} />
+        <div className="absolute right-0 top-0 bottom-0 w-8 pointer-events-none" style={{ background: "linear-gradient(to left, #FBEEF3, transparent)" }} />
       </div>
 
       {/* Desktop: static */}
