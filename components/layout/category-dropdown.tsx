@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import {
   Bot, Music, Palette, BookOpen,
