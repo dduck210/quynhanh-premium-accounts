@@ -48,7 +48,7 @@ export default function AnnouncementBar() {
       aria-label="Thông báo"
     >
       {/* Mobile: marquee */}
-      <div className="sm:hidden flex items-center" aria-live="off">
+      <div className="sm:hidden overflow-hidden" aria-live="off">
         <div className="marquee-track flex items-center gap-6 whitespace-nowrap font-sans tracking-widest">
           {MESSAGES.map((msg, i) => (
             <span key={i} className="flex items-center gap-3">

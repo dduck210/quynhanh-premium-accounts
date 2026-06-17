@@ -469,6 +469,7 @@ body {
 
 .marquee-track {
   width: max-content;
+  min-width: max-content;
   animation: marquee 28s linear infinite;
 }
 .marquee-track:hover {
