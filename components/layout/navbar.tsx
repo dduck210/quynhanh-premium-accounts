@@ -162,66 +162,67 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile panel */}
-        <div
-          className={`absolute top-full left-0 right-0 z-50 md:hidden border-b transition-all duration-300 ease-out ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3 pointer-events-none"}`}
-          style={{ backgroundColor: "var(--lux-carbon)", borderColor: "var(--lux-gold-border)" }}
-        >
-          <div className="px-4 py-5 space-y-1">
+      </nav>
 
-            {/* Danh mục expandable */}
-            <button
-              onClick={() => setMobileCatOpen((v) => !v)}
-              className="w-full flex items-center justify-between gap-3 px-4 py-3 rounded font-sans text-xs tracking-widest uppercase font-medium transition-colors duration-150"
+      {/* Mobile panel — outside <nav> to avoid backdrop-filter stacking context */}
+      <div
+        className={`absolute top-full left-0 right-0 z-50 md:hidden border-b transition-all duration-300 ease-out ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3 pointer-events-none"}`}
+        style={{ backgroundColor: "var(--lux-carbon)", borderColor: "var(--lux-gold-border)" }}
+      >
+        <div className="px-4 py-5 space-y-1">
+
+          {/* Danh mục expandable */}
+          <button
+            onClick={() => setMobileCatOpen((v) => !v)}
+            className="w-full flex items-center justify-between gap-3 px-4 py-3 rounded font-sans text-xs tracking-widest uppercase font-medium transition-colors duration-150"
+            style={{ color: "var(--lux-silver)" }}
+          >
+            <span className="flex items-center gap-3">
+              <span className="w-1 h-1 rounded-full" style={{ backgroundColor: "var(--lux-gold)" }} />
+              Danh mục
+            </span>
+            <ChevronDown
+              className="w-3.5 h-3.5 transition-transform duration-200"
+              style={{ transform: mobileCatOpen ? "rotate(180deg)" : "rotate(0deg)", color: "var(--lux-gold)" }}
+            />
+          </button>
+
+          {/* Mobile categories grid */}
+          <div
+            className="overflow-hidden transition-all duration-300 ease-out"
+            style={{ maxHeight: mobileCatOpen ? "400px" : "0px", opacity: mobileCatOpen ? 1 : 0 }}
+          >
+            <div className="grid grid-cols-2 gap-1 px-4 pb-2">
+              {MOBILE_CATEGORIES.map(({ label, slug, icon: Icon }) => (
+                <Link
+                  key={slug}
+                  href={`/category/${slug}`}
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-light transition-colors duration-150"
+                  style={{ color: "var(--lux-silver)", backgroundColor: "rgba(142,80,112,0.06)" }}
+                >
+                  <Icon className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "var(--lux-gold)" }} strokeWidth={1.5} />
+                  {label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Regular scroll links */}
+          {SCROLL_LINKS.map((link) => (
+            <a
+              key={link.id}
+              href={`/#${link.id}`}
+              onClick={scrollToSection(link.id)}
+              className="flex items-center gap-3 px-4 py-3 rounded font-sans text-xs tracking-widest uppercase font-medium transition-colors duration-150"
               style={{ color: "var(--lux-silver)" }}
             >
-              <span className="flex items-center gap-3">
-                <span className="w-1 h-1 rounded-full" style={{ backgroundColor: "var(--lux-gold)" }} />
-                Danh mục
-              </span>
-              <ChevronDown
-                className="w-3.5 h-3.5 transition-transform duration-200"
-                style={{ transform: mobileCatOpen ? "rotate(180deg)" : "rotate(0deg)", color: "var(--lux-gold)" }}
-              />
-            </button>
-
-            {/* Mobile categories grid */}
-            <div
-              className="overflow-hidden transition-all duration-300 ease-out"
-              style={{ maxHeight: mobileCatOpen ? "400px" : "0px", opacity: mobileCatOpen ? 1 : 0 }}
-            >
-              <div className="grid grid-cols-2 gap-1 px-4 pb-2">
-                {MOBILE_CATEGORIES.map(({ label, slug, icon: Icon }) => (
-                  <Link
-                    key={slug}
-                    href={`/category/${slug}`}
-                    onClick={() => setMenuOpen(false)}
-                    className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-light transition-colors duration-150"
-                    style={{ color: "var(--lux-silver)", backgroundColor: "rgba(142,80,112,0.06)" }}
-                  >
-                    <Icon className="w-3.5 h-3.5 flex-shrink-0" style={{ color: "var(--lux-gold)" }} strokeWidth={1.5} />
-                    {label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* Regular scroll links */}
-            {SCROLL_LINKS.map((link) => (
-              <a
-                key={link.id}
-                href={`/#${link.id}`}
-                onClick={scrollToSection(link.id)}
-                className="flex items-center gap-3 px-4 py-3 rounded font-sans text-xs tracking-widest uppercase font-medium transition-colors duration-150"
-                style={{ color: "var(--lux-silver)" }}
-              >
-                <span className="w-1 h-1 rounded-full" style={{ backgroundColor: "var(--lux-gold)" }} />
-                {link.label}
-              </a>
-            ))}
-          </div>
+              <span className="w-1 h-1 rounded-full" style={{ backgroundColor: "var(--lux-gold)" }} />
+              {link.label}
+            </a>
+          ))}
         </div>
-      </nav>
+      </div>
 
       {/* Mobile overlay */}
       <div
