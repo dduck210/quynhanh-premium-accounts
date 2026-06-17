@@ -2,6 +2,7 @@ import Link from "next/link";
 import { MessageCircle, Send, Clock, MapPin, Heart } from "lucide-react";
 import { FacebookIcon } from "@/components/ui/brand-icons";
 import { SITE_CONFIG } from "@/lib/site-config";
+import LogoMark from "@/components/ui/logo-mark";
 
 const categoryLinks = [
   { label: "AI Chat",        href: "/category/ai-chat"      },
@@ -40,11 +41,16 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="mb-5">
-              <div className="font-display text-3xl font-light mb-0.5" style={{ color: "var(--lux-cream)" }}>
-                Quỳnh Anh
-              </div>
-              <div className="font-sans font-medium text-xs tracking-[0.25em] uppercase" style={{ color: "var(--lux-gold)" }}>
-                Premium Accounts
+              <div className="flex items-center gap-3 mb-1">
+                <LogoMark size={44} />
+                <div className="flex flex-col leading-tight">
+                  <span className="font-display text-2xl font-light" style={{ color: "var(--lux-cream)" }}>
+                    Quỳnh Anh
+                  </span>
+                  <span className="font-sans font-medium text-[10px] tracking-[0.25em] uppercase" style={{ color: "var(--lux-gold)" }}>
+                    Premium Accounts
+                  </span>
+                </div>
               </div>
             </div>
             <p className="text-sm leading-relaxed mb-4 font-light" style={{ color: "var(--lux-silver)" }}>
