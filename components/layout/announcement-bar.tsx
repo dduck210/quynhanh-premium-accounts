@@ -47,10 +47,15 @@ const TICKER_STYLE: React.CSSProperties = {
 export default function AnnouncementBar() {
   return (
     <div
-      className="text-xs py-2.5 overflow-hidden border-b"
+      className="text-xs py-2.5 overflow-hidden border-b relative"
       style={{ backgroundColor: "#FBEEF3", borderColor: "rgba(142,80,112,0.2)" }}
       aria-label="Thông báo"
     >
+      {/* Floral accents */}
+      <img src="/flowers-deco.png" alt="" aria-hidden="true" className="absolute pointer-events-none select-none hidden sm:block"
+        style={{ top: "50%", left: 0, height: "260%", width: "auto", transform: "translateY(-50%) rotate(-10deg)", opacity: 0.35, mixBlendMode: "multiply" }} />
+      <img src="/flowers-deco.png" alt="" aria-hidden="true" className="absolute pointer-events-none select-none hidden sm:block"
+        style={{ top: "50%", right: 0, height: "260%", width: "auto", transform: "translateY(-50%) rotate(8deg) scaleX(-1)", opacity: 0.30, mixBlendMode: "multiply" }} />
       {/* Mobile: continuous ticker — @keyframes marquee defined in globals.css */}
       <div className="sm:hidden relative" style={{ overflow: "hidden" }} aria-live="off">
         <div style={TICKER_STYLE}>
