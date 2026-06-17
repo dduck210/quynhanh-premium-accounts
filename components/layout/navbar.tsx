@@ -133,6 +133,38 @@ export default function Navbar() {
             </div>
           </div>
         </div>
+
+        {/* Mobile panel — absolute top-full so it always sits flush below the sticky nav */}
+        <div
+          className={`absolute top-full left-0 right-0 md:hidden border-b transition-all duration-300 ease-out ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3 pointer-events-none"}`}
+          style={{ backgroundColor: "var(--lux-carbon)", borderColor: "var(--lux-gold-border)" }}
+        >
+          <div className="px-4 py-5 space-y-1">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.id}
+                href={`/#${link.id}`}
+                onClick={scrollToSection(link.id)}
+                className="flex items-center gap-3 px-4 py-3 rounded font-sans text-xs tracking-widest uppercase font-medium transition-colors duration-150"
+                style={{ color: "var(--lux-silver)" }}
+              >
+                <span className="w-1 h-1 rounded-full" style={{ backgroundColor: "var(--lux-gold)" }} />
+                {link.label}
+              </a>
+            ))}
+            <div className="pt-3 mt-2" style={{ borderTop: "1px solid var(--lux-gold-border)" }}>
+              <a
+                href={SITE_CONFIG.zaloUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="lux-btn-primary w-full justify-center"
+              >
+                <MessageCircle className="w-4 h-4" />
+                Tham gia nhóm Zalo
+              </a>
+            </div>
+          </div>
+        </div>
       </nav>
 
       {/* Mobile overlay */}
@@ -141,38 +173,6 @@ export default function Navbar() {
         onClick={() => setMenuOpen(false)}
         aria-hidden="true"
       />
-
-      {/* Mobile panel */}
-      <div
-        className={`fixed top-16 left-0 right-0 z-40 md:hidden border-b transition-all duration-300 ease-out ${menuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3 pointer-events-none"}`}
-        style={{ backgroundColor: "var(--lux-carbon)", borderColor: "var(--lux-gold-border)" }}
-      >
-        <div className="px-4 py-5 space-y-1">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.id}
-              href={`/#${link.id}`}
-              onClick={scrollToSection(link.id)}
-              className="flex items-center gap-3 px-4 py-3 rounded font-sans text-xs tracking-widest uppercase font-medium transition-colors duration-150"
-              style={{ color: "var(--lux-silver)" }}
-            >
-              <span className="w-1 h-1 rounded-full" style={{ backgroundColor: "var(--lux-gold)" }} />
-              {link.label}
-            </a>
-          ))}
-          <div className="pt-3 mt-2" style={{ borderTop: "1px solid var(--lux-gold-border)" }}>
-            <a
-              href={SITE_CONFIG.zaloUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="lux-btn-primary w-full justify-center"
-            >
-              <MessageCircle className="w-4 h-4" />
-              Tham gia nhóm Zalo
-            </a>
-          </div>
-        </div>
-      </div>
     </>
   );
 }
