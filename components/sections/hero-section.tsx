@@ -165,7 +165,7 @@ export default function HeroSection() {
 
         {/* Stats row */}
         <div
-          className="animate-fade-in mt-20 mb-10 grid grid-cols-2 sm:grid-cols-4 rounded-xl overflow-hidden border divide-x divide-y sm:divide-y-0"
+          className="animate-fade-in mt-10 mb-8 grid grid-cols-2 sm:grid-cols-4 rounded-xl overflow-hidden border divide-x divide-y sm:divide-y-0"
           style={{
             borderColor: "rgba(142,80,112,0.2)",
             backgroundColor: "rgba(255,255,255,0.6)",
