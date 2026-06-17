@@ -81,17 +81,17 @@ body {
 ═══════════════════════════════════════════════════ */
 
 .font-display {
-  font-family: var(--font-cormorant), 'Georgia', serif;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   letter-spacing: 0.01em;
 }
 
 .font-label {
-  font-family: var(--font-cinzel), var(--font-dm-sans), system-ui, sans-serif;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   letter-spacing: 0.12em;
 }
 
 .font-body {
-  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -193,7 +193,7 @@ body {
   padding: 0.875rem 2rem;
   background: var(--lux-gold);
   color: var(--lux-void);
-  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -238,7 +238,7 @@ body {
   padding: 0.875rem 2rem;
   background: transparent;
   color: var(--lux-cream);
-  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -270,7 +270,7 @@ body {
   align-items: center;
   gap: 0.3rem;
   padding: 0.25rem 0.75rem;
-  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -499,7 +499,7 @@ body {
 ═══════════════════════════════════════════════════ */
 
 .prose-policy h2 {
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   font-size: 1.1rem;
   font-weight: 300;
   color: var(--lux-cream);
@@ -548,7 +548,7 @@ body {
 ═══════════════════════════════════════════════════ */
 
 .lux-section-label {
-  font-family: var(--font-cinzel), serif;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.25em;

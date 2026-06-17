@@ -26,9 +26,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ["var(--font-cormorant)", "Georgia", "serif"],
-        label:   ["var(--font-cinzel)", "var(--font-dm-sans)", "system-ui", "sans-serif"],
-        sans:    ["var(--font-dm-sans)",   "system-ui", "sans-serif"],
+        display: ["Arial", "Helvetica Neue", "Helvetica", "sans-serif"],
+        label:   ["Arial", "Helvetica Neue", "Helvetica", "sans-serif"],
+        sans:    ["Arial", "Helvetica Neue", "Helvetica", "sans-serif"],
       },
       animation: {
         "fade-in":        "fadeIn 0.7s ease-out both",
