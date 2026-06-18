@@ -81,7 +81,7 @@ export default function Navbar() {
                   Quỳnh Anh
                 </span>
                 <span className="font-label text-[9px] tracking-[0.12em] uppercase" style={{ color: "var(--lux-gold)" }}>
-                  Accounts Premium
+                  Premium Accounts
                 </span>
               </div>
             </Link>
