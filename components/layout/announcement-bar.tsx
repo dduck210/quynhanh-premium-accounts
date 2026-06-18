@@ -79,7 +79,7 @@ export default function AnnouncementBar() {
       <div className="hidden sm:flex max-w-7xl mx-auto px-6 lg:px-8 items-center justify-between gap-6">
         <p className="font-sans font-bold text-[11px] tracking-[0.2em] uppercase flex-shrink-0"
           style={{ color: "var(--lux-gold)" }}>
-          ✦ &nbsp;Quỳnh Anh Premium&nbsp; ✦
+          ✦ &nbsp;Quỳnh Anh Premium Accounts&nbsp; ✦
         </p>
         <div className="flex items-center gap-4">
           {MESSAGES.map((msg, i) => (

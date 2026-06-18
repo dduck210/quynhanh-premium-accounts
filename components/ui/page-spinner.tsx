@@ -18,7 +18,7 @@ export default function PageSpinner() {
         className="mt-5 font-sans text-xs font-light tracking-[0.3em] uppercase"
         style={{ color: "var(--lux-gold)" }}
       >
-        Quỳnh Anh Premium
+        Quỳnh Anh Premium Accounts
       </p>
     </div>
   );

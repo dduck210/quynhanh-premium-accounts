@@ -5,7 +5,7 @@ import { schemaTypes } from './sanity/schemas'
 
 export default defineConfig({
   name: 'quynh-anh-premium',
-  title: 'Quỳnh Anh Premium',
+  title: 'Quỳnh Anh Premium Accounts',
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET ?? 'production',
   basePath: '/studio',

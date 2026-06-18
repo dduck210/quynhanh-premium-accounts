@@ -63,7 +63,7 @@ export default function ContactCta() {
           </h2>
 
           <p className="text-base font-light leading-relaxed mb-8 max-w-lg mx-auto" style={{ color: "var(--lux-silver)" }}>
-            Đội ngũ Quỳnh Anh Premium sẵn sàng tư vấn miễn phí và hỗ trợ bạn mọi lúc
+            Đội ngũ Quỳnh Anh Premium Accounts sẵn sàng tư vấn miễn phí và hỗ trợ bạn mọi lúc
           </p>
 
           {/* Trust points */}
